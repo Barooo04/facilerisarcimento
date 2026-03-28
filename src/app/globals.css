@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rs-orange: #FF6B00;
+  --color-rs-navy: #1A365D;
+  --color-rs-green: #28A745;
+  --color-rs-surface: #F8F9FA;
+  --color-rs-orange-hover: #e55f00;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: #333333;
+}
