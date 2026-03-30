@@ -59,7 +59,7 @@ export default function ContactForm() {
               Attenzione: i termini di prescrizione scadono
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight">
+            <h2 className="font-cal text-3xl sm:text-4xl mb-6 leading-tight">
               Non aspettare che sia{" "}
               <span className="text-[#FF6B00]">troppo tardi.</span>
             </h2>
@@ -77,7 +77,6 @@ export default function ContactForm() {
               {[
                 "Nessun anticipo richiesto",
                 "Traduttore nella tua lingua",
-                "Risposta entro 24 ore",
                 "Legali ed esperti al tuo fianco",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-blue-100">
@@ -89,7 +88,7 @@ export default function ContactForm() {
 
             {/* Social proof */}
             <div className="mt-10 pt-8 border-t border-white/10">
-              <p className="text-blue-300 text-sm mb-3">Già aiutato oltre 2.400 persone</p>
+              <p className="text-blue-300 text-sm mb-3">Già scelto da oltre 2.400 persone</p>
               <div className="flex -space-x-2">
                 {["🧑🏻", "👩🏾", "🧔🏽", "👩🏻", "🧑🏿"].map((emoji, i) => (
                   <div

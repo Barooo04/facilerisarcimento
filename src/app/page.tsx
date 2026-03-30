@@ -5,12 +5,13 @@ import Services from "./components/Services";
 import HowItWorks from "./components/HowItWorks";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import FAB from "./components/FAB";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="pt-[90px]">
         <Hero />
 
         {/* Divider */}
@@ -28,9 +29,10 @@ export default function Home() {
 
         <HowItWorks />
 
-        <ContactForm />
-      </main>
+      <ContactForm />
+    </main>
       <Footer />
+      <FAB />
     </>
   );
 }

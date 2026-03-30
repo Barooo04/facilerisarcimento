@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Cal Sans";
+  src: url("/fonts/CalSans-SemiBold.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-rs-orange: #FF6B00;
   --color-rs-navy: #1A365D;
@@ -12,7 +20,30 @@ html {
   scroll-behavior: smooth;
 }
 
+.font-cal {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  -webkit-text-stroke: 0.5px currentColor;
+  paint-order: stroke fill;
+  letter-spacing: -0.02em !important;
+}
+
 body {
   background: #ffffff;
   color: #333333;
+}
+
+@keyframes progressBar {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
 }

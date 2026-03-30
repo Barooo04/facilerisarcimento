@@ -7,12 +7,12 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <Image
-              src="/logoFR.png"
+              src="/LogoDefinitivo.png"
               alt="FacileRisarcimento"
               width={0}
               height={0}
               sizes="280px"
-              className="h-16 w-auto object-contain brightness-0 invert mb-2"
+              className="h-[74px] w-auto object-contain brightness-0 invert mb-2"
             />
             <p className="text-sm text-blue-400">
               Assistenza legale per tutti. Zero anticipi.

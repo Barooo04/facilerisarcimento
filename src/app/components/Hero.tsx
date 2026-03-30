@@ -32,7 +32,7 @@ const categories = [
 
 export default function Hero() {
   return (
-    <section className="bg-white pt-24 pb-20 px-4 sm:px-6">
+    <section className="bg-white pt-10 pb-20 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         {/* Badge */}
         <div className="flex justify-center mb-6">
@@ -43,7 +43,7 @@ export default function Hero() {
         </div>
 
         {/* H1 */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#1A365D] text-center leading-tight mb-6">
+        <h1 className="font-cal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A365D] text-center leading-tight mb-6">
           Hai subito un danno?{" "}
           <span className="text-[#FF6B00]">Ottieni il risarcimento</span>{" "}
           che ti spetta.
@@ -62,20 +62,22 @@ export default function Hero() {
         </p>
 
         {/* Trust badges */}
-        <div className="flex flex-wrap justify-center gap-3 mb-14">
+        <div className="grid grid-cols-3 sm:flex sm:flex-wrap sm:justify-center gap-3 mb-14">
           {[
-            "Zero anticipi",
-            "Paghi solo se vinci",
-            "Traduttore gratis",
-            "Risposta in 24h",
-          ].map((b) => (
-            <span
-              key={b}
-              className="inline-flex items-center gap-2 bg-[#28A745]/10 border border-[#28A745]/30 text-[#1a7a32] font-bold text-base sm:text-lg px-5 py-2.5 rounded-xl"
+            ["Zero", "anticipi"],
+            ["Paghi solo", "se vinci"],
+            ["Traduttore", "gratis"],
+          ].map(([line1, line2]) => (
+            <div
+              key={line1}
+              className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-[#28A745]/10 border border-[#28A745]/30 text-[#1a7a32] font-bold text-xs sm:text-base px-2 sm:px-5 py-3 sm:py-2.5 rounded-xl text-center shadow-sm"
             >
-              <CircleCheck size={22} className="text-[#28A745] shrink-0" strokeWidth={2} />
-              {b}
-            </span>
+              <CircleCheck size={20} className="text-[#28A745] shrink-0" strokeWidth={2} />
+              <span>
+                <span className="sm:hidden">{line1}<br />{line2}</span>
+                <span className="hidden sm:inline">{line1} {line2}</span>
+              </span>
+            </div>
           ))}
         </div>
 

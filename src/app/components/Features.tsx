@@ -1,37 +1,32 @@
-import { Shield, Handshake, Languages, Clock, CircleCheck } from "lucide-react";
+import { Shield, Handshake, Languages, CircleCheck } from "lucide-react";
 
 const features = [
   {
     icon: Shield,
     color: "text-[#FF6B00]",
     bg: "bg-orange-50",
+    border: "border-[#FF6B00]",
+    iconBorder: "border-[#FF6B00]",
     title: "Zero Anticipi",
     desc: "Paghiamo noi tutte le spese mediche e legali. Non devi tirare fuori nemmeno un euro oggi.",
-    border: "border-[#1A365D]",
   },
   {
     icon: Handshake,
     color: "text-blue-600",
     bg: "bg-blue-50",
+    border: "border-blue-600",
+    iconBorder: "border-blue-600",
     title: "Paghi solo se vinci",
     desc: "Il nostro guadagno è una percentuale sui soldi che ti facciamo ottenere. Se non prendi nulla tu, non prendiamo nulla noi.",
-    border: "border-[#FF6B00]",
   },
   {
     icon: Languages,
     color: "text-emerald-600",
     bg: "bg-emerald-50",
+    border: "border-emerald-600",
+    iconBorder: "border-emerald-600",
     title: "Parliamo la tua lingua",
     desc: "Ti diamo un traduttore gratis nella tua lingua per farti capire tutto al 100%, senza fregature.",
-    border: "border-[#FF6B00]",
-  },
-  {
-    icon: Clock,
-    color: "text-purple-600",
-    bg: "bg-purple-50",
-    title: "Facciamo tutto noi",
-    desc: "Niente stress o code. Pensa solo a guarire, alla burocrazia ci pensano i nostri esperti.",
-    border: "border-[#1A365D]",
   },
 ];
 
@@ -41,7 +36,7 @@ export default function Features() {
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1A365D] mb-4">
+          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
             Perché scegliere noi
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
@@ -51,19 +46,19 @@ export default function Features() {
         </div>
 
         {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          {features.map(({ icon: Icon, color, bg, title, desc, border }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12 mt-10">
+          {features.map(({ icon: Icon, color, border, iconBorder, title, desc }) => (
             <div
               key={title}
-              className={`flex gap-5 p-6 sm:p-8 rounded-2xl border-2 ${border} hover:shadow-md transition-all duration-200 bg-white`}
+              className={`relative pt-10 pb-7 px-6 rounded-2xl border-2 ${border} hover:shadow-md transition-all duration-200 bg-white text-center`}
             >
-              <div className={`shrink-0 w-14 h-14 rounded-xl ${bg} flex items-center justify-center`}>
-                <Icon size={28} className={color} strokeWidth={1.5} />
+              {/* Icon straddling the top border */}
+              <div className={`absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white border-2 ${iconBorder} flex items-center justify-center shadow-sm`}>
+                <Icon size={26} className={color} strokeWidth={1.5} />
               </div>
-              <div>
-                <h3 className="text-[#1A365D] font-bold text-xl mb-2">{title}</h3>
-                <p className="text-gray-500 leading-relaxed">{desc}</p>
-              </div>
+
+              <h3 className="font-cal text-[#1A365D] text-xl mb-2">{title}</h3>
+              <p className="text-gray-500 leading-relaxed text-sm">{desc}</p>
             </div>
           ))}
         </div>
@@ -72,12 +67,16 @@ export default function Features() {
         <div className="text-center">
           <a
             href="#contact-form"
-            className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-lg px-10 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
+            className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-base sm:text-lg px-6 sm:px-10 py-3 sm:py-5 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
           >
-            <CircleCheck size={22} strokeWidth={2} />
-            Verifica Gratis il Tuo Caso
+            <span>
+              Verifica Gratis
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              il Tuo Caso
+            </span>
+            <CircleCheck size={20} strokeWidth={2} className="shrink-0" />
           </a>
-          <p className="mt-3 text-sm text-gray-400">Risposta entro 24 ore · Nessun impegno</p>
         </div>
       </div>
     </section>

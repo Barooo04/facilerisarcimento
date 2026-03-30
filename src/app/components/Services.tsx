@@ -48,7 +48,7 @@ export default function Services() {
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1A365D] mb-4">
+          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
             I nostri servizi
           </h2>
           <p className="text-gray-500 text-lg">

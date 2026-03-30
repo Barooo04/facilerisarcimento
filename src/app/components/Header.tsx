@@ -28,15 +28,15 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-[90px] flex items-center justify-between">
         <Link href="/" className="flex items-center select-none">
           <Image
-            src="/logoFR.png"
+            src="/LogoDefinitivo.png"
             alt="FacileRisarcimento"
             width={0}
             height={0}
             sizes="(max-width: 640px) 200px, 280px"
-            className={`h-14 sm:h-16 w-auto object-contain transition-all duration-300 ${
+            className={`h-[65px] sm:h-[74px] w-auto object-contain transition-all duration-300 ${
               scrolled ? "brightness-0 invert" : ""
             }`}
             priority
@@ -46,7 +46,7 @@ export default function Header() {
         <a
           href="#contact-form"
           onClick={scrollToForm}
-          className={`font-bold px-3 sm:px-5 py-2 rounded-full text-sm active:scale-95 transition-all duration-300 flex items-center gap-2 shadow-sm ${
+          className={`font-bold px-4 sm:px-6 py-2.5 rounded-full text-base sm:text-lg active:scale-95 transition-all duration-300 flex items-center gap-2 shadow-sm ${
             scrolled
               ? "bg-white text-[#1A365D] hover:bg-blue-50"
               : "bg-[#FF6B00] text-white hover:bg-[#e55f00] border border-white/30"
