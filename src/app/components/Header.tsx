@@ -46,7 +46,7 @@ export default function Header() {
         <a
           href="#contact-form"
           onClick={scrollToForm}
-          className={`font-bold px-4 sm:px-6 py-2.5 rounded-full text-base sm:text-lg active:scale-95 transition-all duration-300 flex items-center gap-2 shadow-sm ${
+          className={`font-bold px-4 sm:px-6 py-2.5 rounded-2xl text-base sm:text-lg active:scale-95 transition-all duration-300 flex items-center gap-2 shadow-sm ${
             scrolled
               ? "bg-white text-[#1A365D] hover:bg-blue-50"
               : "bg-[#FF6B00] text-white hover:bg-[#e55f00] border border-white/30"

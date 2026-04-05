@@ -35,7 +35,7 @@ export default function Hero() {
     <section className="overflow-hidden">
 
       {/* ── HERO BACKGROUND ── */}
-      <div className="relative min-h-screen flex items-start lg:items-center">
+      <div className="relative min-h-[90svh] lg:min-h-screen flex items-start lg:items-center">
 
         {/* Mobile background */}
         <div className="absolute inset-0 z-0 lg:hidden">
@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
 
         {/* Content: centered on mobile, left-aligned on desktop */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[220px] lg:pt-[90px] pb-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[190px] lg:pt-[90px] pb-8">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-5">
 
             {/* Pills — single row, compact on mobile */}
