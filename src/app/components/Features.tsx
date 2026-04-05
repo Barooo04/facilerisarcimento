@@ -41,7 +41,9 @@ export default function Features() {
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
             Conosciamo i tuoi problemi e abbiamo creato un servizio su misura per risolverli,
-            senza farti rischiare nulla.
+            senza farti rischiare nulla. Analizziamo il tuo caso gratis — se non ottieni il
+            risarcimento, non ci paghi nulla. Assistenza legale e medica a costo zero,
+            con traduttori nella tua lingua.
           </p>
         </div>
 

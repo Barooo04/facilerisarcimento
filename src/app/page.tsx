@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-[90px]">
+      <main>
         <Hero />
 
         {/* Divider */}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HardHat, Stethoscope, Car, ChevronRight, CircleCheck } from "lucide-react";
 
 const services = [
@@ -11,7 +12,7 @@ const services = [
       "Incidenti nel tragitto casa-lavoro",
       "Malattie professionali (sordità, ernie, ecc.)",
     ],
-    gradient: "from-orange-500 to-amber-400",
+    image: "/card1.jpg",
     tag_bg: "bg-orange-100 text-orange-700",
   },
   {
@@ -24,7 +25,7 @@ const services = [
       "Diagnosi errate o ritardate",
       "Complicanze post-operatorie evitabili",
     ],
-    gradient: "from-blue-600 to-cyan-400",
+    image: "/card2.jpg",
     tag_bg: "bg-blue-100 text-blue-700",
   },
   {
@@ -37,7 +38,7 @@ const services = [
       "Danni al veicolo e alle cose",
       "Invalidità temporanea o permanente",
     ],
-    gradient: "from-emerald-600 to-teal-400",
+    image: "/card3.jpg",
     tag_bg: "bg-emerald-100 text-emerald-700",
   },
 ];
@@ -58,17 +59,19 @@ export default function Services() {
 
         {/* Zig-zag rows */}
         <div className="flex flex-col gap-10">
-          {services.map(({ icon: Icon, tag, title, body, bullets, gradient, tag_bg }, i) => (
+          {services.map(({ tag, title, body, bullets, image, tag_bg }, i) => (
             <div
               key={title}
               className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-0 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white`}
             >
-              {/* Visual panel */}
-              <div className={`md:w-2/5 bg-gradient-to-br ${gradient} flex flex-col items-center justify-center py-14 px-8 min-h-[240px]`}>
-                <div className="w-24 h-24 rounded-3xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 shadow-lg">
-                  <Icon size={48} className="text-white" strokeWidth={1.5} />
-                </div>
-                <p className="text-white font-bold text-xl text-center leading-tight">{title}</p>
+              {/* Visual panel — photo background */}
+              <div className="relative md:w-2/5 min-h-[260px]">
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="object-cover"
+                />
               </div>
 
               {/* Text panel */}

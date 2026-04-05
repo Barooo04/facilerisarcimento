@@ -1,11 +1,11 @@
-import { HardHat, Stethoscope, Car, ChevronRight, CircleCheck } from "lucide-react";
+import Image from "next/image";
+import { HardHat, Stethoscope, Car, ChevronRight, CircleCheck, ArrowRight, Phone } from "lucide-react";
 
 const categories = [
   {
     icon: HardHat,
     label: "Infortunio sul Lavoro",
     desc: "In cantiere, ufficio o in strada",
-    gradient: "from-orange-400 to-orange-600",
     bg: "bg-orange-50 hover:bg-orange-100",
     border: "border-orange-200",
     iconColor: "text-[#FF6B00]",
@@ -13,97 +13,125 @@ const categories = [
   {
     icon: Stethoscope,
     label: "Errore Medico",
-    desc: "Errore medico o chirurgico",
-    gradient: "from-blue-400 to-blue-600",
+    desc: "Visita, operazione o diagnosi",
     bg: "bg-blue-50 hover:bg-blue-100",
     border: "border-blue-200",
-    iconColor: "text-blue-600",
+    iconColor: "text-[#1A365D]",
   },
   {
     icon: Car,
     label: "Incidente Stradale",
     desc: "Auto, moto, bici o pedone",
-    gradient: "from-emerald-400 to-emerald-600",
     bg: "bg-emerald-50 hover:bg-emerald-100",
     border: "border-emerald-200",
     iconColor: "text-emerald-600",
   },
 ];
 
+const pills = ["Zero anticipi", "Paghi solo se vinci", "Traduttore gratis"];
+
 export default function Hero() {
   return (
-    <section className="bg-white pt-10 pb-20 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* Badge */}
-        <div className="flex justify-center mb-6">
-          <span className="inline-flex items-center gap-2 bg-orange-50 text-[#FF6B00] font-semibold text-sm px-4 py-2 rounded-full border border-orange-200">
-            <span className="w-2 h-2 rounded-full bg-[#FF6B00] animate-pulse" />
-            Consulenza 100% Gratuita e Senza Impegno
-          </span>
+    <section className="overflow-hidden">
+
+      {/* ── HERO BACKGROUND ── */}
+      <div className="relative min-h-screen flex items-start lg:items-center">
+
+        {/* Mobile background */}
+        <div className="absolute inset-0 z-0 lg:hidden">
+          <Image
+            src="/heromobile.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-top"
+          />
         </div>
 
-        {/* H1 */}
-        <h1 className="font-cal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A365D] text-center leading-tight mb-6">
-          Hai subito un danno?{" "}
-          <span className="text-[#FF6B00]">Ottieni il risarcimento</span>{" "}
-          che ti spetta.
-          <br />
-          <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A365D] opacity-90">
-            Non devi anticipare nemmeno un euro.
-          </span>
-        </h1>
+        {/* Desktop background */}
+        <div className="absolute inset-0 z-0 hidden lg:block">
+          <Image
+            src="/hero.png"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
 
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 text-center max-w-3xl mx-auto mb-4 leading-relaxed">
-          Analizziamo il tuo caso gratis. Se non ottieni il risarcimento, non ci paghi nulla.
-        </p>
-        <p className="text-base sm:text-lg text-gray-500 text-center max-w-2xl mx-auto mb-12 leading-relaxed">
-          Assistenza legale e medica a costo zero e traduttori nella tua lingua.
-        </p>
+        {/* Content: centered on mobile, left-aligned on desktop */}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[220px] lg:pt-[90px] pb-8">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-5">
 
-        {/* Trust badges */}
-        <div className="grid grid-cols-3 sm:flex sm:flex-wrap sm:justify-center gap-3 mb-14">
-          {[
-            ["Zero", "anticipi"],
-            ["Paghi solo", "se vinci"],
-            ["Traduttore", "gratis"],
-          ].map(([line1, line2]) => (
-            <div
-              key={line1}
-              className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-[#28A745]/10 border border-[#28A745]/30 text-[#1a7a32] font-bold text-xs sm:text-base px-2 sm:px-5 py-3 sm:py-2.5 rounded-xl text-center shadow-sm"
-            >
-              <CircleCheck size={20} className="text-[#28A745] shrink-0" strokeWidth={2} />
-              <span>
-                <span className="sm:hidden">{line1}<br />{line2}</span>
-                <span className="hidden sm:inline">{line1} {line2}</span>
-              </span>
+            {/* Pills — single row, compact on mobile */}
+            <div className="flex items-center bg-white border border-gray-200 rounded-full shadow-sm overflow-hidden">
+              {pills.map((p, i) => (
+                <div key={p} className="flex items-center">
+                  <span className="flex items-center gap-1 px-2 py-2 lg:px-5 lg:py-3 text-[11px] lg:text-base font-semibold text-gray-700 whitespace-nowrap">
+                    <CircleCheck size={12} className="text-[#28A745] shrink-0 lg:hidden" strokeWidth={2.5} />
+                    <CircleCheck size={16} className="text-[#28A745] shrink-0 hidden lg:block" strokeWidth={2.5} />
+                    {p}
+                  </span>
+                  {i < pills.length - 1 && (
+                    <span className="w-px h-4 lg:h-6 bg-gray-200 shrink-0" />
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Category Cards */}
-        <p className="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-6">
+            {/* Headline */}
+            <div>
+              <h1 className="font-cal text-[2.2rem] md:text-[3.2rem] lg:text-[4.5rem] text-[#1A365D] leading-[1.1] mb-1 lg:whitespace-nowrap">
+                Hai subito un danno?
+              </h1>
+              <p className="font-cal text-[1.8rem] md:text-[2.6rem] lg:text-[3.6rem] text-[#FF6B00] leading-[1.1] lg:whitespace-nowrap">
+                Ottieni il tuo risarcimento.
+              </p>
+            </div>
+
+            {/* Pre-CTA line */}
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-[#1A365D] -mt-2">
+              Ti aiutiamo senza rischi.
+            </p>
+
+            {/* CTA */}
+            <a
+              href="#contact-form"
+              className="inline-flex items-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-base sm:text-lg px-7 py-4 rounded-2xl shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200"
+            >
+              <Phone size={18} strokeWidth={2.5} />
+              Verifica gratis il tuo caso
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── CATEGORY CARDS ── */}
+      <div className="bg-white max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">
           Cosa ti è successo?
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {categories.map(({ icon: Icon, label, desc, bg, border, iconColor }) => (
             <a
               key={label}
               href="#contact-form"
-              className={`group flex flex-col items-center text-center p-7 rounded-2xl border-2 ${bg} ${border} transition-all duration-200 hover:shadow-lg hover:-translate-y-1 cursor-pointer`}
+              className={`group flex items-center gap-4 px-5 py-4 rounded-2xl border-2 ${bg} ${border} transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer`}
             >
-              <div className={`w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform duration-200`}>
-                <Icon size={32} className={iconColor} strokeWidth={1.5} />
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-200">
+                <Icon size={24} className={iconColor} strokeWidth={1.5} />
               </div>
-              <h3 className="text-[#1A365D] font-bold text-lg mb-1">{label}</h3>
-              <p className="text-gray-500 text-sm mb-4">{desc}</p>
-              <span className="inline-flex items-center gap-1 text-[#FF6B00] font-semibold text-sm">
-                Verifica gratis <ChevronRight size={14} />
-              </span>
+              <div className="flex-1 min-w-0">
+                <p className="text-[#1A365D] font-bold text-sm sm:text-base leading-snug">{label}</p>
+                <p className="text-gray-400 text-xs truncate">{desc}</p>
+              </div>
+              <ChevronRight size={18} className="text-gray-400 group-hover:text-[#FF6B00] transition-colors shrink-0" />
             </a>
           ))}
         </div>
       </div>
+
     </section>
   );
 }
