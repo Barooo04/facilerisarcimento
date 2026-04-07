@@ -9,22 +9,22 @@ const steps = [
   {
     number: "1",
     icon: Phone,
-    title: "Chiamata Gratuita",
-    desc: "Compila il modulo o chiamaci. Ti risponderemo subito (anche con un traduttore) per ascoltare la tua storia.",
-    detail: "Nessuna attesa, nessun costo",
+    title: "Contatto iniziale",
+    desc: "Compila il modulo o chiamaci. Raccogliamo le prime informazioni sul tuo caso — senza alcun costo.",
+    detail: "Nessun costo iniziale",
   },
   {
     number: "2",
     icon: FileSearch,
-    title: "Studiamo le carte",
-    desc: "I nostri medici e legali valutano gratis i tuoi documenti. Ti diciamo subito quanti soldi puoi recuperare.",
+    title: "Valutiamo il caso",
+    desc: "I nostri professionisti analizzano la documentazione. Ricevi un riscontro chiaro sulla possibilità di risarcimento.",
     detail: "Valutazione entro 24–48 ore",
   },
   {
     number: "3",
     icon: Banknote,
-    title: "Ricevi i soldi",
-    desc: "Prenderemo la nostra percentuale solo dopo che i soldi del risarcimento saranno sul tuo conto in banca.",
+    title: "Ricevi il risarcimento",
+    desc: "Seguiamo la pratica fino alla conclusione. Il compenso è dovuto solo a risultato ottenuto.",
     detail: "Paghi solo a risultato ottenuto",
   },
 ];
@@ -92,11 +92,11 @@ export default function HowItWorks() {
         {/* Section header */}
         <div className="text-center mb-16">
           <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
-            Ottenere i tuoi soldi è{" "}
-            <span className="text-[#FF6B00]">facilissimo</span>
+            Ottenere il risarcimento{" "}
+            <span className="text-[#FF6B00]">richiede pochi passaggi.</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Solo 3 passi separano te dal tuo risarcimento.
+            Solo 3 passaggi separano te dal tuo risarcimento.
           </p>
         </div>
 
@@ -142,7 +142,7 @@ export default function HowItWorks() {
             <Rocket size={20} strokeWidth={2} />
             Inizia Ora dal Passo 1
           </a>
-          <p className="mt-3 text-sm text-gray-400">Gratuito · Nessun impegno · Risposta veloce</p>
+          <p className="mt-3 text-sm text-gray-400">Gratuito · Nessun impegno · Risposta rapida</p>
         </div>
       </div>
     </section>

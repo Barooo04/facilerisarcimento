@@ -6,7 +6,7 @@ const services = [
     icon: HardHat,
     tag: "Infortuni sul Lavoro",
     title: "Infortuni sul Lavoro o in Itinere",
-    body: "Anche se pensi sia colpa tua, potresti avere diritto a un maxi-risarcimento oltre a quello dell'INAIL. Non aver paura di denunciare: ti proteggiamo noi.",
+    body: "Anche quando la dinamica non è chiara, può esserci diritto a un risarcimento aggiuntivo rispetto alle tutele previste. Valutiamo la situazione e impostiamo la richiesta correttamente.",
     bullets: [
       "Infortuni in cantiere o in fabbrica",
       "Incidenti nel tragitto casa-lavoro",
@@ -19,7 +19,7 @@ const services = [
     icon: Stethoscope,
     tag: "Malasanità",
     title: "Malasanità ed Errori Medici",
-    body: "Un'operazione andata male? Una diagnosi sbagliata? I medici hanno assicurazioni fatte apposta per pagare questi errori. Sappiamo come fartele pagare.",
+    body: "Un intervento o una diagnosi possono causare danni evitabili. Analizziamo la documentazione e verifichiamo le eventuali responsabilità.",
     bullets: [
       "Operazioni chirurgiche andate male",
       "Diagnosi errate o ritardate",
@@ -32,7 +32,7 @@ const services = [
     icon: Car,
     tag: "Incidenti Stradali",
     title: "Incidenti Stradali Gravi",
-    body: "Se hai subito lesioni, l'assicurazione cercherà di darti il minimo possibile. Noi lottiamo per farti avere il massimo per i danni fisici e materiali.",
+    body: "In presenza di danni fisici o materiali, la gestione della pratica fa la differenza. Seguiamo ogni fase della richiesta di risarcimento.",
     bullets: [
       "Lesioni gravi a passeggeri e pedoni",
       "Danni al veicolo e alle cose",
@@ -53,7 +53,7 @@ export default function Services() {
             I nostri servizi
           </h2>
           <p className="text-gray-500 text-lg">
-            Tre aree, un solo obiettivo: farti avere i soldi che meriti.
+            Tre ambiti, un unico obiettivo: il risarcimento che ti spetta.
           </p>
         </div>
 

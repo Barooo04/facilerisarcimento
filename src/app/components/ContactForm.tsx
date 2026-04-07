@@ -65,18 +65,17 @@ export default function ContactForm() {
             </h2>
 
             <p className="text-blue-200 text-lg leading-relaxed mb-8">
-              La legge mette delle scadenze per richiedere i risarcimenti.
-              Più aspetti, più rischi di perdere i tuoi soldi.
-              <strong className="text-white"> Compila il modulo ora.</strong> La prima
-              chiacchierata è{" "}
-              <span className="text-[#FF6B00] font-bold">100% gratis</span> e senza impegno.
+              La legge prevede scadenze precise per richiedere un risarcimento.
+              Attendere può compromettere il tuo diritto.
+              <strong className="text-white"> Compila il modulo ora.</strong> È completamente{" "}
+              <span className="text-[#FF6B00] font-bold">gratuito</span>, senza impegni.
             </p>
 
             {/* Trust list */}
             <ul className="space-y-4">
               {[
                 "Nessun anticipo richiesto",
-                "Traduttore nella tua lingua",
+                "Assistenza nella tua lingua",
                 "Legali ed esperti al tuo fianco",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-blue-100">

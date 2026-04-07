@@ -4,23 +4,23 @@ import { HardHat, Stethoscope, Car, ChevronRight, CircleCheck, ArrowRight, Phone
 const categories = [
   {
     icon: HardHat,
-    label: "Infortunio sul Lavoro",
-    desc: "In cantiere, ufficio o in strada",
+    label: "Infortunio sul lavoro",
+    desc: "In cantiere, in ufficio o in itinere",
     bg: "bg-orange-50 hover:bg-orange-100",
     border: "border-orange-200",
     iconColor: "text-[#FF6B00]",
   },
   {
     icon: Stethoscope,
-    label: "Errore Medico",
-    desc: "Visita, operazione o diagnosi",
+    label: "Errore medico",
+    desc: "Visita, intervento o diagnosi",
     bg: "bg-blue-50 hover:bg-blue-100",
     border: "border-blue-200",
     iconColor: "text-[#1A365D]",
   },
   {
     icon: Car,
-    label: "Incidente Stradale",
+    label: "Incidente stradale",
     desc: "Auto, moto, bici o pedone",
     bg: "bg-emerald-50 hover:bg-emerald-100",
     border: "border-emerald-200",
@@ -28,7 +28,7 @@ const categories = [
   },
 ];
 
-const pills = ["Zero anticipi", "Paghi solo se vinci", "Traduttore gratis"];
+const pills = ["Zero anticipi", "Paghi solo se vinci", "Nella tua lingua"];
 
 export default function Hero() {
   return (
@@ -91,7 +91,7 @@ export default function Hero() {
 
             {/* Pre-CTA line */}
             <p className="text-base sm:text-lg md:text-xl font-semibold text-[#1A365D] -mt-2">
-              Ti aiutiamo senza rischi.
+              Ti assistiamo senza rischi.
             </p>
 
             {/* CTA */}

@@ -8,7 +8,7 @@ const features = [
     border: "border-[#FF6B00]",
     iconBorder: "border-[#FF6B00]",
     title: "Zero Anticipi",
-    desc: "Paghiamo noi tutte le spese mediche e legali. Non devi tirare fuori nemmeno un euro oggi.",
+    desc: "Gestiamo noi le spese mediche e legali durante la pratica. Non ti viene chiesto nulla in anticipo.",
   },
   {
     icon: Handshake,
@@ -17,7 +17,7 @@ const features = [
     border: "border-blue-600",
     iconBorder: "border-blue-600",
     title: "Paghi solo se vinci",
-    desc: "Il nostro guadagno è una percentuale sui soldi che ti facciamo ottenere. Se non prendi nulla tu, non prendiamo nulla noi.",
+    desc: "Il nostro compenso è una percentuale su quanto ottieni. Se non ricevi nulla, non ci devi nulla.",
   },
   {
     icon: Languages,
@@ -26,7 +26,7 @@ const features = [
     border: "border-emerald-600",
     iconBorder: "border-emerald-600",
     title: "Parliamo la tua lingua",
-    desc: "Ti diamo un traduttore gratis nella tua lingua per farti capire tutto al 100%, senza fregature.",
+    desc: "Ti affianchiamo con supporto nella tua lingua per seguire ogni fase con chiarezza, senza sorprese.",
   },
 ];
 
@@ -40,10 +40,9 @@ export default function Features() {
             Perché scegliere noi
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-            Conosciamo i tuoi problemi e abbiamo creato un servizio su misura per risolverli,
-            senza farti rischiare nulla. Analizziamo il tuo caso gratis — se non ottieni il
-            risarcimento, non ci paghi nulla. Assistenza legale e medica a costo zero,
-            con traduttori nella tua lingua.
+            Conosciamo le difficoltà che seguono un danno. Abbiamo costruito un servizio chiaro,
+            senza costi iniziali e con supporto nella tua lingua. Valutiamo il tuo caso gratuitamente —
+            se non ottieni un risarcimento, non sostieni spese.
           </p>
         </div>
 
