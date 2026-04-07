@@ -36,7 +36,7 @@ export default function Header() {
             width={0}
             height={0}
             sizes="(max-width: 640px) 200px, 280px"
-            className={`h-[65px] sm:h-[74px] w-auto object-contain transition-all duration-300 ${
+            className={`h-[50px] sm:h-[74px] w-auto object-contain transition-all duration-300 ${
               scrolled ? "brightness-0 invert" : ""
             }`}
             priority
@@ -46,14 +46,14 @@ export default function Header() {
         <a
           href="#contact-form"
           onClick={scrollToForm}
-          className={`font-bold px-4 sm:px-6 py-2.5 rounded-2xl text-base sm:text-lg active:scale-95 transition-all duration-300 flex items-center gap-2 shadow-sm ${
+          className={`font-bold px-3 py-2 rounded-xl text-base sm:text-lg active:scale-95 transition-all duration-300 flex items-center gap-2 shadow-sm ${
             scrolled
               ? "bg-white text-[#1A365D] hover:bg-blue-50"
               : "bg-[#FF6B00] text-white hover:bg-[#e55f00] border border-white/30"
           }`}
         >
           <Phone size={16} strokeWidth={2.5} />
-          <span className="hidden sm:inline">Chiamaci Gratis</span>
+          <span>Chiamaci Gratis</span>
         </a>
       </div>
     </header>

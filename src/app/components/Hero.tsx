@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
 
         {/* Content: centered on mobile, left-aligned on desktop */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[190px] lg:pt-[0px] pb-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[160px] lg:pt-[0px] pb-8">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-5">
 
             {/* Pills — single row, compact on mobile */}
@@ -97,7 +97,7 @@ export default function Hero() {
             {/* CTA */}
             <a
               href="#contact-form"
-              className="inline-flex items-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-base sm:text-lg px-7 py-4 rounded-2xl shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200"
+              className="inline-flex items-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-base sm:text-lg px-4 py-4 rounded-2xl shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200"
             >
               <Phone size={18} strokeWidth={2.5} />
               Verifica gratis il tuo caso
