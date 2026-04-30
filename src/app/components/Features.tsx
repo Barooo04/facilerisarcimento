@@ -39,14 +39,14 @@ export default function Features() {
   const t = translations[locale];
 
   return (
-    <section id="features" className="bg-white py-20 px-4 sm:px-6 scroll-mt-52">
+    <section id="features" className="bg-white section-mobile px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-14">
-          <p className="text-xs font-black tracking-[0.2em] text-[#FF6B00] mb-4">
+        <div className="text-center section-header-mobile">
+          <p className="section-eyebrow-mobile text-[#FF6B00]">
             {t.features.eyebrow ?? "PERCHE SCEGLIERE NOI"}
           </p>
-          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
+          <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-[#1A365D]">
             {t.features.titleLine1 ? (
               <>
                 {t.features.titleLine1}
@@ -57,13 +57,13 @@ export default function Features() {
               t.features.title
             )}
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="section-desc-mobile text-gray-500 max-w-2xl mx-auto">
             {t.features.desc}
           </p>
         </div>
 
         {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 section-after-desc-mobile">
           {features.map(({ icon: Icon, color, border, iconBorder }, i) => (
             <div
               key={t.features.items[i][0]}
@@ -84,7 +84,7 @@ export default function Features() {
         <div className="text-center">
           <a
             href="#contact-form"
-            className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-base sm:text-lg px-6 sm:px-10 py-3 sm:py-5 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
+            className="btn-mobile-unified inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black shadow-md hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
           >
             <span>
               {t.features.cta1}

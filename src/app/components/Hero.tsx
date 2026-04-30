@@ -167,14 +167,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <a
                 href="#contact-form"
-                className="inline-flex items-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-sm sm:text-base px-5 py-4 rounded-2xl shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200 uppercase"
+                className="btn-mobile-unified inline-flex items-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200 uppercase"
               >
                 <CircleCheck size={18} strokeWidth={2.5} />
                 {t.hero.ctaPrimary ?? t.hero.cta}
               </a>
               <a
                 href="#contact-form"
-                className="inline-flex items-center gap-2.5 bg-white/90 hover:bg-white active:scale-95 text-[#1A365D] border border-[#1A365D]/20 font-black text-sm sm:text-base px-5 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 uppercase"
+                className="btn-mobile-unified inline-flex items-center gap-2.5 bg-white/90 hover:bg-white active:scale-95 text-[#1A365D] border border-[#1A365D]/20 font-black shadow-sm hover:shadow-md transition-all duration-200 uppercase"
               >
                 <Phone size={18} strokeWidth={2.5} />
                 {t.hero.ctaSecondary ?? t.header.call}

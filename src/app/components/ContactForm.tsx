@@ -43,40 +43,35 @@ export default function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="bg-[#1A365D] py-20 px-4 sm:px-6 scroll-mt-52"
+      className="bg-[#1A365D] section-mobile px-4 sm:px-6 scroll-mt-52"
     >
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="text-white section-header-mobile max-w-3xl">
+          <p className="section-eyebrow-mobile text-[#FFB066]">CONTATTI</p>
+          <h2 className="font-cal section-title-mobile sm:text-4xl leading-tight">
+            <span>{t.contact.title} </span>
+            <span className="text-[#FF6B00] block sm:inline">{t.contact.accent}</span>
+          </h2>
 
-          {/* Left: persuasion copy */}
-          <div className="text-white">
-            {/* Urgency badge */}
-            <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-400/40 text-red-300 font-semibold text-sm px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-              {t.contact.urgency}
-            </div>
+          <p className="section-desc-mobile text-blue-200">
+            {t.contact.desc}
+          </p>
+        </div>
 
-            <h2 className="font-cal text-3xl sm:text-4xl mb-6 leading-tight">
-              <span>{t.contact.title} </span>
-              <span className="text-[#FF6B00] block sm:inline">{t.contact.accent}</span>
-            </h2>
-
-            <p className="text-blue-200 text-lg leading-relaxed mb-8">
-              {t.contact.desc}
-            </p>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start section-after-desc-mobile">
+          <div className="order-2 md:order-2">
             {/* Trust list */}
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {t.contact.trust.map((item: string) => (
-                <li key={item} className="flex items-center gap-3 text-blue-100">
-                  <CheckCircle2 size={20} className="text-[#28A745] shrink-0" />
+                <li key={item} className="flex items-center gap-3 text-blue-100 text-sm">
+                  <CheckCircle2 size={18} className="text-[#28A745] shrink-0" />
                   <span className="font-medium">{item}</span>
                 </li>
               ))}
             </ul>
 
             {/* Social proof */}
-            <div className="mt-10 pt-8 border-t border-white/10">
+            <div className="mt-8 pt-6 border-t border-white/10">
               <p className="text-blue-300 text-sm mb-3">{t.contact.social}</p>
               <div className="flex -space-x-2">
                 {["🧑🏻", "👩🏾", "🧔🏽", "👩🏻", "🧑🏿"].map((emoji, i) => (
@@ -92,7 +87,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white rounded-3xl shadow-2xl p-7 sm:p-9">
+          <div className="order-1 bg-white rounded-3xl shadow-2xl p-7 sm:p-9 md:order-1">
             {submitted ? (
               <div className="flex flex-col items-center text-center py-8">
                 <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-5">
@@ -208,7 +203,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] disabled:bg-orange-300 text-white font-black text-xs sm:text-base py-4 rounded-xl shadow-md hover:shadow-lg active:scale-[0.98] transition-all duration-150 uppercase tracking-wide mt-2"
+                    className="btn-mobile-unified w-full flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] disabled:bg-orange-300 text-white font-black shadow-md hover:shadow-lg active:scale-[0.98] transition-all duration-150 uppercase tracking-wide mt-2"
                   >
                     {loading ? (
                       <>

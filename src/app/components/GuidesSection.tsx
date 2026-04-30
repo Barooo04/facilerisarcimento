@@ -472,31 +472,36 @@ const categoryStyles: Record<string, string> = {
   "Infortuni sul Lavoro": "text-[#C86A1A] bg-orange-50",
   "Incidenti Stradali": "text-[#265EA8] bg-blue-50",
   "Malasanità": "text-[#9C4B56] bg-rose-50",
-  "Tabelle & Calcoli": "text-[#52617A] bg-slate-50",
+  "Tabelle & Calcoli": "text-emerald-700 bg-emerald-50",
+  "Tables & Calculations": "text-emerald-700 bg-emerald-50",
+  "Barèmes & Calculs": "text-emerald-700 bg-emerald-50",
+  "Tabele si calcule": "text-emerald-700 bg-emerald-50",
+  "Tabela dhe llogaritje": "text-emerald-700 bg-emerald-50",
+  "الجداول والحسابات": "text-emerald-700 bg-emerald-50",
 };
 
 export default function GuidesSection() {
   const { locale } = useLocale();
   const guides = guidesByLocale[locale];
   const copy = sectionHeaderByLocale[locale];
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section id="guide-gratuite" className="bg-white py-20 px-4 sm:px-6">
+    <section id="guide-gratuite" className="bg-white section-mobile px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl mb-10">
-          <p className="text-xs font-black tracking-[0.2em] text-[#FF6B00] mb-4 uppercase">{copy.eyebrow}</p>
-          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] leading-[1.1] mb-5">
+        <div className="max-w-3xl section-header-mobile">
+          <p className="section-eyebrow-mobile text-[#FF6B00] uppercase">{copy.eyebrow}</p>
+          <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-[#1A365D]">
             {copy.title1}
             <br />
             {copy.title2}
           </h2>
-          <p className="text-gray-500 text-lg max-w-3xl leading-relaxed">
+          <p className="section-desc-mobile text-gray-500 max-w-3xl">
             {copy.desc}
           </p>
         </div>
 
-        <div className="rounded-2xl border border-gray-200 overflow-hidden">
+        <div className="rounded-2xl border border-gray-200 overflow-hidden section-after-desc-mobile">
           {guides.map((guide, index) => {
             const isOpen = openIndex === index;
             return (
@@ -504,7 +509,7 @@ export default function GuidesSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                  className="w-full text-left px-6 py-5 bg-white hover:bg-gray-50 transition-colors flex items-center gap-4 cursor-pointer"
+                  className="w-full text-left px-6 py-4 bg-white hover:bg-gray-50 transition-colors flex items-center gap-4 cursor-pointer"
                 >
                   <div className="flex-1 min-w-0">
                     <span
@@ -514,7 +519,7 @@ export default function GuidesSection() {
                     >
                       {guide.category}
                     </span>
-                    <p className="text-[#1A365D] font-black text-base sm:text-lg leading-snug">{guide.title}</p>
+                    <p className="text-[#1A365D] font-black accordion-q-mobile sm:text-lg">{guide.title}</p>
                   </div>
                   <ChevronDown
                     size={20}
@@ -529,11 +534,11 @@ export default function GuidesSection() {
                 >
                   <div className="overflow-hidden">
                     <div className="px-6 pb-6 pt-1 bg-[#FAFBFD]">
-                      <div className="text-gray-700 space-y-4 leading-relaxed text-sm sm:text-[15px]">
+                      <div className="text-gray-700 space-y-4 accordion-a-mobile sm:text-[15px]">
                         {guide.sections.map((section, idx) => (
                           <div key={`${guide.title}-section-${idx}`} className="pl-1">
                             {section.heading && (
-                              <h3 className="font-black text-[#1A365D] text-sm sm:text-base mb-2">{section.heading}</h3>
+                              <h3 className="font-black text-[#1A365D] accordion-q-mobile sm:text-base mb-2">{section.heading}</h3>
                             )}
                             {section.text.split("\n\n").map((paragraph, pIdx) => (
                               <div key={`${guide.title}-p-${idx}-${pIdx}`} className={pIdx > 0 ? "mt-3" : ""}>

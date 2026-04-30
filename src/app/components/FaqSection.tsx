@@ -172,21 +172,21 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-[#F8F9FA] py-20 px-4 sm:px-6 scroll-mt-52">
+    <section id="faq" className="bg-[#F8F9FA] section-mobile px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-xs font-black tracking-[0.2em] text-[#FF6B00] mb-4">{copy.eyebrow}</p>
-          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] leading-[1.1] mb-5">
+        <div className="text-center section-header-mobile">
+          <p className="section-eyebrow-mobile text-[#FF6B00]">{copy.eyebrow}</p>
+          <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-[#1A365D]">
             {copy.l1}
             <br />
             {copy.l2}
           </h2>
-          <p className="text-gray-500 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="section-desc-mobile text-gray-500 max-w-3xl mx-auto">
             {copy.desc}
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 section-after-desc-mobile">
           {faqs.map((item, index) => {
             const isOpen = openIndex === index;
             return (
@@ -199,7 +199,7 @@ export default function FaqSection() {
                   <span className="w-7 h-7 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] shrink-0 flex items-center justify-center font-black">
                     ?
                   </span>
-                  <span className="flex-1 font-black text-[#1A365D] text-base sm:text-lg leading-snug">{item.q}</span>
+                  <span className="flex-1 font-black text-[#1A365D] accordion-q-mobile sm:text-lg">{item.q}</span>
                   <ChevronDown
                     size={20}
                     className={`shrink-0 mt-1 text-[#1A365D] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
@@ -210,7 +210,7 @@ export default function FaqSection() {
                   className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 sm:px-6 pb-6 text-sm sm:text-[15px] text-gray-600 leading-relaxed">{item.a}</p>
+                    <p className="px-5 sm:px-6 pb-6 text-gray-600 accordion-a-mobile sm:text-[15px]">{item.a}</p>
                   </div>
                 </div>
               </div>

@@ -48,6 +48,15 @@ body {
   animation: fadeIn 0.35s ease-out forwards;
 }
 
+@keyframes reviewSwap {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-review-swap {
+  animation: reviewSwap 0.28s ease-out forwards;
+}
+
 @keyframes testimonial-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -55,4 +64,70 @@ body {
 
 .testimonial-marquee {
   animation: testimonial-marquee 55s linear infinite;
+}
+
+/* Mobile-first section unification */
+.section-mobile {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+
+@media (min-width: 640px) {
+  .section-mobile {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.section-header-mobile {
+  margin-bottom: 2.5rem;
+}
+
+.section-eyebrow-mobile {
+  margin-bottom: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.section-title-mobile {
+  margin-bottom: 0.6rem;
+  font-size: 1.875rem;
+  line-height: 1.1;
+}
+
+.section-desc-mobile {
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.section-after-desc-mobile {
+  margin-top: 1.7rem;
+}
+
+.accordion-q-mobile {
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.accordion-a-mobile {
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.btn-mobile-unified {
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 2.7rem;
+}
+
+@media (min-width: 640px) {
+  .btn-mobile-unified {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    min-height: 3rem;
+  }
 }

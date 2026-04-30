@@ -50,6 +50,15 @@ const supportCards = [
 
 export default function LanguageSupport() {
   const { locale } = useLocale();
+  const localeToCardLang: Record<string, string> = {
+    it: "ITALIANO",
+    ar: "ARABO",
+    sq: "SHQIP - ALBANESE",
+    ro: "ROMANA - RUMENO",
+    en: "ENGLISH",
+    fr: "FRANCAIS - FRANCESE",
+  };
+  const activeCard = supportCards.find((card) => card.lang === localeToCardLang[locale]) ?? supportCards[0];
   const sectionCopy = {
     it: {
       eyebrow: "PARLIAMO LA TUA LINGUA",
@@ -96,11 +105,11 @@ export default function LanguageSupport() {
   }[locale];
 
   return (
-    <section id="language-support" className="bg-[#173A6A] py-16 px-4 sm:px-6 scroll-mt-52">
+    <section id="language-support" className="bg-[#173A6A] section-mobile px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
-        <div className="text-left mb-10 max-w-3xl">
-          <p className="text-xs font-black tracking-[0.2em] text-[#FFB066] mb-3">{sectionCopy.eyebrow}</p>
-          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-white leading-[1.1]">
+        <div className="text-left section-header-mobile max-w-3xl">
+          <p className="section-eyebrow-mobile text-[#FFB066]">{sectionCopy.eyebrow}</p>
+          <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-white">
             {sectionCopy.line1}
             <br />
             {sectionCopy.line2}
@@ -115,12 +124,32 @@ export default function LanguageSupport() {
               <span className="text-[#FF8A2A]">{sectionCopy.line3}</span>
             )}
           </h2>
-          <p className="text-blue-200 mt-4 leading-relaxed">
+          <p className="section-desc-mobile text-blue-200">
             {sectionCopy.desc}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="md:hidden section-after-desc-mobile">
+          <article
+            key={`${activeCard.lang}-${activeCard.title}`}
+            className={`rounded-2xl border p-5 bg-white/7 backdrop-blur-[1px] h-full flex flex-col ${
+              activeCard.featured ? "border-[#FF8A2A] shadow-[0_0_0_1px_rgba(255,138,42,0.35)]" : "border-white/10"
+            }`}
+          >
+            <p className="text-xl mb-2">{activeCard.flag}</p>
+            <p className="text-[10px] tracking-widest text-[#FFB066] font-bold mb-2">{activeCard.lang}</p>
+            <h3 className="text-white font-black text-lg leading-tight mb-2">{activeCard.title}</h3>
+            <p className="text-blue-100/85 text-sm leading-relaxed mb-4">{activeCard.body}</p>
+            <a
+              href="#contact-form"
+              className="inline-flex items-center text-xs font-bold text-[#FF9A45] bg-white/10 rounded-lg px-3 py-1.5 hover:bg-white/20 transition-colors mt-auto"
+            >
+              {activeCard.cta}
+            </a>
+          </article>
+        </div>
+
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-4 section-after-desc-mobile">
           {supportCards.map((card) => (
             <article
               key={`${card.lang}-${card.title}`}

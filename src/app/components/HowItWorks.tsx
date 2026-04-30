@@ -91,14 +91,14 @@ export default function HowItWorks() {
   };
 
   return (
-    <section id="how-it-works" className="bg-white py-20 px-4 sm:px-6 scroll-mt-52">
+    <section id="how-it-works" className="bg-white section-mobile px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-xs font-black tracking-[0.2em] text-[#FF6B00] mb-4">
+        <div className="text-center section-header-mobile">
+          <p className="section-eyebrow-mobile text-[#FF6B00]">
             {t.how.eyebrow ?? "COME FUNZIONA"}
           </p>
-          <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
+          <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-[#1A365D]">
             {t.how.titleLine1 ? (
               <>
                 {t.how.titleLine1} <span className="text-[#FF6B00]">{t.how.titleLine2}</span>
@@ -109,13 +109,13 @@ export default function HowItWorks() {
               </>
             )}
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
+          <p className="section-desc-mobile text-gray-500 max-w-xl mx-auto">
             {t.how.desc}
           </p>
         </div>
 
         {/* MOBILE: carousel */}
-        <div className="md:hidden">
+        <div className="md:hidden section-after-desc-mobile">
           {/* Slide */}
           <div key={active} className="animate-fade-in">
             <StepCard
@@ -163,7 +163,7 @@ export default function HowItWorks() {
         <div className="text-center mt-14">
           <a
             href="#contact-form"
-            className="inline-flex items-center gap-3 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-lg px-10 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
+            className="btn-mobile-unified inline-flex items-center gap-3 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black shadow-lg hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
           >
             <Rocket size={20} strokeWidth={2} />
             {t.how.cta}

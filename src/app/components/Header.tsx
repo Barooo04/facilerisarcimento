@@ -158,7 +158,7 @@ export default function Header() {
             <a
               href="#contact-form"
               onClick={(e) => scrollTo(e, "contact-form")}
-              className="font-bold px-2.5 sm:px-4 py-2 rounded-xl text-xs sm:text-base active:scale-95 transition-all duration-300 flex items-center gap-1.5 sm:gap-2 shadow-sm bg-[#FF6B00] text-white hover:bg-[#e55f00]"
+              className="btn-mobile-unified font-bold active:scale-95 transition-all duration-300 flex items-center gap-1.5 sm:gap-2 shadow-sm bg-[#FF6B00] text-white hover:bg-[#e55f00]"
             >
               <Phone size={15} strokeWidth={2.5} />
               <span className="hidden sm:inline">{t.header.call}</span>
@@ -289,7 +289,7 @@ export default function Header() {
             <a
               href="#contact-form"
               onClick={(e) => scrollTo(e, "contact-form")}
-              className="inline-flex items-center justify-center w-full font-bold px-4 py-2.5 rounded-xl text-sm active:scale-95 transition-all duration-300 gap-2 shadow-sm bg-[#FF6B00] text-white hover:bg-[#e55f00]"
+              className="btn-mobile-unified inline-flex items-center justify-center w-full font-bold active:scale-95 transition-all duration-300 gap-2 shadow-sm bg-[#FF6B00] text-white hover:bg-[#e55f00]"
             >
               <Phone size={16} strokeWidth={2.5} />
               <span>{t.header.call}</span>

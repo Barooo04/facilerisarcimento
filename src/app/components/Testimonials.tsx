@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLocale, type Locale } from "../i18n/LocaleContext";
 
 const reviewsByLocale: Record<Locale, Array<{
@@ -212,25 +214,27 @@ const reviews = [
 
 export default function Testimonials() {
   const { locale } = useLocale();
+  const [activeIdx, setActiveIdx] = useState(0);
   const copy = headerByLocale[locale];
   const activeReviews = reviewsByLocale[locale] ?? reviews;
   const looped = [...activeReviews, ...activeReviews];
+  const mobileReview = activeReviews[activeIdx] ?? activeReviews[0];
 
   return (
-    <section id="testimonials" className="bg-[#173A6A] py-16 px-4 sm:px-6 overflow-hidden scroll-mt-52">
+    <section id="testimonials" className="bg-[#173A6A] section-mobile px-4 sm:px-6 overflow-hidden scroll-mt-52">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-xs font-black tracking-[0.2em] text-[#FFB066] mb-4">{copy.eyebrow}</p>
-          <h2 className="font-cal text-4xl md:text-5xl text-white mb-5 leading-[1.08]">
+        <div className="text-center section-header-mobile">
+          <p className="section-eyebrow-mobile text-[#FFB066]">{copy.eyebrow}</p>
+          <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-white leading-[1.08]">
             {copy.title}
           </h2>
-          <p className="text-blue-200 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="section-desc-mobile text-blue-200 max-w-2xl mx-auto">
             {copy.desc}
           </p>
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative hidden md:block">
         <div className="testimonial-marquee flex gap-4 w-max">
           {looped.map((review, idx) => (
             <article
@@ -254,6 +258,51 @@ export default function Testimonials() {
               </div>
             </article>
           ))}
+        </div>
+      </div>
+
+      <div className="md:hidden max-w-md mx-auto section-after-desc-mobile">
+        <article
+          key={activeIdx}
+          className="w-full rounded-2xl border border-white/10 bg-white/8 p-4 text-white flex flex-col min-h-[240px] animate-review-swap"
+        >
+          <div className="flex-1">
+            <p className="text-[#FFB13B] text-base mb-2 tracking-wide">{mobileReview.stars}</p>
+            <p className="text-blue-100/95 italic leading-relaxed text-sm">"{mobileReview.quote}"</p>
+          </div>
+
+          <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-[#FF6B00]/20 border border-[#FF6B00]/40 text-[#FF9A45] flex items-center justify-center font-black text-[10px]">
+              {mobileReview.initials}
+            </div>
+            <div>
+              <p className="font-bold text-white text-xs leading-tight">{mobileReview.name}</p>
+              <p className="text-[11px] text-blue-200">{mobileReview.meta}</p>
+              <p className="text-[11px] text-[#FF9A45] font-bold mt-1">{mobileReview.result}</p>
+            </div>
+          </div>
+        </article>
+
+        <div className="flex items-center justify-center gap-4 mt-4">
+          <button
+            type="button"
+            onClick={() => setActiveIdx((prev) => (prev - 1 + activeReviews.length) % activeReviews.length)}
+            className="w-9 h-9 rounded-full border border-white/20 text-white/90 flex items-center justify-center cursor-pointer"
+            aria-label="Recensione precedente"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <p className="text-xs text-blue-200 font-semibold">
+            {activeIdx + 1} / {activeReviews.length}
+          </p>
+          <button
+            type="button"
+            onClick={() => setActiveIdx((prev) => (prev + 1) % activeReviews.length)}
+            className="w-9 h-9 rounded-full border border-white/20 text-white/90 flex items-center justify-center cursor-pointer"
+            aria-label="Recensione successiva"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>
