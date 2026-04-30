@@ -2,18 +2,15 @@
 
 import { useState, FormEvent } from "react";
 import { CheckCircle2, AlertCircle, Send } from "lucide-react";
-
-const languages = ["Italiano", "Arabo", "Rumeno", "Albanese", "Francese", "Inglese", "Altro"];
-const caseTypes = [
-  "Infortunio sul Lavoro",
-  "Problema in Ospedale / Errore Medico",
-  "Incidente Stradale",
-];
+import { useLocale } from "../i18n/LocaleContext";
+import { translations } from "../i18n/translations";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { locale } = useLocale();
+  const t = translations[locale];
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,12 +23,12 @@ export default function ContactForm() {
     const privacy = data.get("privacy");
 
     if (!phone?.trim()) {
-      setError("Il numero di telefono è obbligatorio.");
+      setError(t.contact.errors.phone);
       setLoading(false);
       return;
     }
     if (!privacy) {
-      setError("Devi accettare i termini e il trattamento dei dati.");
+      setError(t.contact.errors.privacy);
       setLoading(false);
       return;
     }
@@ -46,7 +43,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="bg-[#1A365D] py-20 px-4 sm:px-6 scroll-mt-20"
+      className="bg-[#1A365D] py-20 px-4 sm:px-6 scroll-mt-52"
     >
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -56,28 +53,21 @@ export default function ContactForm() {
             {/* Urgency badge */}
             <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-400/40 text-red-300 font-semibold text-sm px-4 py-2 rounded-full mb-6">
               <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-              Attenzione: i termini di prescrizione scadono
+              {t.contact.urgency}
             </div>
 
             <h2 className="font-cal text-3xl sm:text-4xl mb-6 leading-tight">
-              Non aspettare che sia{" "}
-              <span className="text-[#FF6B00]">troppo tardi.</span>
+              <span>{t.contact.title} </span>
+              <span className="text-[#FF6B00] block sm:inline">{t.contact.accent}</span>
             </h2>
 
             <p className="text-blue-200 text-lg leading-relaxed mb-8">
-              La legge prevede scadenze precise per richiedere un risarcimento.
-              Attendere può compromettere il tuo diritto.
-              <strong className="text-white"> Compila il modulo ora.</strong> È completamente{" "}
-              <span className="text-[#FF6B00] font-bold">gratuito</span>, senza impegni.
+              {t.contact.desc}
             </p>
 
             {/* Trust list */}
             <ul className="space-y-4">
-              {[
-                "Nessun anticipo richiesto",
-                "Assistenza nella tua lingua",
-                "Legali ed esperti al tuo fianco",
-              ].map((item) => (
+              {t.contact.trust.map((item: string) => (
                 <li key={item} className="flex items-center gap-3 text-blue-100">
                   <CheckCircle2 size={20} className="text-[#28A745] shrink-0" />
                   <span className="font-medium">{item}</span>
@@ -87,7 +77,7 @@ export default function ContactForm() {
 
             {/* Social proof */}
             <div className="mt-10 pt-8 border-t border-white/10">
-              <p className="text-blue-300 text-sm mb-3">Già scelto da oltre 2.400 persone</p>
+              <p className="text-blue-300 text-sm mb-3">{t.contact.social}</p>
               <div className="flex -space-x-2">
                 {["🧑🏻", "👩🏾", "🧔🏽", "👩🏻", "🧑🏿"].map((emoji, i) => (
                   <div
@@ -109,33 +99,32 @@ export default function ContactForm() {
                   <CheckCircle2 size={40} className="text-[#28A745]" />
                 </div>
                 <h3 className="text-2xl font-black text-[#1A365D] mb-3">
-                  Richiesta ricevuta!
+                  {t.contact.successTitle}
                 </h3>
                 <p className="text-gray-500 leading-relaxed">
-                  Ti contatteremo al più presto, anche con un traduttore nella tua lingua.
-                  La tua consultazione è completamente gratuita.
+                  {t.contact.successDesc}
                 </p>
               </div>
             ) : (
               <>
                 <h3 className="text-xl font-black text-[#1A365D] mb-1">
-                  Richiedi assistenza gratuita
+                  {t.contact.formTitle}
                 </h3>
                 <p className="text-gray-400 text-sm mb-6">
-                  Compila il modulo, ti richiamiamo noi.
+                  {t.contact.formSubtitle}
                 </p>
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-4">
                   {/* Name */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5" htmlFor="name">
-                      Nome e Cognome
+                      {t.contact.labels.name}
                     </label>
                     <input
                       id="name"
                       name="name"
                       type="text"
-                      placeholder="Es. Mario Rossi"
+                      placeholder={t.contact.placeholders.name}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FF6B00] focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 placeholder-gray-300 transition-all text-sm"
                     />
                   </div>
@@ -143,7 +132,7 @@ export default function ContactForm() {
                   {/* Phone */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5" htmlFor="phone">
-                      Numero di Telefono{" "}
+                      {t.contact.labels.phone}{" "}
                       <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -151,7 +140,7 @@ export default function ContactForm() {
                       name="phone"
                       type="tel"
                       required
-                      placeholder="+39 333 000 0000"
+                      placeholder={t.contact.placeholders.phone}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FF6B00] focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 placeholder-gray-300 transition-all text-sm"
                     />
                   </div>
@@ -159,15 +148,15 @@ export default function ContactForm() {
                   {/* Language */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5" htmlFor="language">
-                      Che lingua parli?
+                      {t.contact.labels.language}
                     </label>
                     <select
                       id="language"
                       name="language"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FF6B00] focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 transition-all text-sm bg-white appearance-none cursor-pointer"
                     >
-                      <option value="">Seleziona la tua lingua…</option>
-                      {languages.map((l) => (
+                      <option value="">{t.contact.placeholders.language}</option>
+                      {t.contact.languageOptions.map((l: string) => (
                         <option key={l} value={l}>{l}</option>
                       ))}
                     </select>
@@ -176,15 +165,15 @@ export default function ContactForm() {
                   {/* Case type */}
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5" htmlFor="caseType">
-                      Cosa ti è successo?
+                      {t.contact.labels.caseType}
                     </label>
                     <select
                       id="caseType"
                       name="caseType"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#FF6B00] focus:ring-2 focus:ring-orange-100 outline-none text-gray-800 transition-all text-sm bg-white appearance-none cursor-pointer"
                     >
-                      <option value="">Scegli il tipo di caso…</option>
-                      {caseTypes.map((c) => (
+                      <option value="">{t.contact.placeholders.caseType}</option>
+                      {t.contact.caseOptions.map((c: string) => (
                         <option key={c} value={c}>{c}</option>
                       ))}
                     </select>
@@ -199,11 +188,11 @@ export default function ContactForm() {
                       className="mt-0.5 w-4 h-4 accent-[#FF6B00] cursor-pointer shrink-0"
                     />
                     <label htmlFor="privacy" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
-                      Accetto i{" "}
+                      {t.contact.labels.privacy}{" "}
                       <a href="#" className="text-[#FF6B00] underline hover:no-underline">
-                        termini e il trattamento dei dati
+                        GDPR
                       </a>{" "}
-                      ai sensi del GDPR. I dati saranno usati solo per la gestione della tua pratica.
+                      .
                     </label>
                   </div>
 
@@ -224,12 +213,12 @@ export default function ContactForm() {
                     {loading ? (
                       <>
                         <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                        Invio in corso…
+                        {t.contact.loading}
                       </>
                     ) : (
                       <>
                         <Send size={16} />
-                        Richiedi Assistenza Gratuita
+                        {t.contact.submit}
                       </>
                     )}
                   </button>

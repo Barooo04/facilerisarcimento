@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     "Assistenza legale per infortuni sul lavoro, malasanità e incidenti stradali. Zero anticipi, paghi solo se vinci. Traduttori gratuiti nella tua lingua.",
   keywords:
     "risarcimento, infortunio sul lavoro, malasanità, incidente stradale, assistenza legale gratuita",
+  icons: {
+    icon: "/icona.svg",
+    shortcut: "/icona.svg",
+    apple: "/icona.svg",
+  },
 };
 
 export default function RootLayout({

@@ -1,4 +1,8 @@
+"use client";
+
 import { Shield, Handshake, Languages, CircleCheck } from "lucide-react";
+import { useLocale } from "../i18n/LocaleContext";
+import { translations } from "../i18n/translations";
 
 const features = [
   {
@@ -31,26 +35,38 @@ const features = [
 ];
 
 export default function Features() {
+  const { locale } = useLocale();
+  const t = translations[locale];
+
   return (
-    <section className="bg-white py-20 px-4 sm:px-6">
+    <section id="features" className="bg-white py-20 px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-14">
+          <p className="text-xs font-black tracking-[0.2em] text-[#FF6B00] mb-4">
+            {t.features.eyebrow ?? "PERCHE SCEGLIERE NOI"}
+          </p>
           <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
-            Perché scegliere noi
+            {t.features.titleLine1 ? (
+              <>
+                {t.features.titleLine1}
+                <br />
+                {t.features.titleLine2}
+              </>
+            ) : (
+              t.features.title
+            )}
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-            Conosciamo le difficoltà che seguono un danno. Abbiamo costruito un servizio chiaro,
-            senza costi iniziali e con supporto nella tua lingua. Valutiamo il tuo caso gratuitamente —
-            se non ottieni un risarcimento, non sostieni spese.
+            {t.features.desc}
           </p>
         </div>
 
         {/* 2x2 Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12 mt-10">
-          {features.map(({ icon: Icon, color, border, iconBorder, title, desc }) => (
+          {features.map(({ icon: Icon, color, border, iconBorder }, i) => (
             <div
-              key={title}
+              key={t.features.items[i][0]}
               className={`relative pt-10 pb-7 px-6 rounded-2xl border-2 ${border} hover:shadow-md transition-all duration-200 bg-white text-center`}
             >
               {/* Icon straddling the top border */}
@@ -58,8 +74,8 @@ export default function Features() {
                 <Icon size={26} className={color} strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-cal text-[#1A365D] text-xl mb-2">{title}</h3>
-              <p className="text-gray-500 leading-relaxed text-sm">{desc}</p>
+              <h3 className="font-cal text-[#1A365D] text-xl mb-2">{t.features.items[i][0]}</h3>
+              <p className="text-gray-500 leading-relaxed text-sm">{t.features.items[i][1]}</p>
             </div>
           ))}
         </div>
@@ -71,10 +87,10 @@ export default function Features() {
             className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-base sm:text-lg px-6 sm:px-10 py-3 sm:py-5 rounded-xl sm:rounded-2xl shadow-md hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
           >
             <span>
-              Verifica Gratis
+              {t.features.cta1}
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
-              il Tuo Caso
+              {t.features.cta2}
             </span>
             <CircleCheck size={20} strokeWidth={2} className="shrink-0" />
           </a>

@@ -1,13 +1,20 @@
+"use client";
+
 import Image from "next/image";
+import { useLocale } from "../i18n/LocaleContext";
+import { translations } from "../i18n/translations";
 
 export default function Footer() {
+  const { locale } = useLocale();
+  const t = translations[locale];
+
   return (
     <footer className="bg-[#0f2240] text-blue-300 py-10 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <Image
-              src="/LogoDefinitivo.png"
+              src="/logo.svg"
               alt="FacileRisarcimento"
               width={0}
               height={0}
@@ -15,25 +22,24 @@ export default function Footer() {
               className="h-[74px] w-auto object-contain brightness-0 invert mb-2"
             />
             <p className="text-sm text-blue-400">
-              Assistenza legale per tutti. Zero anticipi.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm justify-center">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Termini di Servizio</a>
-            <a href="#contact-form" className="hover:text-white transition-colors">Contatti</a>
+            <a href="#" className="hover:text-white transition-colors">{t.footer.links[0]}</a>
+            <a href="#" className="hover:text-white transition-colors">{t.footer.links[1]}</a>
+            <a href="#" className="hover:text-white transition-colors">{t.footer.links[2]}</a>
+            <a href="#contact-form" className="hover:text-white transition-colors">{t.footer.links[3]}</a>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-6 text-center text-xs text-blue-500 leading-relaxed">
           <p>
-            © {new Date().getFullYear()} RisarcimentoSemplice. Tutti i diritti riservati.
-            Il servizio è fornito in conformità con le norme vigenti in materia di assistenza legale.
+            © {new Date().getFullYear()} RisarcimentoSemplice. {t.footer.rights} {t.footer.legal}
           </p>
           <p className="mt-2">
-            I risultati passati non garantiscono risultati futuri. Ogni caso è valutato individualmente.
+            {t.footer.disclaimer}
           </p>
         </div>
       </div>

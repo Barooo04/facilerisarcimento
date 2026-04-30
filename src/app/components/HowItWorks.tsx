@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Phone, FileSearch, Banknote, CircleCheck, Rocket } from "lucide-react";
+import { useLocale } from "../i18n/LocaleContext";
+import { translations } from "../i18n/translations";
 
 const DURATION = 4000;
 
@@ -72,6 +74,8 @@ function StepCard({ number, icon: Icon, title, desc, detail, tick }: typeof step
 export default function HowItWorks() {
   const [active, setActive] = useState(0);
   const [tick, setTick] = useState(0);
+  const { locale } = useLocale();
+  const t = translations[locale];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -87,16 +91,26 @@ export default function HowItWorks() {
   };
 
   return (
-    <section className="bg-white py-20 px-4 sm:px-6">
+    <section id="how-it-works" className="bg-white py-20 px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
+          <p className="text-xs font-black tracking-[0.2em] text-[#FF6B00] mb-4">
+            {t.how.eyebrow ?? "COME FUNZIONA"}
+          </p>
           <h2 className="font-cal text-3xl sm:text-4xl md:text-5xl text-[#1A365D] mb-4">
-            Ottenere il risarcimento{" "}
-            <span className="text-[#FF6B00]">richiede pochi passaggi.</span>
+            {t.how.titleLine1 ? (
+              <>
+                {t.how.titleLine1} <span className="text-[#FF6B00]">{t.how.titleLine2}</span>
+              </>
+            ) : (
+              <>
+                {t.how.title} <span className="text-[#FF6B00]">{t.how.accent}</span>
+              </>
+            )}
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Solo 3 passaggi separano te dal tuo risarcimento.
+            {t.how.desc}
           </p>
         </div>
 
@@ -104,7 +118,13 @@ export default function HowItWorks() {
         <div className="md:hidden">
           {/* Slide */}
           <div key={active} className="animate-fade-in">
-            <StepCard {...steps[active]} tick={tick} />
+            <StepCard
+              {...steps[active]}
+              title={t.how.steps[active].title}
+              desc={t.how.steps[active].desc}
+              detail={t.how.steps[active].detail}
+              tick={tick}
+            />
           </div>
 
           {/* Dot navigation */}
@@ -127,8 +147,14 @@ export default function HowItWorks() {
         {/* DESKTOP: static 3-column grid */}
         <div className="hidden md:block relative">
           <div className="grid grid-cols-3 gap-8">
-            {steps.map((step) => (
-              <StepCard key={step.number} {...step} />
+            {steps.map((step, i) => (
+              <StepCard
+                key={step.number}
+                {...step}
+                title={t.how.steps[i].title}
+                desc={t.how.steps[i].desc}
+                detail={t.how.steps[i].detail}
+              />
             ))}
           </div>
         </div>
@@ -140,9 +166,9 @@ export default function HowItWorks() {
             className="inline-flex items-center gap-3 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black text-lg px-10 py-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
           >
             <Rocket size={20} strokeWidth={2} />
-            Inizia Ora dal Passo 1
+            {t.how.cta}
           </a>
-          <p className="mt-3 text-sm text-gray-400">Gratuito · Nessun impegno · Risposta rapida</p>
+          <p className="mt-3 text-sm text-gray-400">{t.how.note}</p>
         </div>
       </div>
     </section>
