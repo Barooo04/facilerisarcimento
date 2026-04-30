@@ -1,6 +1,7 @@
 "use client";
 
-import { Shield, Handshake, Languages, CircleCheck } from "lucide-react";
+import { useState } from "react";
+import { Shield, Handshake, Languages, CircleCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
 
@@ -37,6 +38,20 @@ const features = [
 export default function Features() {
   const { locale } = useLocale();
   const t = translations[locale];
+  const [mobileSlide, setMobileSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const changeSlide = (next: number) => {
+    if (isAnimating || next === mobileSlide) return;
+    setPrevSlide(mobileSlide);
+    setMobileSlide(next);
+    setIsAnimating(true);
+    window.setTimeout(() => {
+      setPrevSlide(null);
+      setIsAnimating(false);
+    }, 500);
+  };
 
   return (
     <section id="features" className="bg-white section-mobile px-4 sm:px-6 scroll-mt-52">
@@ -63,21 +78,77 @@ export default function Features() {
         </div>
 
         {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 section-after-desc-mobile">
+        <div className="hidden sm:grid sm:grid-cols-3 gap-5 mb-10 section-after-desc-mobile">
           {features.map(({ icon: Icon, color, border, iconBorder }, i) => (
             <div
               key={t.features.items[i][0]}
-              className={`relative pt-10 pb-7 px-6 rounded-2xl border-2 ${border} hover:shadow-md transition-all duration-200 bg-white text-center`}
+              className={`relative pt-7 pb-5 px-4 rounded-xl border-2 ${border} hover:shadow-md transition-all duration-200 bg-white text-center`}
             >
               {/* Icon straddling the top border */}
-              <div className={`absolute -top-7 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white border-2 ${iconBorder} flex items-center justify-center shadow-sm`}>
-                <Icon size={26} className={color} strokeWidth={1.5} />
+              <div className={`absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 ${iconBorder} flex items-center justify-center shadow-sm`}>
+                <Icon size={18} className={color} strokeWidth={1.5} />
               </div>
 
-              <h3 className="font-cal text-[#1A365D] text-xl mb-2">{t.features.items[i][0]}</h3>
-              <p className="text-gray-500 leading-relaxed text-sm">{t.features.items[i][1]}</p>
+              <h3 className="font-cal text-[#1A365D] text-lg mb-1.5">{t.features.items[i][0]}</h3>
+              <p className="text-gray-500 leading-relaxed text-xs">{t.features.items[i][1]}</p>
             </div>
           ))}
+        </div>
+
+        <div className="sm:hidden section-after-desc-mobile mb-8">
+          <div className="relative overflow-hidden min-h-[186px]">
+            {prevSlide !== null && (
+              <div className="absolute inset-0 animate-slide-out-left">
+                {(() => {
+                  const { icon: PrevIcon, color: prevColor, border: prevBorder, iconBorder: prevIconBorder } = features[prevSlide];
+                  return (
+                    <div className={`relative mt-4 pt-7 pb-5 px-4 rounded-xl border-2 ${prevBorder} bg-white text-center`}>
+                      <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 ${prevIconBorder} flex items-center justify-center shadow-sm`}>
+                        <PrevIcon size={18} className={prevColor} strokeWidth={1.5} />
+                      </div>
+                      <h3 className="font-cal text-[#1A365D] text-lg mb-1.5">{t.features.items[prevSlide][0]}</h3>
+                      <p className="text-gray-500 leading-relaxed text-xs">{t.features.items[prevSlide][1]}</p>
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+
+            <div className={isAnimating ? "animate-slide-in-right" : ""}>
+              {(() => {
+                const { icon: Icon, color, border, iconBorder } = features[mobileSlide];
+                return (
+                  <div className={`relative mt-4 pt-7 pb-5 px-4 rounded-xl border-2 ${border} bg-white text-center`}>
+                    <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 ${iconBorder} flex items-center justify-center shadow-sm`}>
+                      <Icon size={18} className={color} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-cal text-[#1A365D] text-lg mb-1.5">{t.features.items[mobileSlide][0]}</h3>
+                    <p className="text-gray-500 leading-relaxed text-xs">{t.features.items[mobileSlide][1]}</p>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <button
+              type="button"
+              onClick={() => changeSlide((mobileSlide - 1 + features.length) % features.length)}
+              className="w-9 h-9 rounded-full border border-gray-300 text-[#1A365D] flex items-center justify-center cursor-pointer"
+              aria-label="Slide precedente"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <p className="text-xs text-gray-500 font-semibold">{mobileSlide + 1} / {features.length}</p>
+            <button
+              type="button"
+              onClick={() => changeSlide((mobileSlide + 1) % features.length)}
+              className="w-9 h-9 rounded-full border border-gray-300 text-[#1A365D] flex items-center justify-center cursor-pointer"
+              aria-label="Slide successiva"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
 
         {/* CTA */}

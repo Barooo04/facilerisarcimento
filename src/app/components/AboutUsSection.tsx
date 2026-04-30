@@ -41,25 +41,6 @@ export default function AboutUsSection() {
         </div>
 
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-2.5">
-            <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-              <p className="font-black text-3xl text-[#1A365D] leading-none">200+</p>
-              <p className="text-gray-500 text-xs mt-1.5">pratiche gestite</p>
-            </div>
-            <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-              <p className="font-black text-3xl text-[#1A365D] leading-none">94%</p>
-              <p className="text-gray-500 text-xs mt-1.5">chiuse in stragiudiziale</p>
-            </div>
-            <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-              <p className="font-black text-3xl text-[#1A365D] leading-none">€ 48k</p>
-              <p className="text-gray-500 text-xs mt-1.5">risarcimento medio</p>
-            </div>
-            <div className="bg-white rounded-xl border border-gray-200 p-4 text-center shadow-sm">
-              <p className="font-black text-3xl text-[#1A365D] leading-none">6</p>
-              <p className="text-gray-500 text-xs mt-1.5">lingue di assistenza</p>
-            </div>
-          </div>
-
           <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
             <p className="text-[10px] font-black tracking-[0.2em] text-[#1A365D]/70 uppercase mb-4">Garanzie e Affiliazioni</p>
 
@@ -99,7 +80,6 @@ export default function AboutUsSection() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

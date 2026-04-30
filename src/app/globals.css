@@ -57,6 +57,24 @@ body {
   animation: reviewSwap 0.28s ease-out forwards;
 }
 
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-100%); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeft 0.48s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.48s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
 @keyframes testimonial-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
