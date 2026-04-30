@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutUsSection() {
   return (
     <section id="about-us" className="bg-[#F8F9FA] section-mobile px-4 sm:px-6 scroll-mt-52">
@@ -17,8 +19,14 @@ export default function AboutUsSection() {
 
           <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm mt-auto">
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-full bg-[#1E447B] text-white font-black text-xl flex items-center justify-center shrink-0">
-                RS
+              <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 shrink-0">
+                <Image
+                  src="/resp.png"
+                  alt="Responsabile pratiche"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <p className="font-black text-xl text-[#1A365D] leading-tight">Responsabile Pratiche</p>
