@@ -50,6 +50,39 @@ export default function LanguageSupport() {
     },
   }[locale];
 
+  const profileCopy = {
+    it: {
+      title: "Responsabile Pratiche",
+      role: "Consulente Senior in Risarcimento Danni",
+      body: "Oltre 15 anni di esperienza nella gestione di pratiche di infortunio, malasanità e sinistri stradali. Supervisiona personalmente ogni pratica aperta.",
+    },
+    en: {
+      title: "Case Manager",
+      role: "Senior Compensation Consultant",
+      body: "Over 15 years of experience handling injury, medical negligence, and road accident claims. Every case is personally supervised from start to finish.",
+    },
+    fr: {
+      title: "Responsable des Dossiers",
+      role: "Consultant Senior en Indemnisation",
+      body: "Plus de 15 ans d experience dans la gestion des dossiers d accident, d erreur medicale et d accidents routiers. Chaque dossier est suivi personnellement.",
+    },
+    ro: {
+      title: "Responsabil Dosare",
+      role: "Consultant Senior in Despagubiri",
+      body: "Peste 15 ani de experienta in gestionarea dosarelor de accidente de munca, malpraxis si accidente rutiere. Fiecare dosar este supravegheat personal.",
+    },
+    sq: {
+      title: "Pergjegjes i Ceshtjeve",
+      role: "Konsulent Senior per Demshperblime",
+      body: "Mbi 15 vite eksperience ne menaxhimin e ceshtjeve te aksidenteve ne pune, gabimeve mjekesore dhe aksidenteve rrugore. Cdo ceshtje ndiqet personalisht.",
+    },
+    ar: {
+      title: "مسؤول الملفات",
+      role: "مستشار اول في التعويضات",
+      body: "اكثر من 15 سنة خبرة في ادارة ملفات اصابات العمل والاخطاء الطبية وحوادث السير. كل ملف تتم متابعته شخصيا من البداية حتى النهاية.",
+    },
+  }[locale];
+
   return (
     <section id="language-support" className="bg-[#173A6A] section-mobile px-4 sm:px-6 scroll-mt-52">
       <div className="max-w-5xl mx-auto">
@@ -88,11 +121,10 @@ export default function LanguageSupport() {
                 />
               </div>
               <div>
-                <p className="font-black text-xl text-[#1A365D] leading-tight">Responsabile Pratiche</p>
-                <p className="font-bold text-[#FF6B00] mt-1 text-sm">Consulente Senior in Risarcimento Danni</p>
+                <p className="font-black text-xl text-[#1A365D] leading-tight">{profileCopy.title}</p>
+                <p className="font-bold text-[#FF6B00] mt-1 text-sm">{profileCopy.role}</p>
                 <p className="text-gray-600 leading-relaxed mt-2 text-sm">
-                  Oltre 15 anni di esperienza nella gestione di pratiche di infortunio, malasanità e sinistri
-                  stradali. Supervisiona personalmente ogni pratica aperta.
+                  {profileCopy.body}
                 </p>
               </div>
             </div>

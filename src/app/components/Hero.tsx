@@ -45,17 +45,56 @@ export default function Hero() {
   const t = translations[locale];
   const pills = t.hero.pills;
   const categoriesI18n = t.hero.categories;
+  const statsByLocale = {
+    it: [
+      { value: 200, suffix: "+", label: "Pratiche gestite con successo" },
+      { value: 80, suffix: "", label: "Infortuni sul lavoro" },
+      { value: 70, suffix: "", label: "Incidenti stradali" },
+      { value: 50, suffix: "", label: "Errori medici" },
+      { value: 24, suffix: "h", label: "Risposta garantita" },
+    ],
+    en: [
+      { value: 200, suffix: "+", label: "Cases successfully handled" },
+      { value: 80, suffix: "", label: "Work injury claims" },
+      { value: 70, suffix: "", label: "Road accident claims" },
+      { value: 50, suffix: "", label: "Medical error claims" },
+      { value: 24, suffix: "h", label: "Response guaranteed" },
+    ],
+    fr: [
+      { value: 200, suffix: "+", label: "Dossiers traites avec succes" },
+      { value: 80, suffix: "", label: "Accidents du travail" },
+      { value: 70, suffix: "", label: "Accidents de la route" },
+      { value: 50, suffix: "", label: "Erreurs medicales" },
+      { value: 24, suffix: "h", label: "Reponse garantie" },
+    ],
+    ro: [
+      { value: 200, suffix: "+", label: "Dosare gestionate cu succes" },
+      { value: 80, suffix: "", label: "Accidente de munca" },
+      { value: 70, suffix: "", label: "Accidente rutiere" },
+      { value: 50, suffix: "", label: "Erori medicale" },
+      { value: 24, suffix: "h", label: "Raspuns garantat" },
+    ],
+    sq: [
+      { value: 200, suffix: "+", label: "Ceshtje te menaxhuara me sukses" },
+      { value: 80, suffix: "", label: "Aksidente ne pune" },
+      { value: 70, suffix: "", label: "Aksidente rrugore" },
+      { value: 50, suffix: "", label: "Gabime mjekesore" },
+      { value: 24, suffix: "h", label: "Pergjigje e garantuar" },
+    ],
+    ar: [
+      { value: 200, suffix: "+", label: "ملفات اديرت بنجاح" },
+      { value: 80, suffix: "", label: "اصابات عمل" },
+      { value: 70, suffix: "", label: "حوادث سير" },
+      { value: 50, suffix: "", label: "اخطاء طبية" },
+      { value: 24, suffix: "h", label: "رد مضمون" },
+    ],
+  } as const;
   const stats = useMemo(
     () =>
       t.hero.stats ??
-      [
-        { value: 200, suffix: "+", label: "Pratiche gestite con successo" },
-        { value: 80, suffix: "", label: "Infortuni sul lavoro" },
-        { value: 70, suffix: "", label: "Incidenti stradali" },
-        { value: 50, suffix: "", label: "Errori medici" },
-        { value: 24, suffix: "h", label: "Risposta garantita" },
-      ],
-    [t.hero.stats]
+      statsByLocale[locale] ??
+      statsByLocale.it,
+    [t.hero.stats, locale]
   );
   const statsRef = useRef<HTMLDivElement | null>(null);
   const hasAnimatedRef = useRef(false);
