@@ -76,7 +76,8 @@ export default function Services() {
             {t.services.titleLine1 ? (
               <>
                 {t.services.titleLine1}
-                <br />
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
                 {t.services.titleLine2}
               </>
             ) : (

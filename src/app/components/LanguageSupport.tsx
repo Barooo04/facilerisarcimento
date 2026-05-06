@@ -1,71 +1,56 @@
 "use client";
 
+import Image from "next/image";
+import { useState } from "react";
 import { useLocale } from "../i18n/LocaleContext";
-
-const supportCards = [
-  {
-    flag: "🇮🇹",
-    lang: "ITALIANO",
-    title: "Non hai un avvocato di fiducia?",
-    body: "Ci rivolgiamo a chi non ha mai avuto un legale al proprio fianco, e a chi sulle pratiche perde ore preziose. Zero anticipi. Paghi solo se ottieni un risarcimento.",
-    cta: "Verifica il tuo caso - Gratis",
-    featured: true,
-  },
-  {
-    flag: "🇸🇦",
-    lang: "ARABO",
-    title: "لا يوجد لديك محام تثق به؟",
-    body: "نحن هنا لمساعدتك في فهم حقوقك القانونية ومتابعة قضيتك خطوة بخطوة، دون اي دفعة مقدمة.",
-    cta: "تحقق من حالتك - مجانا",
-  },
-  {
-    flag: "🇦🇱",
-    lang: "SHQIP - ALBANESE",
-    title: "Keni pesuar deme ne pune apo aksident?",
-    body: "Ne mund t'ju ndihmojme te kuptoni te drejtat tuaja dhe te ndiqni ceshtjen pa asnje kosto paraprake.",
-    cta: "Kontrolloni rastin tuaj - Falas",
-  },
-  {
-    flag: "🇷🇴",
-    lang: "ROMANA - RUMENO",
-    title: "Ai suferit un prejudiciu la locul de munca?",
-    body: "Nu esti singur. Verificam situatia ta si iti explicam clar ce poti obtine, fara costuri initiale.",
-    cta: "Verifica-ti cazul - Gratuit",
-  },
-  {
-    flag: "🇬🇧",
-    lang: "ENGLISH",
-    title: "Were you injured at work or in an accident?",
-    body: "No lawyer needed, no upfront cost. We handle everything in English. You only pay if you receive compensation.",
-    cta: "Check your case - Free",
-  },
-  {
-    flag: "🇫🇷",
-    lang: "FRANCAIS - FRANCESE",
-    title: "Vous avez ete blesse au travail ou dans un accident ?",
-    body: "Pas besoin d'avance, pas d'honoraires initiaux. Nous vous accompagnons en francais a chaque etape.",
-    cta: "Verifiez votre cas - Gratuit",
-  },
-];
 
 export default function LanguageSupport() {
   const { locale } = useLocale();
-  const localeToCardLang: Record<string, string> = {
-    it: "ITALIANO",
-    ar: "ARABO",
-    sq: "SHQIP - ALBANESE",
-    ro: "ROMANA - RUMENO",
-    en: "ENGLISH",
-    fr: "FRANCAIS - FRANCESE",
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [prevIdx, setPrevIdx] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const guaranteeCards = [
+    {
+      icon: "GDPR",
+      iconClass:
+        "w-8 h-8 rounded-lg bg-green-50 text-green-700 font-black text-[10px] flex items-center justify-center shrink-0",
+      title: "Conformità GDPR certificata",
+      body: "Trattamento dei dati personali conforme al Regolamento UE 2016/679",
+    },
+    {
+      icon: "⚖",
+      iconClass:
+        "w-8 h-8 rounded-lg bg-amber-50 text-amber-700 text-base flex items-center justify-center shrink-0",
+      title: "Consulenti legali specializzati",
+      body: "Rete di avvocati specializzati in responsabilità civile e diritto del lavoro",
+    },
+    {
+      icon: "🌍",
+      iconClass:
+        "w-8 h-8 rounded-lg bg-blue-50 text-blue-700 text-base flex items-center justify-center shrink-0",
+      title: "Assistenza multilingua attiva",
+      body: "Pratiche seguite in italiano, arabo, albanese, rumeno, francese e inglese",
+    },
+  ];
+
+  const changeSlide = (next: number) => {
+    if (isAnimating || next === activeIdx) return;
+    setPrevIdx(activeIdx);
+    setActiveIdx(next);
+    setIsAnimating(true);
+    window.setTimeout(() => {
+      setPrevIdx(null);
+      setIsAnimating(false);
+    }, 500);
   };
-  const activeCard = supportCards.find((card) => card.lang === localeToCardLang[locale]) ?? supportCards[0];
   const sectionCopy = {
     it: {
       eyebrow: "PARLIAMO LA TUA LINGUA",
-      line1: "Non hai un avvocato?",
-      line2: "Non capisci l'italiano legale?",
-      line3: "Nessun problema. Ci pensiamo noi.",
-      desc: "Il nostro servizio e pensato esattamente per chi si trova in una situazione difficile senza sapere a chi rivolgersi. Sei straniero? Hai paura di non capire? Hai avuto un'esperienza negativa con un avvocato? Siamo qui per questo.",
+      line1: "Assistenza legale",
+      line2: "nella tua lingua.",
+      line3: "Capisci tutto. Subito.",
+      desc: "Assistenza legale multilingua per risarcimento danni: parli con un consulente chiaro, nella tua lingua, fin dal primo contatto.",
     },
     en: {
       eyebrow: "WE SPEAK YOUR LANGUAGE",
@@ -129,46 +114,92 @@ export default function LanguageSupport() {
           </p>
         </div>
 
-        <div className="md:hidden section-after-desc-mobile">
-          <article
-            key={`${activeCard.lang}-${activeCard.title}`}
-            className={`rounded-2xl border p-5 bg-white/7 backdrop-blur-[1px] h-full flex flex-col ${
-              activeCard.featured ? "border-[#FF8A2A] shadow-[0_0_0_1px_rgba(255,138,42,0.35)]" : "border-white/10"
-            }`}
-          >
-            <p className="text-xl mb-2">{activeCard.flag}</p>
-            <p className="text-[10px] tracking-widest text-[#FFB066] font-bold mb-2">{activeCard.lang}</p>
-            <h3 className="text-white font-black text-lg leading-tight mb-2">{activeCard.title}</h3>
-            <p className="text-blue-100/85 text-sm leading-relaxed mb-4">{activeCard.body}</p>
-            <a
-              href="#contact-form"
-              className="inline-flex items-center text-xs font-bold text-[#FF9A45] bg-white/10 rounded-lg px-3 py-1.5 hover:bg-white/20 transition-colors mt-auto"
-            >
-              {activeCard.cta}
-            </a>
-          </article>
-        </div>
+        <div className="section-after-desc-mobile space-y-4">
+          <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+            <div className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 shrink-0">
+                <Image
+                  src="/resp.png"
+                  alt="Responsabile pratiche"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <p className="font-black text-xl text-[#1A365D] leading-tight">Responsabile Pratiche</p>
+                <p className="font-bold text-[#FF6B00] mt-1 text-sm">Consulente Senior in Risarcimento Danni</p>
+                <p className="text-gray-600 leading-relaxed mt-2 text-sm">
+                  Oltre 15 anni di esperienza nella gestione di pratiche di infortunio, malasanità e sinistri
+                  stradali. Supervisiona personalmente ogni pratica aperta.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-4 section-after-desc-mobile">
-          {supportCards.map((card) => (
-            <article
-              key={`${card.lang}-${card.title}`}
-              className={`rounded-2xl border p-5 bg-white/7 backdrop-blur-[1px] h-full flex flex-col ${
-                card.featured ? "border-[#FF8A2A] shadow-[0_0_0_1px_rgba(255,138,42,0.35)]" : "border-white/10"
-              }`}
-            >
-              <p className="text-xl mb-2">{card.flag}</p>
-              <p className="text-[10px] tracking-widest text-[#FFB066] font-bold mb-2">{card.lang}</p>
-              <h3 className="text-white font-black text-lg leading-tight mb-2">{card.title}</h3>
-              <p className="text-blue-100/85 text-sm leading-relaxed mb-4">{card.body}</p>
-              <a
-                href="#contact-form"
-                className="inline-flex items-center text-xs font-bold text-[#FF9A45] bg-white/10 rounded-lg px-3 py-1.5 hover:bg-white/20 transition-colors mt-auto"
-              >
-                {card.cta}
-              </a>
-            </article>
-          ))}
+          <div>
+            <p className="text-[10px] font-black tracking-[0.2em] text-white/75 uppercase mb-3 px-1">
+              Garanzie e Affiliazioni
+            </p>
+
+            <div className="hidden md:grid grid-cols-3 gap-3">
+              {guaranteeCards.map((card) => (
+                <div key={card.title} className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className={card.iconClass}>{card.icon}</div>
+                    <div>
+                      <p className="font-black text-[#1A365D] text-sm">{card.title}</p>
+                      <p className="text-gray-600 text-sm">{card.body}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="md:hidden">
+              <div className="relative overflow-hidden min-h-[106px]">
+                {prevIdx !== null && (
+                  <div className="absolute inset-0 animate-slide-out-left">
+                    <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+                      <div className="flex items-start gap-3">
+                        <div className={guaranteeCards[prevIdx].iconClass}>{guaranteeCards[prevIdx].icon}</div>
+                        <div>
+                          <p className="font-black text-[#1A365D] text-sm">{guaranteeCards[prevIdx].title}</p>
+                          <p className="text-gray-600 text-sm">{guaranteeCards[prevIdx].body}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className={isAnimating ? "animate-slide-in-right" : ""}>
+                  <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <div className={guaranteeCards[activeIdx].iconClass}>{guaranteeCards[activeIdx].icon}</div>
+                      <div>
+                        <p className="font-black text-[#1A365D] text-sm">{guaranteeCards[activeIdx].title}</p>
+                        <p className="text-gray-600 text-sm">{guaranteeCards[activeIdx].body}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-center gap-2 mt-2">
+                {guaranteeCards.map((_, i) => (
+                  <button
+                    key={`guarantee-dot-${i}`}
+                    type="button"
+                    onClick={() => changeSlide(i)}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === activeIdx ? "w-6 h-1.5 bg-[#FF8A2A]" : "w-3.5 h-1.5 bg-white/35"
+                    }`}
+                    aria-label={`Vai alla garanzia ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

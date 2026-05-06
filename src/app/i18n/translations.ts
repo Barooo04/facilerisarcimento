@@ -12,10 +12,10 @@ export const translations = {
     hero: {
       pills: ["Zero anticipi", "Paghi solo se vinci", "Nella tua lingua"],
       title: "Hai subito un danno?",
-      subtitleLine1: "Ottieni il risarcimento",
-      subtitleLine2: "che ti spetta davvero.",
+      subtitleLine1: "Ottieni subito il",
+      subtitleLine2: "risarcimento completo.",
       description:
-        "Non solo quello che ti offrono — quello a cui hai diritto per legge. Ti assistiamo senza rischi, senza anticipi, nella tua lingua.",
+        "Ottieni il risarcimento danni che ti spetta per legge, non l'offerta minima dell'assicurazione. Assistenza legale senza anticipi, nella tua lingua.",
       ctaPrimary: "Scopri quanto ti spetta - gratis",
       ctaSecondary: "Chiamaci ora",
       note: "Risposta entro 24 ore · Nessun obbligo · Valutazione completamente gratuita",
@@ -29,10 +29,10 @@ export const translations = {
     },
     features: {
       eyebrow: "PERCHE SCEGLIERE NOI",
-      titleLine1: "Un servizio costruito intorno a te.",
-      titleLine2: "Non alle nostre parcelle.",
+      titleLine1: "Risarcimento su misura",
+      titleLine2: "per il tuo caso.",
       title: "Perche scegliere noi",
-      desc: "Conosciamo le difficolta che seguono un danno. Per questo abbiamo costruito un modello senza costi iniziali, con supporto nella tua lingua e un principio semplice: guadagniamo solo se tu guadagni.",
+      desc: "Risarcimento danni senza costi iniziali: avvocati specializzati, supporto multilingua e pagamento solo a risultato.",
       items: [
         ["Zero Anticipi", "Gestiamo noi le spese mediche e legali durante tutta la pratica. Non ti chiediamo nulla in anticipo, in nessuna fase del processo."],
         ["Paghi Solo se Vinci", "Il nostro compenso e una percentuale concordata sul risarcimento ottenuto. Se non ottieni niente, non ci devi assolutamente nulla. Il rischio e nostro."],
@@ -43,10 +43,10 @@ export const translations = {
     },
     services: {
       eyebrow: "I NOSTRI SERVIZI",
-      titleLine1: "Quattro ambiti, un unico obiettivo:",
-      titleLine2: "il risarcimento che ti spetta davvero.",
+      titleLine1: "Quattro aree legali,",
+      titleLine2: "un solo obiettivo.",
       title: "I nostri servizi",
-      desc: "Identifica il tuo caso. I nostri professionisti ti diranno con chiarezza quanto puoi effettivamente ottenere.",
+      desc: "Infortuni, incidenti stradali, malasanità e sinistri mortali: valutiamo subito il tuo diritto al risarcimento.",
       cards: [
         {
           tag: "Infortuni sul Lavoro",
@@ -93,11 +93,11 @@ export const translations = {
     },
     how: {
       eyebrow: "COME FUNZIONA",
-      titleLine1: "Ottenere il risarcimento",
-      titleLine2: "richiede pochi passaggi.",
+      titleLine1: "Risarcimento danni in",
+      titleLine2: "3 passaggi chiari.",
       title: "Ottenere il risarcimento",
       accent: "richiede pochi passaggi.",
-      desc: "Solo 3 passaggi separano te dal tuo risarcimento. Il lavoro difficile lo facciamo noi.",
+      desc: "Tre passaggi chiari per ottenere il risarcimento: analisi legale, strategia e gestione completa della pratica.",
       steps: [
         {
           title: "Contatto iniziale",
@@ -122,7 +122,7 @@ export const translations = {
       urgency: "Attenzione: i termini di prescrizione scadono",
       title: "Non aspettare che sia",
       accent: "troppo tardi.",
-      desc: "La legge prevede scadenze precise e inderogabili per richiedere un risarcimento. Attendere puo compromettere definitivamente il tuo diritto. Compila il modulo ora. E completamente gratuito, senza impegni.",
+      desc: "I termini di prescrizione possono farti perdere il risarcimento danni. Richiedi ora una valutazione legale gratuita e senza impegno.",
       trust: [
         "Nessun anticipo richiesto",
         "Assistenza nella tua lingua",

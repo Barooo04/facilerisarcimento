@@ -129,9 +129,9 @@ const faqsByLocale: Record<Locale, Array<{ q: string; a: React.ReactNode }>> = {
 const headerByLocale: Record<Locale, { eyebrow: string; l1: string; l2: string; desc: string }> = {
   it: {
     eyebrow: "LE TUE DOMANDE",
-    l1: "Le domande che ci fanno sempre.",
-    l2: "Le risposte che meriti.",
-    desc: "Niente gergo legale, nessun giro di parole. Ecco tutto quello che devi sapere prima di decidere.",
+    l1: "Dubbi su risarcimento?",
+    l2: "Risposte chiare subito.",
+    desc: "FAQ su risarcimento danni, tempi, costi legali e assicurazione: risposte chiare prima di firmare o agire.",
   },
   en: {
     eyebrow: "YOUR QUESTIONS",
@@ -169,7 +169,7 @@ export default function FaqSection() {
   const { locale } = useLocale();
   const faqs = faqsByLocale[locale];
   const copy = headerByLocale[locale];
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <section id="faq" className="bg-[#F8F9FA] section-mobile px-4 sm:px-6 scroll-mt-52">
@@ -186,14 +186,14 @@ export default function FaqSection() {
           </p>
         </div>
 
-        <div className="space-y-3 section-after-desc-mobile">
+        <div className="rounded-2xl border border-gray-200 overflow-hidden section-after-desc-mobile">
           {faqs.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div key={item.q} className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+              <div key={item.q} className="bg-white border-b border-gray-200 last:border-b-0">
                 <button
                   type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   className="w-full text-left px-5 sm:px-6 py-5 flex items-start gap-4 cursor-pointer hover:bg-gray-50/70 transition-colors"
                 >
                   <span className="w-7 h-7 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] shrink-0 flex items-center justify-center font-black">

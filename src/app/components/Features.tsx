@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Shield, Handshake, Languages, CircleCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { Shield, Handshake, Languages, CircleCheck } from "lucide-react";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
 
@@ -65,7 +65,8 @@ export default function Features() {
             {t.features.titleLine1 ? (
               <>
                 {t.features.titleLine1}
-                <br />
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
                 {t.features.titleLine2}
               </>
             ) : (
@@ -128,26 +129,21 @@ export default function Features() {
                 );
               })()}
             </div>
+
           </div>
 
-          <div className="flex items-center justify-center gap-4 mt-4">
-            <button
-              type="button"
-              onClick={() => changeSlide((mobileSlide - 1 + features.length) % features.length)}
-              className="w-9 h-9 rounded-full border border-gray-300 text-[#1A365D] flex items-center justify-center cursor-pointer"
-              aria-label="Slide precedente"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <p className="text-xs text-gray-500 font-semibold">{mobileSlide + 1} / {features.length}</p>
-            <button
-              type="button"
-              onClick={() => changeSlide((mobileSlide + 1) % features.length)}
-              className="w-9 h-9 rounded-full border border-gray-300 text-[#1A365D] flex items-center justify-center cursor-pointer"
-              aria-label="Slide successiva"
-            >
-              <ChevronRight size={18} />
-            </button>
+          <div className="flex justify-center gap-2 mt-2">
+            {features.map((_, i) => (
+              <button
+                key={`feature-dot-${i}`}
+                type="button"
+                onClick={() => changeSlide(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === mobileSlide ? "w-6 h-1.5 bg-[#FF6B00]" : "w-3.5 h-1.5 bg-gray-300"
+                }`}
+                aria-label={`Vai alla slide ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -157,12 +153,7 @@ export default function Features() {
             href="#contact-form"
             className="btn-mobile-unified inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black shadow-md hover:shadow-xl transition-all duration-200 uppercase tracking-wide"
           >
-            <span>
-              {t.features.cta1}
-              <br className="sm:hidden" />
-              <span className="hidden sm:inline"> </span>
-              {t.features.cta2}
-            </span>
+            <span>{t.features.cta1} {t.features.cta2}</span>
             <CircleCheck size={20} strokeWidth={2} className="shrink-0" />
           </a>
         </div>

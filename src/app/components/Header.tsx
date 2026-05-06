@@ -24,12 +24,12 @@ export default function Header() {
   const { locale, setLocale } = useLocale();
   const t = translations[locale];
   const sectionLabels = {
-    it: ["Home", "Perche noi", "Servizi", "Lingue", "Come funziona", "Testimonianze", "Chi siamo", "FAQ", "Guide", "Contatti"],
-    en: ["Home", "Why us", "Services", "Languages", "How it works", "Testimonials", "About us", "FAQ", "Guides", "Contact"],
-    fr: ["Accueil", "Pourquoi nous", "Services", "Langues", "Comment ca marche", "Temoignages", "Qui sommes-nous", "FAQ", "Guides", "Contact"],
-    ro: ["Acasa", "De ce noi", "Servicii", "Limbi", "Cum functioneaza", "Testimoniale", "Despre noi", "FAQ", "Ghiduri", "Contact"],
-    sq: ["Kryefaqja", "Pse ne", "Sherbime", "Gjuhet", "Si funksionon", "Deshmi", "Rreth nesh", "FAQ", "Udhezues", "Kontakt"],
-    ar: ["الرئيسية", "لماذا نحن", "الخدمات", "اللغات", "كيف يعمل", "الشهادات", "من نحن", "الاسئلة", "الادلة", "اتصل"],
+    it: ["Home", "Perche noi", "Servizi", "Lingue", "Come funziona", "Testimonianze", "FAQ", "Guide", "Contatti"],
+    en: ["Home", "Why us", "Services", "Languages", "How it works", "Testimonials", "FAQ", "Guides", "Contact"],
+    fr: ["Accueil", "Pourquoi nous", "Services", "Langues", "Comment ca marche", "Temoignages", "FAQ", "Guides", "Contact"],
+    ro: ["Acasa", "De ce noi", "Servicii", "Limbi", "Cum functioneaza", "Testimoniale", "FAQ", "Ghiduri", "Contact"],
+    sq: ["Kryefaqja", "Pse ne", "Sherbime", "Gjuhet", "Si funksionon", "Deshmi", "FAQ", "Udhezues", "Kontakt"],
+    ar: ["الرئيسية", "لماذا نحن", "الخدمات", "اللغات", "كيف يعمل", "الشهادات", "الاسئلة", "الادلة", "اتصل"],
   }[locale];
   const sections = [
     { href: "#hero", label: sectionLabels[0] },
@@ -38,10 +38,9 @@ export default function Header() {
     { href: "#language-support", label: sectionLabels[3] },
     { href: "#how-it-works", label: sectionLabels[4] },
     { href: "#testimonials", label: sectionLabels[5] },
-    { href: "#about-us", label: sectionLabels[6] },
-    { href: "#faq", label: sectionLabels[7] },
-    { href: "#guide-gratuite", label: sectionLabels[8] },
-    { href: "#contact-form", label: sectionLabels[9] },
+    { href: "#faq", label: sectionLabels[6] },
+    { href: "#guide-gratuite", label: sectionLabels[7] },
+    { href: "#contact-form", label: sectionLabels[8] },
   ];
   const sectionIds = [
     "hero",
@@ -50,7 +49,6 @@ export default function Header() {
     "language-support",
     "how-it-works",
     "testimonials",
-    "about-us",
     "faq",
     "guide-gratuite",
     "contact-form",

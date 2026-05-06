@@ -116,27 +116,28 @@ export default function HowItWorks() {
 
         {/* MOBILE: carousel */}
         <div className="md:hidden section-after-desc-mobile">
-          {/* Slide */}
-          <div key={active} className="animate-fade-in">
-            <StepCard
-              {...steps[active]}
-              title={t.how.steps[active].title}
-              desc={t.how.steps[active].desc}
-              detail={t.how.steps[active].detail}
-              tick={tick}
-            />
+          <div className="relative">
+            {/* Slide */}
+            <div key={active} className="animate-fade-in">
+              <StepCard
+                {...steps[active]}
+                title={t.how.steps[active].title}
+                desc={t.how.steps[active].desc}
+                detail={t.how.steps[active].detail}
+                tick={tick}
+              />
+            </div>
+
           </div>
 
-          {/* Dot navigation */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-2 mt-2">
             {steps.map((_, i) => (
               <button
-                key={i}
+                key={`step-dot-${i}`}
+                type="button"
                 onClick={() => goTo(i)}
                 className={`rounded-full transition-all duration-300 ${
-                  i === active
-                    ? "w-8 h-3 bg-[#FF6B00]"
-                    : "w-3 h-3 bg-gray-200 hover:bg-gray-300"
+                  i === active ? "w-6 h-1.5 bg-[#FF6B00]" : "w-3.5 h-1.5 bg-gray-300"
                 }`}
                 aria-label={`Vai al passo ${i + 1}`}
               />
@@ -168,7 +169,6 @@ export default function HowItWorks() {
             <Rocket size={20} strokeWidth={2} />
             {t.how.cta}
           </a>
-          <p className="mt-3 text-sm text-gray-400">{t.how.note}</p>
         </div>
       </div>
     </section>

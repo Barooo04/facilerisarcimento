@@ -432,9 +432,9 @@ const guidesByLocale: Record<Locale, Guide[]> = {
 const sectionHeaderByLocale: Record<Locale, { eyebrow: string; title1: string; title2: string; desc: string }> = {
   it: {
     eyebrow: "Guide gratuite",
-    title1: "Conosci i tuoi diritti.",
-    title2: "Prima ancora di chiamarci.",
-    desc: "Guide scritte dai nostri consulenti per chi vuole capire la propria situazione. In italiano semplice, senza gergo legale. Clicca su una guida per leggerla.",
+    title1: "Conosci i tuoi diritti",
+    title2: "prima di firmare.",
+    desc: "Guide legali gratuite su infortuni, malasanità, incidenti stradali e calcolo risarcimento danni con esempi pratici.",
   },
   en: {
     eyebrow: "Free guides",

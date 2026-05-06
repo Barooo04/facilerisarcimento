@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLocale, type Locale } from "../i18n/LocaleContext";
 
 const reviewsByLocale: Record<Locale, Array<{
@@ -135,7 +134,7 @@ const headerByLocale: Record<Locale, { eyebrow: string; title: string; desc: str
   it: {
     eyebrow: "COSA DICONO I NOSTRI CLIENTI",
     title: "Persone reali. Risultati documentati.",
-    desc: "Non promettiamo miracoli — promettiamo impegno, professionalita e tutto quello che il tuo caso merita.",
+    desc: "Recensioni reali su risarcimento danni ottenuto: casi chiusi con metodo legale, trasparenza e risultati concreti.",
   },
   en: {
     eyebrow: "WHAT OUR CLIENTS SAY",
@@ -278,7 +277,7 @@ export default function Testimonials() {
       <div className="md:hidden max-w-md mx-auto section-after-desc-mobile">
         <div className="relative overflow-hidden min-h-[240px]">
           {previousReview && (
-            <article className="absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/8 p-4 text-white flex flex-col min-h-[240px] animate-slide-out-left">
+            <article className="absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/8 px-10 py-4 text-white flex flex-col min-h-[240px] animate-slide-out-left">
               <div className="flex-1">
                 <p className="text-[#FFB13B] text-base mb-2 tracking-wide">{previousReview.stars}</p>
                 <p className="text-blue-100/95 italic leading-relaxed text-sm">"{previousReview.quote}"</p>
@@ -314,28 +313,21 @@ export default function Testimonials() {
               </div>
             </div>
           </article>
+
         </div>
 
-        <div className="flex items-center justify-center gap-4 mt-4">
-          <button
-            type="button"
-            onClick={() => changeSlide((activeIdx - 1 + activeReviews.length) % activeReviews.length)}
-            className="w-9 h-9 rounded-full border border-white/20 text-white/90 flex items-center justify-center cursor-pointer"
-            aria-label="Recensione precedente"
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <p className="text-xs text-blue-200 font-semibold">
-            {activeIdx + 1} / {activeReviews.length}
-          </p>
-          <button
-            type="button"
-            onClick={() => changeSlide((activeIdx + 1) % activeReviews.length)}
-            className="w-9 h-9 rounded-full border border-white/20 text-white/90 flex items-center justify-center cursor-pointer"
-            aria-label="Recensione successiva"
-          >
-            <ChevronRight size={18} />
-          </button>
+        <div className="flex justify-center gap-2 mt-2">
+          {activeReviews.map((_, i) => (
+            <button
+              key={`review-dot-${i}`}
+              type="button"
+              onClick={() => changeSlide(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === activeIdx ? "w-6 h-1.5 bg-[#FFB13B]" : "w-3.5 h-1.5 bg-white/30"
+              }`}
+              aria-label={`Vai alla recensione ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

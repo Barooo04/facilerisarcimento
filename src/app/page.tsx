@@ -5,7 +5,6 @@ import Services from "./components/Services";
 import LanguageSupport from "./components/LanguageSupport";
 import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
-import AboutUsSection from "./components/AboutUsSection";
 import FaqSection from "./components/FaqSection";
 import GuidesSection from "./components/GuidesSection";
 import ContactForm from "./components/ContactForm";
@@ -44,11 +43,6 @@ export default function Home() {
         <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
         <Testimonials />
-
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-
-        <AboutUsSection />
 
         {/* Divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
