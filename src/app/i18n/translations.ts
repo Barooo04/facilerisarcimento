@@ -836,6 +836,56 @@ translations.ar.footer = {
 };
 translations.ar.fab = { aria: "اذهب الى نموذج التواصل" };
 
+(translations.en.features as any).eyebrow = "WHY CHOOSE US";
+(translations.en.features as any).titleLine1 = "Tailored compensation";
+(translations.en.features as any).titleLine2 = "for your case.";
+(translations.en.services as any).eyebrow = "OUR SERVICES";
+(translations.en.services as any).titleLine1 = "Four legal areas,";
+(translations.en.services as any).titleLine2 = "one clear goal.";
+(translations.en.how as any).eyebrow = "HOW IT WORKS";
+(translations.en.how as any).titleLine1 = "Compensation claims in";
+(translations.en.how as any).titleLine2 = "3 clear steps.";
+
+translations.fr.features.eyebrow = "POURQUOI NOUS CHOISIR";
+translations.fr.features.titleLine1 = "Indemnisation sur mesure";
+translations.fr.features.titleLine2 = "pour votre dossier.";
+translations.fr.services.eyebrow = "NOS SERVICES";
+translations.fr.services.titleLine1 = "Quatre domaines juridiques,";
+translations.fr.services.titleLine2 = "un seul objectif.";
+translations.fr.how.eyebrow = "COMMENT CA MARCHE";
+translations.fr.how.titleLine1 = "Indemnisation en";
+translations.fr.how.titleLine2 = "3 etapes claires.";
+
+translations.ro.features.eyebrow = "DE CE NOI";
+translations.ro.features.titleLine1 = "Despagubire personalizata";
+translations.ro.features.titleLine2 = "pentru cazul tau.";
+translations.ro.services.eyebrow = "SERVICIILE NOASTRE";
+translations.ro.services.titleLine1 = "Patru domenii legale,";
+translations.ro.services.titleLine2 = "un singur obiectiv.";
+translations.ro.how.eyebrow = "CUM FUNCTIONEAZA";
+translations.ro.how.titleLine1 = "Despagubire in";
+translations.ro.how.titleLine2 = "3 pasi clari.";
+
+translations.sq.features.eyebrow = "PSE TE NA ZGJIDHNI";
+translations.sq.features.titleLine1 = "Demshperblim i personalizuar";
+translations.sq.features.titleLine2 = "per rastin tend.";
+translations.sq.services.eyebrow = "SHERBIMET TONA";
+translations.sq.services.titleLine1 = "Kater fusha ligjore,";
+translations.sq.services.titleLine2 = "nje objektiv i vetem.";
+translations.sq.how.eyebrow = "SI FUNKSIONON";
+translations.sq.how.titleLine1 = "Demshperblim ne";
+translations.sq.how.titleLine2 = "3 hapa te qarte.";
+
+translations.ar.features.eyebrow = "لماذا تختارنا";
+translations.ar.features.titleLine1 = "تعويض مخصص";
+translations.ar.features.titleLine2 = "لحالتك.";
+translations.ar.services.eyebrow = "خدماتنا";
+translations.ar.services.titleLine1 = "اربعة مجالات قانونية،";
+translations.ar.services.titleLine2 = "هدف واحد.";
+translations.ar.how.eyebrow = "كيف يعمل";
+translations.ar.how.titleLine1 = "التعويض خلال";
+translations.ar.how.titleLine2 = "3 خطوات واضحة.";
+
 translations.fr.hero.categories.push(["Sinistre mortel", "Indemnisation pour les familles"]);
 translations.ro.hero.categories.push(["Accident mortal", "Despagubire pentru familii"]);
 translations.sq.hero.categories.push(["Aksident vdekjeprures", "Demshperblim per familjet"]);

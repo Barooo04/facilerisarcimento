@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
 import { HardHat, Stethoscope, Car, HeartCrack, ChevronRight, CircleCheck, Phone } from "lucide-react";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
@@ -102,28 +101,13 @@ export default function Hero() {
     <section id="hero" className="overflow-hidden scroll-mt-52">
 
       {/* ── HERO BACKGROUND ── */}
-      <div className="relative min-h-[90svh] lg:min-h-screen flex items-start lg:items-center">
-
-        {/* Mobile background */}
-        <div className="absolute inset-0 z-0 lg:hidden">
-          <Image
-            src="/heromobile.png"
-            alt=""
-            fill
-            priority
-            className="object-cover object-top"
-          />
-        </div>
-
-        {/* Desktop background */}
-        <div className="absolute inset-0 z-0 hidden lg:block">
-          <Image
-            src="/hero.png"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-          />
+      <div className="relative min-h-[90svh] lg:min-h-screen flex items-start lg:items-center bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-20 -left-16 w-[320px] h-[320px] rounded-full bg-[#1A365D]/12 blur-3xl" />
+          <div className="absolute top-[28%] -right-20 w-[300px] h-[300px] rounded-full bg-[#FF6B00]/14 blur-3xl" />
+          <div className="absolute -bottom-24 left-[22%] w-[360px] h-[360px] rounded-full bg-[#1A365D]/10 blur-3xl" />
+          <div className="absolute bottom-12 right-[8%] w-[220px] h-[220px] rounded-full bg-[#FF6B00]/10 blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(26,54,93,0.10),transparent_40%),radial-gradient(circle_at_80%_35%,rgba(255,107,0,0.10),transparent_40%)]" />
         </div>
 
         {/* Content: centered on mobile, left-aligned on desktop */}

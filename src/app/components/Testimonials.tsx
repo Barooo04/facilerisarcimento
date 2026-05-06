@@ -216,6 +216,7 @@ export default function Testimonials() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [prevIdx, setPrevIdx] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [dragStartX, setDragStartX] = useState<number | null>(null);
   const copy = headerByLocale[locale];
   const activeReviews = reviewsByLocale[locale] ?? reviews;
@@ -223,8 +224,9 @@ export default function Testimonials() {
   const mobileReview = activeReviews[activeIdx] ?? activeReviews[0];
   const previousReview = prevIdx !== null ? activeReviews[prevIdx] : null;
 
-  const changeSlide = (next: number) => {
+  const changeSlide = (next: number, dir: "next" | "prev") => {
     if (isAnimating || next === activeIdx) return;
+    setDirection(dir);
     setPrevIdx(activeIdx);
     setActiveIdx(next);
     setIsAnimating(true);
@@ -240,8 +242,8 @@ export default function Testimonials() {
       setDragStartX(null);
       return;
     }
-    if (delta < 0) changeSlide((activeIdx + 1) % activeReviews.length);
-    else changeSlide((activeIdx - 1 + activeReviews.length) % activeReviews.length);
+    if (delta < 0) changeSlide((activeIdx + 1) % activeReviews.length, "next");
+    else changeSlide((activeIdx - 1 + activeReviews.length) % activeReviews.length, "prev");
     setDragStartX(null);
   };
 
@@ -296,7 +298,7 @@ export default function Testimonials() {
           onMouseLeave={() => setDragStartX(null)}
         >
           {previousReview && (
-            <article className="absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/8 px-10 py-4 text-white flex flex-col min-h-[240px] animate-slide-out-left">
+            <article className={`absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/8 px-10 py-4 text-white flex flex-col min-h-[240px] ${direction === "next" ? "animate-slide-out-left" : "animate-slide-out-right"}`}>
               <div className="flex-1">
                 <p className="text-[#FFB13B] text-base mb-2 tracking-wide">{previousReview.stars}</p>
                 <p className="text-blue-100/95 italic leading-relaxed text-sm">"{previousReview.quote}"</p>
@@ -315,7 +317,7 @@ export default function Testimonials() {
             </article>
           )}
 
-          <article className={`w-full rounded-2xl border border-white/10 bg-white/8 p-4 text-white flex flex-col min-h-[240px] ${isAnimating ? "animate-slide-in-right" : ""}`}>
+          <article className={`w-full rounded-2xl border border-white/10 bg-white/8 p-4 text-white flex flex-col min-h-[240px] ${isAnimating ? (direction === "next" ? "animate-slide-in-right" : "animate-slide-in-left") : ""}`}>
             <div className="flex-1">
               <p className="text-[#FFB13B] text-base mb-2 tracking-wide">{mobileReview.stars}</p>
               <p className="text-blue-100/95 italic leading-relaxed text-sm">"{mobileReview.quote}"</p>
@@ -340,7 +342,7 @@ export default function Testimonials() {
             <button
               key={`review-dot-${i}`}
               type="button"
-              onClick={() => changeSlide(i)}
+              onClick={() => changeSlide(i, i > activeIdx ? "next" : "prev")}
               className={`rounded-full transition-all duration-300 ${
                 i === activeIdx ? "w-6 h-1.5 bg-[#FFB13B]" : "w-3.5 h-1.5 bg-white/30"
               }`}

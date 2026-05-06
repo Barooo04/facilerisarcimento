@@ -73,22 +73,32 @@ function StepCard({ number, icon: Icon, title, desc, detail, tick }: typeof step
 
 export default function HowItWorks() {
   const [active, setActive] = useState(0);
+  const [prevActive, setPrevActive] = useState<number | null>(null);
   const [tick, setTick] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [dragStartX, setDragStartX] = useState<number | null>(null);
   const { locale } = useLocale();
   const t = translations[locale];
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setActive((prev) => (prev + 1) % steps.length);
-      setTick((t) => t + 1);
+      goTo((active + 1) % steps.length, "next");
     }, DURATION);
     return () => clearTimeout(timer);
   }, [active]);
 
-  const goTo = (i: number) => {
+  const goTo = (i: number, dir: "next" | "prev" = "next") => {
+    if (isAnimating || i === active) return;
+    setDirection(dir);
+    setPrevActive(active);
     setActive(i);
+    setIsAnimating(true);
     setTick((t) => t + 1);
+    window.setTimeout(() => {
+      setPrevActive(null);
+      setIsAnimating(false);
+    }, 500);
   };
   const onSwipeEnd = (endX: number) => {
     if (dragStartX === null) return;
@@ -97,8 +107,8 @@ export default function HowItWorks() {
       setDragStartX(null);
       return;
     }
-    if (delta < 0) goTo((active + 1) % steps.length);
-    else goTo((active - 1 + steps.length) % steps.length);
+    if (delta < 0) goTo((active + 1) % steps.length, "next");
+    else goTo((active - 1 + steps.length) % steps.length, "prev");
     setDragStartX(null);
   };
 
@@ -139,15 +149,26 @@ export default function HowItWorks() {
             onMouseUp={(e) => onSwipeEnd(e.clientX)}
             onMouseLeave={() => setDragStartX(null)}
           >
-            {/* Slide */}
-            <div key={active} className="animate-fade-in">
-              <StepCard
-                {...steps[active]}
-                title={t.how.steps[active].title}
-                desc={t.how.steps[active].desc}
-                detail={t.how.steps[active].detail}
-                tick={tick}
-              />
+            <div className="relative overflow-hidden min-h-[340px]">
+              {prevActive !== null && (
+                <div className={`absolute inset-0 ${direction === "next" ? "animate-slide-out-left" : "animate-slide-out-right"}`}>
+                  <StepCard
+                    {...steps[prevActive]}
+                    title={t.how.steps[prevActive].title}
+                    desc={t.how.steps[prevActive].desc}
+                    detail={t.how.steps[prevActive].detail}
+                  />
+                </div>
+              )}
+              <div className={isAnimating ? (direction === "next" ? "animate-slide-in-right" : "animate-slide-in-left") : ""}>
+                <StepCard
+                  {...steps[active]}
+                  title={t.how.steps[active].title}
+                  desc={t.how.steps[active].desc}
+                  detail={t.how.steps[active].detail}
+                  tick={tick}
+                />
+              </div>
             </div>
 
           </div>
@@ -157,7 +178,7 @@ export default function HowItWorks() {
               <button
                 key={`step-dot-${i}`}
                 type="button"
-                onClick={() => goTo(i)}
+                onClick={() => goTo(i, i > active ? "next" : "prev")}
                 className={`rounded-full transition-all duration-300 ${
                   i === active ? "w-6 h-1.5 bg-[#FF6B00]" : "w-3.5 h-1.5 bg-gray-300"
                 }`}

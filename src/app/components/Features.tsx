@@ -41,10 +41,12 @@ export default function Features() {
   const [mobileSlide, setMobileSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [dragStartX, setDragStartX] = useState<number | null>(null);
 
-  const changeSlide = (next: number) => {
+  const changeSlide = (next: number, dir: "next" | "prev") => {
     if (isAnimating || next === mobileSlide) return;
+    setDirection(dir);
     setPrevSlide(mobileSlide);
     setMobileSlide(next);
     setIsAnimating(true);
@@ -60,8 +62,8 @@ export default function Features() {
       setDragStartX(null);
       return;
     }
-    if (delta < 0) changeSlide((mobileSlide + 1) % features.length);
-    else changeSlide((mobileSlide - 1 + features.length) % features.length);
+    if (delta < 0) changeSlide((mobileSlide + 1) % features.length, "next");
+    else changeSlide((mobileSlide - 1 + features.length) % features.length, "prev");
     setDragStartX(null);
   };
 
@@ -118,7 +120,7 @@ export default function Features() {
             onMouseLeave={() => setDragStartX(null)}
           >
             {prevSlide !== null && (
-              <div className="absolute inset-0 animate-slide-out-left">
+              <div className={`absolute inset-0 ${direction === "next" ? "animate-slide-out-left" : "animate-slide-out-right"}`}>
                 {(() => {
                   const { icon: PrevIcon, color: prevColor, border: prevBorder, iconBorder: prevIconBorder } = features[prevSlide];
                   return (
@@ -134,7 +136,7 @@ export default function Features() {
               </div>
             )}
 
-            <div className={isAnimating ? "animate-slide-in-right" : ""}>
+            <div className={isAnimating ? (direction === "next" ? "animate-slide-in-right" : "animate-slide-in-left") : ""}>
               {(() => {
                 const { icon: Icon, color, border, iconBorder } = features[mobileSlide];
                 return (
@@ -156,7 +158,7 @@ export default function Features() {
               <button
                 key={`feature-dot-${i}`}
                 type="button"
-                onClick={() => changeSlide(i)}
+                onClick={() => changeSlide(i, i > mobileSlide ? "next" : "prev")}
                 className={`rounded-full transition-all duration-300 ${
                   i === mobileSlide ? "w-6 h-1.5 bg-[#FF6B00]" : "w-3.5 h-1.5 bg-gray-300"
                 }`}
