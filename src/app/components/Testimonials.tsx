@@ -216,6 +216,7 @@ export default function Testimonials() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [prevIdx, setPrevIdx] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [dragStartX, setDragStartX] = useState<number | null>(null);
   const copy = headerByLocale[locale];
   const activeReviews = reviewsByLocale[locale] ?? reviews;
   const looped = [...activeReviews, ...activeReviews];
@@ -231,6 +232,17 @@ export default function Testimonials() {
       setPrevIdx(null);
       setIsAnimating(false);
     }, 500);
+  };
+  const onSwipeEnd = (endX: number) => {
+    if (dragStartX === null) return;
+    const delta = endX - dragStartX;
+    if (Math.abs(delta) < 35) {
+      setDragStartX(null);
+      return;
+    }
+    if (delta < 0) changeSlide((activeIdx + 1) % activeReviews.length);
+    else changeSlide((activeIdx - 1 + activeReviews.length) % activeReviews.length);
+    setDragStartX(null);
   };
 
   return (
@@ -275,7 +287,14 @@ export default function Testimonials() {
       </div>
 
       <div className="md:hidden max-w-md mx-auto section-after-desc-mobile">
-        <div className="relative overflow-hidden min-h-[240px]">
+        <div
+          className="relative overflow-hidden min-h-[240px]"
+          onTouchStart={(e) => setDragStartX(e.touches[0]?.clientX ?? null)}
+          onTouchEnd={(e) => onSwipeEnd(e.changedTouches[0]?.clientX ?? 0)}
+          onMouseDown={(e) => setDragStartX(e.clientX)}
+          onMouseUp={(e) => onSwipeEnd(e.clientX)}
+          onMouseLeave={() => setDragStartX(null)}
+        >
           {previousReview && (
             <article className="absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/8 px-10 py-4 text-white flex flex-col min-h-[240px] animate-slide-out-left">
               <div className="flex-1">

@@ -1,49 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { useLocale } from "../i18n/LocaleContext";
 
 export default function LanguageSupport() {
   const { locale } = useLocale();
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [prevIdx, setPrevIdx] = useState<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const guaranteeCards = [
-    {
-      icon: "GDPR",
-      iconClass:
-        "w-8 h-8 rounded-lg bg-green-50 text-green-700 font-black text-[10px] flex items-center justify-center shrink-0",
-      title: "Conformità GDPR certificata",
-      body: "Trattamento dei dati personali conforme al Regolamento UE 2016/679",
-    },
-    {
-      icon: "⚖",
-      iconClass:
-        "w-8 h-8 rounded-lg bg-amber-50 text-amber-700 text-base flex items-center justify-center shrink-0",
-      title: "Consulenti legali specializzati",
-      body: "Rete di avvocati specializzati in responsabilità civile e diritto del lavoro",
-    },
-    {
-      icon: "🌍",
-      iconClass:
-        "w-8 h-8 rounded-lg bg-blue-50 text-blue-700 text-base flex items-center justify-center shrink-0",
-      title: "Assistenza multilingua attiva",
-      body: "Pratiche seguite in italiano, arabo, albanese, rumeno, francese e inglese",
-    },
-  ];
-
-  const changeSlide = (next: number) => {
-    if (isAnimating || next === activeIdx) return;
-    setPrevIdx(activeIdx);
-    setActiveIdx(next);
-    setIsAnimating(true);
-    window.setTimeout(() => {
-      setPrevIdx(null);
-      setIsAnimating(false);
-    }, 500);
-  };
   const sectionCopy = {
     it: {
       eyebrow: "PARLIAMO LA TUA LINGUA",
@@ -133,70 +94,6 @@ export default function LanguageSupport() {
                   Oltre 15 anni di esperienza nella gestione di pratiche di infortunio, malasanità e sinistri
                   stradali. Supervisiona personalmente ogni pratica aperta.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[10px] font-black tracking-[0.2em] text-white/75 uppercase mb-3 px-1">
-              Garanzie e Affiliazioni
-            </p>
-
-            <div className="hidden md:grid grid-cols-3 gap-3">
-              {guaranteeCards.map((card) => (
-                <div key={card.title} className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <div className={card.iconClass}>{card.icon}</div>
-                    <div>
-                      <p className="font-black text-[#1A365D] text-sm">{card.title}</p>
-                      <p className="text-gray-600 text-sm">{card.body}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="md:hidden">
-              <div className="relative overflow-hidden min-h-[106px]">
-                {prevIdx !== null && (
-                  <div className="absolute inset-0 animate-slide-out-left">
-                    <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                      <div className="flex items-start gap-3">
-                        <div className={guaranteeCards[prevIdx].iconClass}>{guaranteeCards[prevIdx].icon}</div>
-                        <div>
-                          <p className="font-black text-[#1A365D] text-sm">{guaranteeCards[prevIdx].title}</p>
-                          <p className="text-gray-600 text-sm">{guaranteeCards[prevIdx].body}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div className={isAnimating ? "animate-slide-in-right" : ""}>
-                  <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <div className={guaranteeCards[activeIdx].iconClass}>{guaranteeCards[activeIdx].icon}</div>
-                      <div>
-                        <p className="font-black text-[#1A365D] text-sm">{guaranteeCards[activeIdx].title}</p>
-                        <p className="text-gray-600 text-sm">{guaranteeCards[activeIdx].body}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-center gap-2 mt-2">
-                {guaranteeCards.map((_, i) => (
-                  <button
-                    key={`guarantee-dot-${i}`}
-                    type="button"
-                    onClick={() => changeSlide(i)}
-                    className={`rounded-full transition-all duration-300 ${
-                      i === activeIdx ? "w-6 h-1.5 bg-[#FF8A2A]" : "w-3.5 h-1.5 bg-white/35"
-                    }`}
-                    aria-label={`Vai alla garanzia ${i + 1}`}
-                  />
-                ))}
               </div>
             </div>
           </div>

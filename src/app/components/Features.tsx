@@ -41,6 +41,7 @@ export default function Features() {
   const [mobileSlide, setMobileSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [dragStartX, setDragStartX] = useState<number | null>(null);
 
   const changeSlide = (next: number) => {
     if (isAnimating || next === mobileSlide) return;
@@ -51,6 +52,17 @@ export default function Features() {
       setPrevSlide(null);
       setIsAnimating(false);
     }, 500);
+  };
+  const onSwipeEnd = (endX: number) => {
+    if (dragStartX === null) return;
+    const delta = endX - dragStartX;
+    if (Math.abs(delta) < 35) {
+      setDragStartX(null);
+      return;
+    }
+    if (delta < 0) changeSlide((mobileSlide + 1) % features.length);
+    else changeSlide((mobileSlide - 1 + features.length) % features.length);
+    setDragStartX(null);
   };
 
   return (
@@ -97,7 +109,14 @@ export default function Features() {
         </div>
 
         <div className="sm:hidden section-after-desc-mobile mb-8">
-          <div className="relative overflow-hidden min-h-[186px]">
+          <div
+            className="relative overflow-hidden min-h-[186px]"
+            onTouchStart={(e) => setDragStartX(e.touches[0]?.clientX ?? null)}
+            onTouchEnd={(e) => onSwipeEnd(e.changedTouches[0]?.clientX ?? 0)}
+            onMouseDown={(e) => setDragStartX(e.clientX)}
+            onMouseUp={(e) => onSwipeEnd(e.clientX)}
+            onMouseLeave={() => setDragStartX(null)}
+          >
             {prevSlide !== null && (
               <div className="absolute inset-0 animate-slide-out-left">
                 {(() => {

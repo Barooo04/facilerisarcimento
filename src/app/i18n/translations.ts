@@ -16,7 +16,7 @@ export const translations = {
       subtitleLine2: "risarcimento completo.",
       description:
         "Ottieni il risarcimento danni che ti spetta per legge, non l'offerta minima dell'assicurazione. Assistenza legale senza anticipi, nella tua lingua.",
-      ctaPrimary: "Scopri quanto ti spetta - gratis",
+      ctaPrimary: "Scopri quanto ti spetta",
       ctaSecondary: "Chiamaci ora",
       note: "Risposta entro 24 ore · Nessun obbligo · Valutazione completamente gratuita",
       catTitle: "Cosa ti e successo?",

@@ -90,7 +90,7 @@ export default function Services() {
         </div>
 
         {/* Zig-zag rows */}
-        <div className="flex flex-col gap-6 section-after-desc-mobile">
+        <div className="flex flex-col gap-6 section-after-desc-mobile md:max-w-[820px] md:mx-auto">
           {services.map(({ image, tag_bg }, i) => (
             <div
               key={t.services.cards[i].title}
@@ -114,7 +114,6 @@ export default function Services() {
                 <h3 className="text-xl sm:text-3xl font-black text-[#1A365D] mb-3 leading-tight">
                   {t.services.cards[i].title}
                 </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">{t.services.cards[i].body}</p>
                 <ul className="space-y-1.5 mb-4">
                   {t.services.cards[i].bullets.map((b: string) => (
                     <li key={b} className="flex items-start gap-2 text-gray-600 text-xs sm:text-sm">

@@ -74,6 +74,7 @@ function StepCard({ number, icon: Icon, title, desc, detail, tick }: typeof step
 export default function HowItWorks() {
   const [active, setActive] = useState(0);
   const [tick, setTick] = useState(0);
+  const [dragStartX, setDragStartX] = useState<number | null>(null);
   const { locale } = useLocale();
   const t = translations[locale];
 
@@ -89,6 +90,17 @@ export default function HowItWorks() {
     setActive(i);
     setTick((t) => t + 1);
   };
+  const onSwipeEnd = (endX: number) => {
+    if (dragStartX === null) return;
+    const delta = endX - dragStartX;
+    if (Math.abs(delta) < 35) {
+      setDragStartX(null);
+      return;
+    }
+    if (delta < 0) goTo((active + 1) % steps.length);
+    else goTo((active - 1 + steps.length) % steps.length);
+    setDragStartX(null);
+  };
 
   return (
     <section id="how-it-works" className="bg-white section-mobile px-4 sm:px-6 scroll-mt-52">
@@ -101,7 +113,10 @@ export default function HowItWorks() {
           <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-[#1A365D]">
             {t.how.titleLine1 ? (
               <>
-                {t.how.titleLine1} <span className="text-[#FF6B00]">{t.how.titleLine2}</span>
+                {t.how.titleLine1}
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                <span className="text-[#FF6B00]">{t.how.titleLine2}</span>
               </>
             ) : (
               <>
@@ -116,7 +131,14 @@ export default function HowItWorks() {
 
         {/* MOBILE: carousel */}
         <div className="md:hidden section-after-desc-mobile">
-          <div className="relative">
+          <div
+            className="relative"
+            onTouchStart={(e) => setDragStartX(e.touches[0]?.clientX ?? null)}
+            onTouchEnd={(e) => onSwipeEnd(e.changedTouches[0]?.clientX ?? 0)}
+            onMouseDown={(e) => setDragStartX(e.clientX)}
+            onMouseUp={(e) => onSwipeEnd(e.clientX)}
+            onMouseLeave={() => setDragStartX(null)}
+          >
             {/* Slide */}
             <div key={active} className="animate-fade-in">
               <StepCard

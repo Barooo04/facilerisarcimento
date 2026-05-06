@@ -127,7 +127,7 @@ export default function Hero() {
         </div>
 
         {/* Content: centered on mobile, left-aligned on desktop */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[190px] lg:pt-[190px] pb-8">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-[154px] sm:pt-[172px] lg:pt-[190px] pb-8">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-7">
 
             {/* Pills — single row, compact on mobile */}
@@ -167,28 +167,22 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <a
                 href="#contact-form"
-                className="btn-mobile-unified inline-flex items-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200 uppercase"
+                className="btn-mobile-unified w-[270px] sm:w-[300px] inline-flex items-center justify-center gap-2.5 bg-[#FF6B00] hover:bg-[#e55f00] active:scale-95 text-white font-black shadow-lg shadow-orange-200 hover:shadow-xl transition-all duration-200 uppercase"
               >
                 <CircleCheck size={18} strokeWidth={2.5} />
                 {t.hero.ctaPrimary ?? t.hero.cta}
               </a>
               <a
                 href="#contact-form"
-                className="btn-mobile-unified inline-flex items-center gap-2.5 bg-white/90 hover:bg-white active:scale-95 text-[#1A365D] border border-[#1A365D]/20 font-black shadow-sm hover:shadow-md transition-all duration-200 uppercase"
+                className="btn-mobile-unified w-[270px] sm:w-[300px] inline-flex items-center justify-center gap-2.5 bg-white/90 hover:bg-white active:scale-95 text-[#1A365D] border border-[#1A365D]/20 font-black shadow-sm hover:shadow-md transition-all duration-200 uppercase"
               >
                 <Phone size={18} strokeWidth={2.5} />
                 {t.hero.ctaSecondary ?? t.header.call}
               </a>
             </div>
 
-            <p className="hidden sm:block text-xs text-[#1A365D]/80 font-semibold pt-1">{t.hero.note ?? ""}</p>
-
           </div>
         </div>
-
-        <p className="sm:hidden absolute bottom-3 left-1/2 -translate-x-1/2 w-[92%] text-center text-[11px] font-semibold text-white/90 leading-tight">
-          {t.hero.note ?? ""}
-        </p>
       </div>
 
       {/* ── CATEGORY CARDS ── */}
