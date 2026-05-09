@@ -31,7 +31,7 @@ const faqsByLocale: Record<Locale, Array<{ q: string; a: React.ReactNode }>> = {
     a: (
       <>
         <strong>Quasi mai.</strong> Le compagnie offrono sistematicamente <strong>importi inferiori</strong> a quelli
-        dovuti. Verifica con noi <strong>prima di accettare qualsiasi proposta</strong> - spesso c'e un margine{" "}
+        dovuti. Verifica con noi <strong>prima di accettare qualsiasi proposta</strong> - spesso c&apos;e un margine{" "}
         <strong>molto significativo da recuperare</strong>.
       </>
     ),
@@ -179,7 +179,7 @@ export default function FaqSection() {
           <h2 className="font-cal section-title-mobile sm:text-4xl md:text-5xl text-[#1A365D]">
             {copy.l1}
             <br />
-            {copy.l2}
+            <span className="text-[#FF6B00]">{copy.l2}</span>
           </h2>
           <p className="section-desc-mobile text-gray-500 max-w-3xl mx-auto">
             {copy.desc}

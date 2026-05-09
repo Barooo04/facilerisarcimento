@@ -52,9 +52,9 @@ export default function LanguageSupport() {
 
   const profileCopy = {
     it: {
-      title: "Responsabile Pratiche",
-      role: "Consulente Senior in Risarcimento Danni",
-      body: "Oltre 15 anni di esperienza nella gestione di pratiche di infortunio, malasanità e sinistri stradali. Supervisiona personalmente ogni pratica aperta.",
+      title: "Marco Bianchi",
+      role: "Responsabile pratiche risarcitorie",
+      body: "Da piu di 15 anni segue casi di infortunio sul lavoro, errori medici e incidenti stradali. E il referente che controlla la pratica dall'apertura fino alla chiusura.",
     },
     en: {
       title: "Case Manager",
@@ -82,6 +82,8 @@ export default function LanguageSupport() {
       body: "اكثر من 15 سنة خبرة في ادارة ملفات اصابات العمل والاخطاء الطبية وحوادث السير. كل ملف تتم متابعته شخصيا من البداية حتى النهاية.",
     },
   }[locale];
+  const [firstName, ...surnameParts] = profileCopy.title.split(" ");
+  const surname = surnameParts.join(" ");
 
   return (
     <section id="language-support" className="bg-[#173A6A] section-mobile px-4 sm:px-6 scroll-mt-52">
@@ -108,25 +110,32 @@ export default function LanguageSupport() {
           </p>
         </div>
 
-        <div className="section-after-desc-mobile space-y-4">
-          <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-gray-200 shrink-0">
-                <Image
-                  src="/resp.png"
-                  alt="Responsabile pratiche"
-                  width={56}
-                  height={56}
-                  className="w-full h-full object-cover"
-                />
+        <div className="section-after-desc-mobile">
+          <div className="relative overflow-hidden rounded-3xl border border-[#b5c7e3] bg-gradient-to-br from-white via-[#f8fbff] to-[#eef4ff] p-5 sm:p-7 shadow-[0_20px_60px_-30px_rgba(3,20,50,0.45)]">
+            <div className="pointer-events-none absolute -top-14 -right-16 h-44 w-44 rounded-full bg-[#1A365D]/10 blur-2xl" />
+            <div className="pointer-events-none absolute -bottom-20 -left-10 h-44 w-44 rounded-full bg-[#FF6B00]/15 blur-2xl" />
+
+            <div className="relative">
+              <div className="flex items-center gap-4 sm:gap-5">
+                <div className="w-[88px] h-[88px] rounded-full overflow-hidden border-2 border-white shadow-md shrink-0">
+                  <Image
+                    src="/resp.png"
+                    alt="Responsabile pratiche"
+                    width={88}
+                    height={88}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-black text-[1.8rem] sm:text-[2.3rem] text-[#1A365D] leading-[0.92]">{firstName}</p>
+                  <p className="font-black text-[1.8rem] sm:text-[2.3rem] text-[#1A365D] leading-[0.92]">{surname || profileCopy.title}</p>
+                </div>
               </div>
-              <div>
-                <p className="font-black text-xl text-[#1A365D] leading-tight">{profileCopy.title}</p>
-                <p className="font-bold text-[#FF6B00] mt-1 text-sm">{profileCopy.role}</p>
-                <p className="text-gray-600 leading-relaxed mt-2 text-sm">
-                  {profileCopy.body}
-                </p>
-              </div>
+
+              <p className="font-bold text-[#FF6B00] mt-4 text-lg sm:text-xl leading-tight">{profileCopy.role}</p>
+              <p className="text-[#475569] leading-relaxed mt-5 text-[1.05rem] sm:text-[1.15rem]">
+                {profileCopy.body}
+              </p>
             </div>
           </div>
         </div>

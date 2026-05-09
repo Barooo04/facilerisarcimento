@@ -130,7 +130,7 @@ export const translations = {
         "Risposta garantita entro 24 ore",
         "Paghi solo se ottieni il risarcimento",
       ],
-      social: "Gia scelto da oltre 2.400 persone",
+      social: "Gia scelto da oltre 200 persone",
       successTitle: "Richiesta ricevuta!",
       successDesc: "Ti contatteremo al piu presto. La consultazione e gratuita.",
       formTitle: "Richiedi assistenza gratuita",
@@ -159,7 +159,7 @@ export const translations = {
     },
     footer: {
       tagline: "Assistenza legale per tutti. Zero anticipi.",
-      links: ["Privacy Policy", "Cookie Policy", "Termini di Servizio", "Contatti"],
+      links: ["Privacy Policy", "Cookie Policy", "Termini e Condizioni", "Contatti"],
       rights: "Tutti i diritti riservati.",
       legal: "Il servizio e fornito in conformita con le norme vigenti in materia di assistenza legale.",
       disclaimer: "I risultati passati non garantiscono risultati futuri.",
@@ -256,7 +256,7 @@ export const translations = {
       accent: "too late.",
       desc: "Fill in the form now: it is completely free, with no obligation.",
       trust: ["No upfront payment", "Support in your language", "Lawyers and experts by your side"],
-      social: "Already chosen by over 2,400 people",
+      social: "Already chosen by over 200 people",
       successTitle: "Request received!",
       successDesc: "We will contact you shortly. Consultation is free.",
       formTitle: "Request free assistance",
@@ -282,7 +282,7 @@ export const translations = {
     },
     footer: {
       tagline: "Legal support for everyone. No upfront fees.",
-      links: ["Privacy Policy", "Cookie Policy", "Terms of Service", "Contact"],
+      links: ["Privacy Policy", "Cookie Policy", "Terms & Conditions", "Contact"],
       rights: "All rights reserved.",
       legal: "The service is provided in compliance with current legal regulations.",
       disclaimer: "Past results do not guarantee future outcomes.",
@@ -402,7 +402,7 @@ translations.fr.contact.trust = [
   "Assistance dans votre langue",
   "Avocats et experts a vos cotes",
 ];
-translations.fr.contact.social = "Deja choisi par plus de 2 400 personnes";
+translations.fr.contact.social = "Deja choisi par plus de 200 personnes";
 translations.fr.contact.successTitle = "Demande recue!";
 translations.fr.contact.successDesc = "Nous vous contacterons rapidement. La consultation est gratuite.";
 translations.fr.contact.labels = {
@@ -427,7 +427,7 @@ translations.fr.contact.languageOptions = ["Italien", "Arabe", "Roumain", "Alban
 translations.fr.contact.caseOptions = ["Accident du Travail", "Probleme Hospitalier / Erreur Medicale", "Accident Routier"];
 translations.fr.footer = {
   tagline: "Assistance juridique pour tous. Aucun acompte.",
-  links: ["Politique de Confidentialite", "Politique des Cookies", "Conditions de Service", "Contact"],
+  links: ["Politique de Confidentialite", "Politique des Cookies", "Conditions Generales", "Contact"],
   rights: "Tous droits reserves.",
   legal: "Le service est fourni conformement aux regles juridiques en vigueur.",
   disclaimer: "Les resultats passes ne garantissent pas les resultats futurs.",
@@ -536,7 +536,7 @@ translations.ro.contact.trust = [
   "Asistenta in limba ta",
   "Avocati si experti alaturi de tine",
 ];
-translations.ro.contact.social = "Deja ales de peste 2.400 de persoane";
+translations.ro.contact.social = "Deja ales de peste 200 de persoane";
 translations.ro.contact.successTitle = "Cerere primita!";
 translations.ro.contact.successDesc = "Te contactam cat mai curand. Consultatia este gratuita.";
 translations.ro.contact.labels = {
@@ -561,7 +561,7 @@ translations.ro.contact.languageOptions = ["Italiana", "Araba", "Romana", "Alban
 translations.ro.contact.caseOptions = ["Accident de Munca", "Problema in Spital / Eroare Medicala", "Accident Rutier"];
 translations.ro.footer = {
   tagline: "Asistenta legala pentru toti. Fara avans.",
-  links: ["Politica de Confidentialitate", "Politica Cookie", "Termeni de Serviciu", "Contact"],
+  links: ["Politica de Confidentialitate", "Politica Cookie", "Termeni si Conditii", "Contact"],
   rights: "Toate drepturile rezervate.",
   legal: "Serviciul este furnizat in conformitate cu normele legale in vigoare.",
   disclaimer: "Rezultatele anterioare nu garanteaza rezultate viitoare.",
@@ -670,7 +670,7 @@ translations.sq.contact.trust = [
   "Asistence ne gjuhen tende",
   "Avokate dhe eksperte ne krahun tend",
 ];
-translations.sq.contact.social = "Zgjedhur tashme nga mbi 2.400 persona";
+translations.sq.contact.social = "Zgjedhur tashme nga mbi 200 persona";
 translations.sq.contact.successTitle = "Kerkesa u mor!";
 translations.sq.contact.successDesc = "Do te te kontaktojme sa me shpejt. Konsulta eshte falas.";
 translations.sq.contact.labels = {
@@ -695,7 +695,7 @@ translations.sq.contact.languageOptions = ["Italisht", "Arabisht", "Rumanisht", 
 translations.sq.contact.caseOptions = ["Aksident ne Pune", "Problem ne Spital / Gabim Mjekesor", "Aksident Rrugor"];
 translations.sq.footer = {
   tagline: "Asistence ligjore per te gjithe. Pa parapagese.",
-  links: ["Politika e Privatesise", "Politika e Cookies", "Kushtet e Sherbimit", "Kontakt"],
+  links: ["Politika e Privatesise", "Politika e Cookies", "Kushtet dhe Termat", "Kontakt"],
   rights: "Te gjitha te drejtat e rezervuara.",
   legal: "Sherbimi ofrohet ne perputhje me rregullat ligjore ne fuqi.",
   disclaimer: "Rezultatet e kaluara nuk garantojne rezultate te ardhshme.",
@@ -804,7 +804,7 @@ translations.ar.contact.trust = [
   "دعم بلغتك",
   "محامون وخبراء الى جانبك",
 ];
-translations.ar.contact.social = "تم اختياره بالفعل من قبل اكثر من 2400 شخص";
+translations.ar.contact.social = "تم اختياره بالفعل من قبل اكثر من 200 شخص";
 translations.ar.contact.successTitle = "تم استلام الطلب!";
 translations.ar.contact.successDesc = "سنتواصل معك قريبا. الاستشارة مجانية.";
 translations.ar.contact.labels = {
@@ -829,7 +829,7 @@ translations.ar.contact.languageOptions = ["الايطالية", "العربية
 translations.ar.contact.caseOptions = ["اصابة عمل", "مشكلة في المستشفى / خطا طبي", "حادث مروري"];
 translations.ar.footer = {
   tagline: "دعم قانوني للجميع. بدون دفعة مقدمة.",
-  links: ["سياسة الخصوصية", "سياسة ملفات الارتباط", "شروط الخدمة", "اتصل بنا"],
+  links: ["سياسة الخصوصية", "سياسة ملفات الارتباط", "الشروط والاحكام", "اتصل بنا"],
   rights: "جميع الحقوق محفوظة.",
   legal: "يتم تقديم الخدمة وفقا للقوانين واللوائح السارية.",
   disclaimer: "النتائج السابقة لا تضمن النتائج المستقبلية.",
@@ -931,4 +931,3 @@ translations.ar.services.cards.push({
     "تعويض عن فقدان العلاقة العائلية (زوج/زوجة، ابناء، والدان)",
   ],
 });
-

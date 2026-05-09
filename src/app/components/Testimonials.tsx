@@ -1,132 +1,135 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useLocale, type Locale } from "../i18n/LocaleContext";
 
-const reviewsByLocale: Record<Locale, Array<{
+type Review = {
   stars: string;
   quote: string;
   name: string;
   meta: string;
   result: string;
-  initials: string;
-}>> = {
+  avatar: string;
+};
+
+const reviewsByLocale: Record<Locale, Review[]> = {
   it: [
     {
       stars: "★★★★★",
       quote:
-        "Avevo avuto un incidente in moto nel 2022. L'assicurazione mi aveva offerto 4.800 euro. Con loro ho ottenuto 31.500 euro. Non ci credevo nemmeno quando me l'hanno detto.",
-      name: "Ahmed M.",
+        "Dopo un tamponamento con colpo di frusta, in poche settimane ho ricevuto una valutazione chiara e una gestione completa della pratica.",
+      name: "Arianna M.",
       meta: "Incidente stradale · Milano",
-      result: "Risarcimento ottenuto: € 31.500",
-      initials: "AM",
+      result: "Risarcimento ottenuto: € 18.400",
+      avatar: "/profiles/p2.jpg",
+    },
+    {
+      stars: "★★★★☆",
+      quote:
+        "Mi hanno seguito passo dopo passo per l'infortunio in magazzino. Comunicazione semplice e documenti gestiti senza stress.",
+      name: "Samir K.",
+      meta: "Infortunio sul lavoro · Brescia",
+      result: "Risarcimento ottenuto: € 42.000",
+      avatar: "/profiles/p1.jpg",
     },
     {
       stars: "★★★★★",
       quote:
-        "Sono caduto da un'impalcatura in cantiere. L'INAIL mi aveva liquidato con una cifra che non copriva nemmeno le spese. Loro hanno calcolato il danno differenziale e alla fine ho ricevuto 1.300.000 euro. Una cifra che non avrei mai immaginato.",
-      name: "Mario C.",
-      meta: "Infortunio sul lavoro · Bergamo",
-      result: "Risarcimento ottenuto: € 1.300.000",
-      initials: "MC",
+        "Per una complicanza post-operatoria ci hanno spiegato subito cosa fare e hanno coordinato tutta la parte medico-legale.",
+      name: "Lucia R.",
+      meta: "Errore medico · Parma",
+      result: "Risarcimento ottenuto: € 79.500",
+      avatar: "/profiles/p4.jpg",
+    },
+    {
+      stars: "★★★★☆",
+      quote:
+        "Avevo bisogno di assistenza in francese per la pratica della mia famiglia. Tutto chiaro, risposte rapide e risultato concreto.",
+      name: "Nassim B.",
+      meta: "Sinistro mortale · Verona",
+      result: "Risarcimento ottenuto: € 126.000",
+      avatar: "/profiles/p3.jpg",
     },
     {
       stars: "★★★★★",
       quote:
-        "Mio padre e morto dopo un intervento che non doveva andare cosi. Non sapevamo che potevamo fare qualcosa. Grazie a loro abbiamo ottenuto giustizia e un risarcimento per tutta la nostra famiglia.",
-      name: "Radu P.",
-      meta: "Sinistro mortale · Brescia",
-      result: "Risarcimento ottenuto: € 320.000",
-      initials: "RP",
-    },
-    {
-      stars: "★★★★★",
-      quote:
-        "Dopo mesi di telefonate con la compagnia assicurativa ero bloccata. In poche settimane hanno rimesso ordine in tutta la pratica e hanno chiuso con un importo che non pensavo possibile.",
-      name: "Elena G.",
+        "Con loro ho evitato trattative confuse con l'assicurazione. Hanno chiuso il caso con un importo corretto e tempi precisi.",
+      name: "Elena C.",
       meta: "Incidente stradale · Torino",
-      result: "Risarcimento ottenuto: € 48.000",
-      initials: "EG",
-    },
-    {
-      stars: "★★★★★",
-      quote:
-        "Avevo perso fiducia dopo due pareri contrastanti. Mi hanno spiegato ogni passaggio con chiarezza e hanno seguito il caso fino alla fine. Finalmente mi sono sentito tutelato davvero.",
-      name: "Youssef A.",
-      meta: "Errore medico · Modena",
-      result: "Risarcimento ottenuto: € 210.000",
-      initials: "YA",
+      result: "Risarcimento ottenuto: € 24.700",
+      avatar: "/profiles/p5.jpg",
     },
   ],
   en: [
     {
       stars: "★★★★★",
-      quote: "After my motorcycle crash in 2022, insurance offered only 4,800 euro. With them I received 31,500 euro.",
-      name: "Ahmed M.",
+      quote: "After a rear-end crash, they handled every step and gave me clear updates from day one.",
+      name: "Arianna M.",
       meta: "Road accident · Milan",
-      result: "Compensation obtained: € 31,500",
-      initials: "AM",
+      result: "Compensation obtained: € 18,400",
+      avatar: "/profiles/p2.jpg",
+    },
+    {
+      stars: "★★★★☆",
+      quote: "They managed my workplace injury file with clear communication and practical support.",
+      name: "Samir K.",
+      meta: "Work injury · Brescia",
+      result: "Compensation obtained: € 42,000",
+      avatar: "/profiles/p1.jpg",
     },
     {
       stars: "★★★★★",
-      quote: "I fell from scaffolding. INAIL paid far too little. They calculated differential damage and I received 1,300,000 euro.",
-      name: "Mario C.",
-      meta: "Work injury · Bergamo",
-      result: "Compensation obtained: € 1,300,000",
-      initials: "MC",
+      quote: "For a post-surgery complication, they coordinated the legal and medical side very effectively.",
+      name: "Lucia R.",
+      meta: "Medical error · Parma",
+      result: "Compensation obtained: € 79,500",
+      avatar: "/profiles/p4.jpg",
+    },
+    {
+      stars: "★★★★☆",
+      quote: "My family needed support in French and they kept the process simple and transparent.",
+      name: "Nassim B.",
+      meta: "Fatal claim · Verona",
+      result: "Compensation obtained: € 126,000",
+      avatar: "/profiles/p3.jpg",
     },
     {
       stars: "★★★★★",
-      quote: "My father died after surgery. We did not know we had rights. They helped us obtain justice and compensation.",
-      name: "Radu P.",
-      meta: "Fatal claim · Brescia",
-      result: "Compensation obtained: € 320,000",
-      initials: "RP",
-    },
-    {
-      stars: "★★★★★",
-      quote: "I was stuck with the insurer for months. In a few weeks they reorganized everything and closed with a fair amount.",
-      name: "Elena G.",
+      quote: "They closed my insurance claim with a fair amount and very clear timelines.",
+      name: "Elena C.",
       meta: "Road accident · Turin",
-      result: "Compensation obtained: € 48,000",
-      initials: "EG",
-    },
-    {
-      stars: "★★★★★",
-      quote: "I had lost trust. They explained every step clearly and followed my case to the end.",
-      name: "Youssef A.",
-      meta: "Medical error · Modena",
-      result: "Compensation obtained: € 210,000",
-      initials: "YA",
+      result: "Compensation obtained: € 24,700",
+      avatar: "/profiles/p5.jpg",
     },
   ],
   fr: [
-    { stars: "★★★★★", quote: "Apres mon accident de moto, l'assurance proposait 4 800 euros. Avec eux, j'ai obtenu 31 500 euros.", name: "Ahmed M.", meta: "Accident de la route · Milan", result: "Indemnisation obtenue: € 31.500", initials: "AM" },
-    { stars: "★★★★★", quote: "Je suis tombe d'un echafaudage. Ils ont calcule le dommage reel et j'ai recu 1 300 000 euros.", name: "Mario C.", meta: "Accident du travail · Bergame", result: "Indemnisation obtenue: € 1.300.000", initials: "MC" },
-    { stars: "★★★★★", quote: "Mon pere est decede apres une intervention. Ils nous ont aides a obtenir justice et indemnisation.", name: "Radu P.", meta: "Sinistre mortel · Brescia", result: "Indemnisation obtenue: € 320.000", initials: "RP" },
-    { stars: "★★★★★", quote: "J'etais bloquee avec l'assurance. En peu de temps, ils ont organise le dossier et obtenu une offre correcte.", name: "Elena G.", meta: "Accident de la route · Turin", result: "Indemnisation obtenue: € 48.000", initials: "EG" },
-    { stars: "★★★★★", quote: "J'avais perdu confiance. Ils ont tout explique clairement et suivi le dossier jusqu'au bout.", name: "Youssef A.", meta: "Erreur medicale · Modene", result: "Indemnisation obtenue: € 210.000", initials: "YA" },
+    { stars: "★★★★★", quote: "Apres un accident de voiture, ils ont gere le dossier du debut a la fin avec des explications tres claires.", name: "Arianna M.", meta: "Accident de la route · Milan", result: "Indemnisation obtenue: € 18.400", avatar: "/profiles/p2.jpg" },
+    { stars: "★★★★☆", quote: "Pour mon accident du travail, j'ai eu un suivi serieux et une communication simple.", name: "Samir K.", meta: "Accident du travail · Brescia", result: "Indemnisation obtenue: € 42.000", avatar: "/profiles/p1.jpg" },
+    { stars: "★★★★★", quote: "Ils ont coordonne la partie medico-legale avec precision pour notre dossier.", name: "Lucia R.", meta: "Erreur medicale · Parme", result: "Indemnisation obtenue: € 79.500", avatar: "/profiles/p4.jpg" },
+    { stars: "★★★★☆", quote: "Notre famille a ete accompagnee en francais avec beaucoup de clarte.", name: "Nassim B.", meta: "Sinistre mortel · Verone", result: "Indemnisation obtenue: € 126.000", avatar: "/profiles/p3.jpg" },
+    { stars: "★★★★★", quote: "Dossier clos avec un montant coherent et un accompagnement constant.", name: "Elena C.", meta: "Accident de la route · Turin", result: "Indemnisation obtenue: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
   ro: [
-    { stars: "★★★★★", quote: "Dupa accidentul de motocicleta, asigurarea oferea 4.800 euro. Cu ei am obtinut 31.500 euro.", name: "Ahmed M.", meta: "Accident rutier · Milano", result: "Despagubire obtinuta: € 31.500", initials: "AM" },
-    { stars: "★★★★★", quote: "Am cazut de pe schela. Au calculat corect prejudiciul si am primit 1.300.000 euro.", name: "Mario C.", meta: "Accident de munca · Bergamo", result: "Despagubire obtinuta: € 1.300.000", initials: "MC" },
-    { stars: "★★★★★", quote: "Tatal meu a murit dupa o interventie. Ne-au ajutat sa obtinem dreptate si despagubire.", name: "Radu P.", meta: "Sinistru mortal · Brescia", result: "Despagubire obtinuta: € 320.000", initials: "RP" },
-    { stars: "★★★★★", quote: "Eram blocata cu asigurarea. Au reorganizat dosarul si au inchis cu o suma corecta.", name: "Elena G.", meta: "Accident rutier · Torino", result: "Despagubire obtinuta: € 48.000", initials: "EG" },
-    { stars: "★★★★★", quote: "Nu mai aveam incredere. Au explicat clar fiecare pas si au dus cazul pana la final.", name: "Youssef A.", meta: "Eroare medicala · Modena", result: "Despagubire obtinuta: € 210.000", initials: "YA" },
+    { stars: "★★★★★", quote: "Dupa accidentul auto, au gestionat tot dosarul clar si rapid.", name: "Arianna M.", meta: "Accident rutier · Milano", result: "Despagubire obtinuta: € 18.400", avatar: "/profiles/p2.jpg" },
+    { stars: "★★★★☆", quote: "Pentru accidentul de munca am primit asistenta constanta si explicatii simple.", name: "Samir K.", meta: "Accident de munca · Brescia", result: "Despagubire obtinuta: € 42.000", avatar: "/profiles/p1.jpg" },
+    { stars: "★★★★★", quote: "Au coordonat foarte bine partea medicala si juridica a cazului.", name: "Lucia R.", meta: "Eroare medicala · Parma", result: "Despagubire obtinuta: € 79.500", avatar: "/profiles/p4.jpg" },
+    { stars: "★★★★☆", quote: "Familia noastra a fost sprijinita in franceza, cu pasi clari si bine organizati.", name: "Nassim B.", meta: "Sinistru mortal · Verona", result: "Despagubire obtinuta: € 126.000", avatar: "/profiles/p3.jpg" },
+    { stars: "★★★★★", quote: "Cazul cu asigurarea s-a inchis bine, cu un rezultat concret.", name: "Elena C.", meta: "Accident rutier · Torino", result: "Despagubire obtinuta: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
   sq: [
-    { stars: "★★★★★", quote: "Pas aksidentit me motor, sigurimi ofroi 4.800 euro. Me ta mora 31.500 euro.", name: "Ahmed M.", meta: "Aksident rrugor · Milano", result: "Demshperblim i marre: € 31.500", initials: "AM" },
-    { stars: "★★★★★", quote: "Rash nga skela ne pune. Ata llogariten demshperblimin real dhe mora 1.300.000 euro.", name: "Mario C.", meta: "Aksident ne pune · Bergamo", result: "Demshperblim i marre: € 1.300.000", initials: "MC" },
-    { stars: "★★★★★", quote: "Babai im vdiq pas nje nderhyrjeje. Falenderuar atyre morrem drejtesi dhe demshperblim.", name: "Radu P.", meta: "Sinister mortal · Brescia", result: "Demshperblim i marre: € 320.000", initials: "RP" },
-    { stars: "★★★★★", quote: "Isha bllokuar me sigurimin. Brenda pak kohe e rregulluan dosjen dhe mbyllen me shume te drejte.", name: "Elena G.", meta: "Aksident rrugor · Torino", result: "Demshperblim i marre: € 48.000", initials: "EG" },
-    { stars: "★★★★★", quote: "Kisha humbur besimin. Ma shpjeguan qarte cdo hap dhe e ndoqen ceshtjen deri ne fund.", name: "Youssef A.", meta: "Gabim mjekesor · Modena", result: "Demshperblim i marre: € 210.000", initials: "YA" },
+    { stars: "★★★★★", quote: "Pas aksidentit rrugor, menaxhuan ceshtjen time me qartesi nga fillimi deri ne fund.", name: "Arianna M.", meta: "Aksident rrugor · Milano", result: "Demshperblim i marre: € 18.400", avatar: "/profiles/p2.jpg" },
+    { stars: "★★★★☆", quote: "Per aksidentin ne pune mora ndihme te rregullt dhe komunikim te thjeshte.", name: "Samir K.", meta: "Aksident ne pune · Brescia", result: "Demshperblim i marre: € 42.000", avatar: "/profiles/p1.jpg" },
+    { stars: "★★★★★", quote: "Koordinuan pjesen mjekesore dhe ligjore me shume kujdes.", name: "Lucia R.", meta: "Gabim mjekesor · Parma", result: "Demshperblim i marre: € 79.500", avatar: "/profiles/p4.jpg" },
+    { stars: "★★★★☆", quote: "Familja ime mori mbeshtetje ne frengjisht me hapa te qarte.", name: "Nassim B.", meta: "Aksident vdekjeprures · Verona", result: "Demshperblim i marre: € 126.000", avatar: "/profiles/p3.jpg" },
+    { stars: "★★★★★", quote: "Ceshtja me sigurimin u mbyll me rezultat te mire dhe pa konfuzion.", name: "Elena C.", meta: "Aksident rrugor · Torino", result: "Demshperblim i marre: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
   ar: [
-    { stars: "★★★★★", quote: "بعد حادث الدراجة، عرضت شركة التأمين 4800 يورو فقط. معهم حصلت على 31,500 يورو.", name: "Ahmed M.", meta: "حادث مروري · ميلانو", result: "التعويض المحصل: € 31.500", initials: "AM" },
-    { stars: "★★★★★", quote: "سقطت من سقالة في موقع العمل. حسبوا الضرر الحقيقي وحصلت على 1,300,000 يورو.", name: "Mario C.", meta: "اصابة عمل · بيرغامو", result: "التعويض المحصل: € 1.300.000", initials: "MC" },
-    { stars: "★★★★★", quote: "توفي والدي بعد عملية. ساعدونا في الحصول على العدالة والتعويض للعائلة.", name: "Radu P.", meta: "حادث مميت · بريشيا", result: "التعويض المحصل: € 320.000", initials: "RP" },
-    { stars: "★★★★★", quote: "كنت عالقة مع شركة التأمين. خلال اسابيع نظموا الملف واغلقوه بمبلغ عادل.", name: "Elena G.", meta: "حادث مروري · تورينو", result: "التعويض المحصل: € 48.000", initials: "EG" },
-    { stars: "★★★★★", quote: "فقدت الثقة سابقا. شرحوا كل خطوة بوضوح وتابعوا القضية حتى النهاية.", name: "Youssef A.", meta: "خطا طبي · مودينا", result: "التعويض المحصل: € 210.000", initials: "YA" },
+    { stars: "★★★★★", quote: "بعد حادث السيارة، تولوا الملف بالكامل مع شرح واضح في كل مرحلة.", name: "Arianna M.", meta: "حادث مروري · ميلانو", result: "التعويض المحصل: € 18.400", avatar: "/profiles/p2.jpg" },
+    { stars: "★★★★☆", quote: "في اصابة العمل حصلت على متابعة منتظمة وخطوات واضحة.", name: "Samir K.", meta: "اصابة عمل · بريشيا", result: "التعويض المحصل: € 42.000", avatar: "/profiles/p1.jpg" },
+    { stars: "★★★★★", quote: "نسقوا بين الجوانب الطبية والقانونية باحترافية عالية.", name: "Lucia R.", meta: "خطا طبي · بارما", result: "التعويض المحصل: € 79.500", avatar: "/profiles/p4.jpg" },
+    { stars: "★★★★☆", quote: "تلقت عائلتي دعما واضحا باللغة الفرنسية طوال الاجراءات.", name: "Nassim B.", meta: "حادث مميت · فيرونا", result: "التعويض المحصل: € 126.000", avatar: "/profiles/p3.jpg" },
+    { stars: "★★★★★", quote: "تم اغلاق ملف التأمين بنتيجة ممتازة ومتابعة دقيقة.", name: "Elena C.", meta: "حادث مروري · تورينو", result: "التعويض المحصل: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
 };
 
@@ -163,54 +166,6 @@ const headerByLocale: Record<Locale, { eyebrow: string; title: string; desc: str
   },
 };
 
-const reviews = [
-  {
-    stars: "★★★★★",
-    quote:
-      "Avevo avuto un incidente in moto nel 2022. L'assicurazione mi aveva offerto 4.800 euro. Con loro ho ottenuto 31.500 euro. Non ci credevo nemmeno quando me l'hanno detto.",
-    name: "Ahmed M.",
-    meta: "Incidente stradale · Milano",
-    result: "Risarcimento ottenuto: € 31.500",
-    initials: "AM",
-  },
-  {
-    stars: "★★★★★",
-    quote:
-      "Sono caduto da un'impalcatura in cantiere. L'INAIL mi aveva liquidato con una cifra che non copriva nemmeno le spese. Loro hanno calcolato il danno differenziale e alla fine ho ricevuto 1.300.000 euro. Una cifra che non avrei mai immaginato.",
-    name: "Mario C.",
-    meta: "Infortunio sul lavoro · Bergamo",
-    result: "Risarcimento ottenuto: € 1.300.000",
-    initials: "MC",
-  },
-  {
-    stars: "★★★★★",
-    quote:
-      "Mio padre è morto dopo un intervento che non doveva andare cosi. Non sapevamo che potevamo fare qualcosa. Grazie a loro abbiamo ottenuto giustizia e un risarcimento per tutta la nostra famiglia.",
-    name: "Radu P.",
-    meta: "Sinistro mortale · Brescia",
-    result: "Risarcimento ottenuto: € 320.000",
-    initials: "RP",
-  },
-  {
-    stars: "★★★★★",
-    quote:
-      "Dopo mesi di telefonate con la compagnia assicurativa ero bloccata. In poche settimane hanno rimesso ordine in tutta la pratica e hanno chiuso con un importo che non pensavo possibile.",
-    name: "Elena G.",
-    meta: "Incidente stradale · Torino",
-    result: "Risarcimento ottenuto: € 48.000",
-    initials: "EG",
-  },
-  {
-    stars: "★★★★★",
-    quote:
-      "Avevo perso fiducia dopo due pareri contrastanti. Mi hanno spiegato ogni passaggio con chiarezza e hanno seguito il caso fino alla fine. Finalmente mi sono sentito tutelato davvero.",
-    name: "Youssef A.",
-    meta: "Errore medico · Modena",
-    result: "Risarcimento ottenuto: € 210.000",
-    initials: "YA",
-  },
-];
-
 export default function Testimonials() {
   const { locale } = useLocale();
   const [activeIdx, setActiveIdx] = useState(0);
@@ -219,7 +174,7 @@ export default function Testimonials() {
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const [dragStartX, setDragStartX] = useState<number | null>(null);
   const copy = headerByLocale[locale];
-  const activeReviews = reviewsByLocale[locale] ?? reviews;
+  const activeReviews = reviewsByLocale[locale] ?? reviewsByLocale.it;
   const looped = [...activeReviews, ...activeReviews];
   const mobileReview = activeReviews[activeIdx] ?? activeReviews[0];
   const previousReview = prevIdx !== null ? activeReviews[prevIdx] : null;
@@ -270,13 +225,17 @@ export default function Testimonials() {
             >
               <div className="flex-1">
                 <p className="text-[#FFB13B] text-lg mb-3 tracking-wide">{review.stars}</p>
-                <p className="text-blue-100/95 italic leading-relaxed min-h-[155px]">"{review.quote}"</p>
+                <p className="text-blue-100/95 italic leading-relaxed min-h-[155px]">{review.quote}</p>
               </div>
 
               <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FF6B00]/20 border border-[#FF6B00]/40 text-[#FF9A45] flex items-center justify-center font-black text-xs">
-                  {review.initials}
-                </div>
+                <Image
+                  src={review.avatar}
+                  alt={review.name}
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full object-cover border border-white/20"
+                />
                 <div>
                   <p className="font-bold text-white text-sm leading-tight">{review.name}</p>
                   <p className="text-xs text-blue-200">{review.meta}</p>
@@ -301,13 +260,17 @@ export default function Testimonials() {
             <article className={`absolute inset-0 w-full rounded-2xl border border-white/10 bg-white/8 px-10 py-4 text-white flex flex-col min-h-[240px] ${direction === "next" ? "animate-slide-out-left" : "animate-slide-out-right"}`}>
               <div className="flex-1">
                 <p className="text-[#FFB13B] text-base mb-2 tracking-wide">{previousReview.stars}</p>
-                <p className="text-blue-100/95 italic leading-relaxed text-sm">"{previousReview.quote}"</p>
+                <p className="text-blue-100/95 italic leading-relaxed text-sm">{previousReview.quote}</p>
               </div>
 
               <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FF6B00]/20 border border-[#FF6B00]/40 text-[#FF9A45] flex items-center justify-center font-black text-[10px]">
-                  {previousReview.initials}
-                </div>
+                <Image
+                  src={previousReview.avatar}
+                  alt={previousReview.name}
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full object-cover border border-white/20"
+                />
                 <div>
                   <p className="font-bold text-white text-xs leading-tight">{previousReview.name}</p>
                   <p className="text-[11px] text-blue-200">{previousReview.meta}</p>
@@ -320,13 +283,17 @@ export default function Testimonials() {
           <article className={`w-full rounded-2xl border border-white/10 bg-white/8 p-4 text-white flex flex-col min-h-[240px] ${isAnimating ? (direction === "next" ? "animate-slide-in-right" : "animate-slide-in-left") : ""}`}>
             <div className="flex-1">
               <p className="text-[#FFB13B] text-base mb-2 tracking-wide">{mobileReview.stars}</p>
-              <p className="text-blue-100/95 italic leading-relaxed text-sm">"{mobileReview.quote}"</p>
+              <p className="text-blue-100/95 italic leading-relaxed text-sm">{mobileReview.quote}</p>
             </div>
 
             <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#FF6B00]/20 border border-[#FF6B00]/40 text-[#FF9A45] flex items-center justify-center font-black text-[10px]">
-                {mobileReview.initials}
-              </div>
+              <Image
+                src={mobileReview.avatar}
+                alt={mobileReview.name}
+                width={32}
+                height={32}
+                className="w-8 h-8 rounded-full object-cover border border-white/20"
+              />
               <div>
                 <p className="font-bold text-white text-xs leading-tight">{mobileReview.name}</p>
                 <p className="text-[11px] text-blue-200">{mobileReview.meta}</p>

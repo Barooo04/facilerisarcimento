@@ -44,6 +44,7 @@ export default function Hero() {
   const { locale } = useLocale();
   const t = translations[locale];
   const pills = t.hero.pills;
+  const compactPillLocale = locale === "fr" || locale === "sq";
   const categoriesI18n = t.hero.categories;
   const statsByLocale = {
     it: [
@@ -157,8 +158,14 @@ export default function Hero() {
             <div className="flex items-center bg-white border border-gray-200 rounded-full shadow-sm overflow-hidden">
               {pills.map((p: string, i: number) => (
                 <div key={p} className="flex items-center">
-                  <span className="flex items-center gap-1 px-2 py-2 lg:px-5 lg:py-3 text-[11px] lg:text-base font-semibold text-gray-700 whitespace-nowrap">
-                    <CircleCheck size={12} className="text-[#28A745] shrink-0 lg:hidden" strokeWidth={2.5} />
+                  <span
+                    className={`flex items-center gap-1 py-2 lg:py-3 font-semibold text-gray-700 whitespace-nowrap ${
+                      compactPillLocale
+                        ? "px-1.5 text-[9px] sm:text-[10px] lg:px-5 lg:text-base"
+                        : "px-2 text-[11px] lg:px-5 lg:text-base"
+                    }`}
+                  >
+                    <CircleCheck size={compactPillLocale ? 10 : 12} className="text-[#28A745] shrink-0 lg:hidden" strokeWidth={2.5} />
                     <CircleCheck size={16} className="text-[#28A745] shrink-0 hidden lg:block" strokeWidth={2.5} />
                     {p}
                   </span>

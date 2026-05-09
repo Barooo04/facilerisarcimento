@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
 
@@ -12,14 +13,14 @@ export default function Footer() {
     <footer className="bg-[#0f2240] text-blue-300 py-10 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
+          <div className="text-center sm:text-left">
             <Image
               src="/logo.svg"
               alt="FacileRisarcimento"
               width={0}
               height={0}
               sizes="280px"
-              className="h-[74px] w-auto object-contain brightness-0 invert mb-2"
+              className="h-[52px] sm:h-[74px] w-auto object-contain brightness-0 invert mb-2 mx-auto sm:mx-0"
             />
             <p className="text-sm text-blue-400">
               {t.footer.tagline}
@@ -27,9 +28,9 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm justify-center">
-            <a href="#" className="hover:text-white transition-colors">{t.footer.links[0]}</a>
-            <a href="#" className="hover:text-white transition-colors">{t.footer.links[1]}</a>
-            <a href="#" className="hover:text-white transition-colors">{t.footer.links[2]}</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">{t.footer.links[0]}</Link>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">{t.footer.links[1]}</Link>
+            <Link href="/termini-condizioni" className="hover:text-white transition-colors">{t.footer.links[2]}</Link>
             <a href="#contact-form" className="hover:text-white transition-colors">{t.footer.links[3]}</a>
           </div>
         </div>

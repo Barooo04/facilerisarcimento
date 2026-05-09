@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2, AlertCircle, Send } from "lucide-react";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
@@ -11,6 +13,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const { locale } = useLocale();
   const t = translations[locale];
+  const socialProfiles = ["/profiles/p1.jpg", "/profiles/p2.jpg", "/profiles/p3.jpg", "/profiles/p4.jpg", "/profiles/p5.jpg"];
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,12 +77,12 @@ export default function ContactForm() {
             <div className="mt-8 pt-6 border-t border-white/10">
               <p className="text-blue-300 text-sm mb-3">{t.contact.social}</p>
               <div className="flex -space-x-2">
-                {["🧑🏻", "👩🏾", "🧔🏽", "👩🏻", "🧑🏿"].map((emoji, i) => (
+                {socialProfiles.map((src, i) => (
                   <div
                     key={i}
-                    className="w-9 h-9 rounded-full bg-[#FF6B00]/30 border-2 border-[#1A365D] flex items-center justify-center text-base"
+                    className="w-9 h-9 rounded-full overflow-hidden border-2 border-[#1A365D]"
                   >
-                    {emoji}
+                    <Image src={src} alt={`Cliente ${i + 1}`} width={36} height={36} className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -184,9 +187,13 @@ export default function ContactForm() {
                     />
                     <label htmlFor="privacy" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
                       {t.contact.labels.privacy}{" "}
-                      <a href="#" className="text-[#FF6B00] underline hover:no-underline">
-                        GDPR
-                      </a>{" "}
+                      <Link href="/privacy-policy" className="text-[#FF6B00] underline hover:no-underline">
+                        Privacy Policy
+                      </Link>{" "}
+                      e{" "}
+                      <Link href="/termini-condizioni" className="text-[#FF6B00] underline hover:no-underline">
+                        Termini e Condizioni
+                      </Link>
                       .
                     </label>
                   </div>
