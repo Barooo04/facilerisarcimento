@@ -89,7 +89,7 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Zig-zag rows */}
+        {/* Zig-zag rowss */}
         <div className="flex flex-col gap-6 section-after-desc-mobile md:max-w-[820px] md:mx-auto">
           {services.map(({ image, tag_bg }, i) => (
             <div
