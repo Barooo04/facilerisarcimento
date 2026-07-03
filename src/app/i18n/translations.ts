@@ -151,6 +151,7 @@ export const translations = {
       errors: {
         phone: "Il numero di telefono e obbligatorio.",
         privacy: "Devi accettare i termini e il trattamento dei dati.",
+        submit: "Invio non riuscito. Riprova tra qualche minuto o chiamaci direttamente.",
       },
       loading: "Invio in corso...",
       submit: "Richiedi Assistenza Gratuita",
@@ -274,7 +275,11 @@ export const translations = {
         language: "Select your language...",
         caseType: "Choose your case type...",
       },
-      errors: { phone: "Phone number is required.", privacy: "You must accept terms and data processing." },
+      errors: {
+        phone: "Phone number is required.",
+        privacy: "You must accept terms and data processing.",
+        submit: "Submission failed. Please try again in a few minutes or call us directly.",
+      },
       loading: "Sending...",
       submit: "Request Free Assistance",
       languageOptions: ["Italian", "Arabic", "Romanian", "Albanian", "French", "English", "Other"],

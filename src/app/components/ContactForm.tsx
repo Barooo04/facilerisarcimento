@@ -15,7 +15,7 @@ export default function ContactForm() {
   const t = translations[locale];
   const socialProfiles = ["/profiles/p1.jpg", "/profiles/p2.jpg", "/profiles/p3.jpg", "/profiles/p4.jpg", "/profiles/p5.jpg"];
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -36,11 +36,36 @@ export default function ContactForm() {
       return;
     }
 
-    // Simulated submission
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          phone,
+          language: data.get("language"),
+          caseType: data.get("caseType"),
+          locale,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("submit_failed");
+      }
+
+      if (typeof window !== "undefined" && "fbq" in window) {
+        (window as Window & { fbq?: (...args: unknown[]) => void }).fbq?.(
+          "track",
+          "Lead"
+        );
+      }
+
       setSubmitted(true);
+    } catch {
+      setError(t.contact.errors.submit);
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (

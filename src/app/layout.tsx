@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import IubendaScripts from "./components/IubendaScripts";
+import MetaPixel from "./components/MetaPixel";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,8 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+      <head>
         <IubendaScripts />
+      </head>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+        <MetaPixel />
         {children}
       </body>
     </html>
