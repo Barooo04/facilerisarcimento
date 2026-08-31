@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { HardHat, Stethoscope, Car, HeartCrack, ChevronRight, CircleCheck } from "lucide-react";
+import { HardHat, Car, HeartCrack, ChevronRight, CircleCheck } from "lucide-react";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
 
@@ -20,19 +20,6 @@ const services = [
     tag_bg: "bg-orange-100 text-orange-700",
   },
   {
-    icon: Stethoscope,
-    tag: "Malasanità",
-    title: "Malasanità ed Errori Medici",
-    body: "Un intervento o una diagnosi possono causare danni evitabili. Analizziamo la documentazione e verifichiamo le eventuali responsabilità.",
-    bullets: [
-      "Operazioni chirurgiche andate male",
-      "Diagnosi errate o ritardate",
-      "Complicanze post-operatorie evitabili",
-    ],
-    image: "/card2.jpg",
-    tag_bg: "bg-blue-100 text-blue-700",
-  },
-  {
     icon: Car,
     tag: "Incidenti Stradali",
     title: "Incidenti Stradali Gravi",
@@ -49,10 +36,9 @@ const services = [
     icon: HeartCrack,
     tag: "Sinistri Mortali",
     title: "Perdita di un Familiare: il Risarcimento per le Famiglie",
-    body: "Quando un incidente o una negligenza medica ha causato la morte di una persona cara, la famiglia ha il diritto di ottenere un risarcimento. Gestiamo l'intera pratica con discrezione e rispetto, senza richiedere alcun anticipo. Il tuo unico compito è ricordare — al resto pensiamo noi.",
+    body: "Quando un incidente ha causato la morte di una persona cara, la famiglia ha il diritto di ottenere un risarcimento. Gestiamo l'intera pratica con discrezione e rispetto, senza richiedere alcun anticipo. Il tuo unico compito è ricordare — al resto pensiamo noi.",
     bullets: [
       "Morte da incidente stradale o sul lavoro",
-      "Decesso per errore medico o negligenza sanitaria",
       "Danno da perdita del rapporto parentale (coniuge, figli, genitori)",
     ],
     image: "/card4-new.jpg",
@@ -102,7 +88,7 @@ export default function Services() {
                   src={image}
                   alt={t.services.cards[i].title}
                   fill
-                  className={`object-cover ${i === 3 ? "scale-x-[-1]" : ""}`}
+                  className={`object-cover ${i === 2 ? "scale-x-[-1]" : ""}`}
                 />
               </div>
 

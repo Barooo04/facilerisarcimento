@@ -22,7 +22,6 @@ export const translations = {
       catTitle: "Cosa ti e successo?",
       categories: [
         ["Infortunio sul lavoro", "In cantiere, in ufficio o in itinere"],
-        ["Errore medico", "Visita, intervento o diagnosi"],
         ["Incidente stradale", "Auto, moto, bici o pedone"],
         ["Sinistro mortale", "Risarcimento per le famiglie"],
       ],
@@ -43,10 +42,10 @@ export const translations = {
     },
     services: {
       eyebrow: "I NOSTRI SERVIZI",
-      titleLine1: "Quattro aree legali,",
+      titleLine1: "Tre aree legali,",
       titleLine2: "un solo obiettivo.",
       title: "I nostri servizi",
-      desc: "Infortuni, incidenti stradali, malasanità e sinistri mortali: valutiamo subito il tuo diritto al risarcimento.",
+      desc: "Infortuni, incidenti stradali e sinistri mortali: valutiamo subito il tuo diritto al risarcimento.",
       cards: [
         {
           tag: "Infortuni sul Lavoro",
@@ -56,16 +55,6 @@ export const translations = {
             "Infortuni in cantiere o in fabbrica",
             "Incidenti nel tragitto casa-lavoro",
             "Malattie professionali (sordita, ernie, ecc.)",
-          ],
-        },
-        {
-          tag: "Malasanita",
-          title: "Malasanita ed Errori Medici",
-          body: "Un intervento andato male, una diagnosi ritardata, una complicanza evitabile: se la struttura sanitaria ha sbagliato, hai diritto a essere risarcito. Analizziamo la documentazione e verifichiamo le responsabilita.",
-          bullets: [
-            "Operazioni chirurgiche andate male",
-            "Diagnosi errate o ritardate",
-            "Complicanze post-operatorie evitabili",
           ],
         },
         {
@@ -81,10 +70,9 @@ export const translations = {
         {
           tag: "Sinistri Mortali",
           title: "Perdita di un Familiare: il Risarcimento per le Famiglie",
-          body: "Quando un incidente o una negligenza medica ha causato la morte di una persona cara, la famiglia ha il diritto di ottenere un risarcimento. Gestiamo l'intera pratica con discrezione e rispetto, senza richiedere alcun anticipo. Il tuo unico compito e ricordare - al resto pensiamo noi.",
+          body: "Quando un incidente ha causato la morte di una persona cara, la famiglia ha il diritto di ottenere un risarcimento. Gestiamo l'intera pratica con discrezione e rispetto, senza richiedere alcun anticipo. Il tuo unico compito e ricordare - al resto pensiamo noi.",
           bullets: [
             "Morte da incidente stradale o sul lavoro",
-            "Decesso per errore medico o negligenza sanitaria",
             "Danno da perdita del rapporto parentale (coniuge, figli, genitori)",
           ],
         },
@@ -156,7 +144,7 @@ export const translations = {
       loading: "Invio in corso...",
       submit: "Richiedi Assistenza Gratuita",
       languageOptions: ["Italiano", "Arabo", "Rumeno", "Albanese", "Francese", "Inglese", "Altro"],
-      caseOptions: ["Infortunio sul Lavoro", "Problema in Ospedale / Errore Medico", "Incidente Stradale"],
+      caseOptions: ["Infortunio sul Lavoro", "Incidente Stradale"],
     },
     footer: {
       tagline: "Assistenza legale per tutti. Zero anticipi.",
@@ -188,7 +176,6 @@ export const translations = {
       catTitle: "What happened to you?",
       categories: [
         ["Work injury", "On site, in office, or commute"],
-        ["Medical error", "Visit, surgery, or diagnosis"],
         ["Road accident", "Car, bike, scooter, or pedestrian"],
         ["Fatal accident", "Compensation for families"],
       ],
@@ -215,12 +202,6 @@ export const translations = {
           bullets: ["Construction or factory injuries", "Commute accidents", "Occupational diseases"],
         },
         {
-          tag: "Medical Negligence",
-          title: "Medical Errors and Negligence",
-          body: "We review documents and verify liability.",
-          bullets: ["Failed surgery", "Wrong or delayed diagnosis", "Avoidable complications"],
-        },
-        {
           tag: "Road Accidents",
           title: "Serious Road Accidents",
           body: "We manage your compensation request end-to-end.",
@@ -229,10 +210,9 @@ export const translations = {
         {
           tag: "Fatal Accidents",
           title: "Loss of a Family Member: Compensation for Families",
-          body: "When an accident or medical negligence causes the death of a loved one, the family has the right to compensation. We handle the entire case with discretion and respect, with no upfront payment required. Your only task is to remember - we handle the rest.",
+          body: "When an accident causes the death of a loved one, the family has the right to compensation. We handle the entire case with discretion and respect, with no upfront payment required. Your only task is to remember - we handle the rest.",
           bullets: [
             "Death from road or workplace accident",
-            "Death due to medical error or healthcare negligence",
             "Compensation for loss of family relationship (spouse, children, parents)",
           ],
         },
@@ -283,7 +263,7 @@ export const translations = {
       loading: "Sending...",
       submit: "Request Free Assistance",
       languageOptions: ["Italian", "Arabic", "Romanian", "Albanian", "French", "English", "Other"],
-      caseOptions: ["Work injury", "Medical error / hospital issue", "Road accident"],
+      caseOptions: ["Work injury", "Road accident"],
     },
     footer: {
       tagline: "Legal support for everyone. No upfront fees.",
@@ -321,7 +301,6 @@ translations.fr.hero = {
   catTitle: "Que s est-il passe ?",
   categories: [
     ["Accident du travail", "Sur chantier, au bureau ou en trajet"],
-    ["Erreur medicale", "Consultation, intervention ou diagnostic"],
     ["Accident de la route", "Voiture, moto, velo ou pieton"],
   ],
 };
@@ -346,16 +325,6 @@ translations.fr.services = {
         "Accidents sur chantier ou en usine",
         "Accidents pendant le trajet domicile-travail",
         "Maladies professionnelles",
-      ],
-    },
-    {
-      tag: "Negligence Medicale",
-      title: "Erreurs Medicales et Negligence",
-      body: "Nous analysons les documents et verifions les responsabilites.",
-      bullets: [
-        "Interventions chirurgicales ratees",
-        "Diagnostics errones ou tardifs",
-        "Complications post-operatoires evitables",
       ],
     },
     {
@@ -429,7 +398,7 @@ translations.fr.contact.errors = {
 };
 translations.fr.contact.loading = "Envoi en cours...";
 translations.fr.contact.languageOptions = ["Italien", "Arabe", "Roumain", "Albanais", "Francais", "Anglais", "Autre"];
-translations.fr.contact.caseOptions = ["Accident du Travail", "Probleme Hospitalier / Erreur Medicale", "Accident Routier"];
+translations.fr.contact.caseOptions = ["Accident du Travail", "Accident Routier"];
 translations.fr.footer = {
   tagline: "Assistance juridique pour tous. Aucun acompte.",
   links: ["Politique de Confidentialite", "Politique des Cookies", "Conditions Generales", "Contact"],
@@ -455,7 +424,6 @@ translations.ro.hero = {
   catTitle: "Ce ti s-a intamplat?",
   categories: [
     ["Accident de munca", "Pe santier, la birou sau in drum"],
-    ["Eroare medicala", "Consult, operatie sau diagnostic"],
     ["Accident rutier", "Masina, moto, bicicleta sau pieton"],
   ],
 };
@@ -480,16 +448,6 @@ translations.ro.services = {
         "Accidente pe santier sau in fabrica",
         "Accidente in drumul casa-serviciu",
         "Boli profesionale",
-      ],
-    },
-    {
-      tag: "Malpraxis Medical",
-      title: "Erori Medicale si Malpraxis",
-      body: "Analizam documentele si verificam raspunderile.",
-      bullets: [
-        "Interventii chirurgicale esuate",
-        "Diagnostic gresit sau intarziat",
-        "Complicatii post-operatorii evitabile",
       ],
     },
     {
@@ -563,7 +521,7 @@ translations.ro.contact.errors = {
 };
 translations.ro.contact.loading = "Se trimite...";
 translations.ro.contact.languageOptions = ["Italiana", "Araba", "Romana", "Albaneza", "Franceza", "Engleza", "Alta"];
-translations.ro.contact.caseOptions = ["Accident de Munca", "Problema in Spital / Eroare Medicala", "Accident Rutier"];
+translations.ro.contact.caseOptions = ["Accident de Munca", "Accident Rutier"];
 translations.ro.footer = {
   tagline: "Asistenta legala pentru toti. Fara avans.",
   links: ["Politica de Confidentialitate", "Politica Cookie", "Termeni si Conditii", "Contact"],
@@ -589,7 +547,6 @@ translations.sq.hero = {
   catTitle: "Cfare te ka ndodhur?",
   categories: [
     ["Aksident ne pune", "Ne kantier, zyre ose gjate udhetimit"],
-    ["Gabim mjekesor", "Vizite, nderhyrje ose diagnoze"],
     ["Aksident rrugor", "Makine, motor, biciklete ose kembesor"],
   ],
 };
@@ -614,16 +571,6 @@ translations.sq.services = {
         "Aksidente ne kantier ose fabrike",
         "Aksidente ne rrugen shtepi-pune",
         "Semundje profesionale",
-      ],
-    },
-    {
-      tag: "Gabime Mjekesore",
-      title: "Gabime Mjekesore dhe Neglizhence",
-      body: "Analizojme dokumentet dhe verifikojme pergjegjesite.",
-      bullets: [
-        "Nderhyrje kirurgjikale te pasuksesshme",
-        "Diagnoze e gabuar ose e vonuar",
-        "Komplikime post-operatori te shmangshme",
       ],
     },
     {
@@ -697,7 +644,7 @@ translations.sq.contact.errors = {
 };
 translations.sq.contact.loading = "Duke derguar...";
 translations.sq.contact.languageOptions = ["Italisht", "Arabisht", "Rumanisht", "Shqip", "Frengjisht", "Anglisht", "Tjeter"];
-translations.sq.contact.caseOptions = ["Aksident ne Pune", "Problem ne Spital / Gabim Mjekesor", "Aksident Rrugor"];
+translations.sq.contact.caseOptions = ["Aksident ne Pune", "Aksident Rrugor"];
 translations.sq.footer = {
   tagline: "Asistence ligjore per te gjithe. Pa parapagese.",
   links: ["Politika e Privatesise", "Politika e Cookies", "Kushtet dhe Termat", "Kontakt"],
@@ -723,7 +670,6 @@ translations.ar.hero = {
   catTitle: "ماذا حدث لك؟",
   categories: [
     ["اصابة عمل", "في موقع العمل او المكتب او الطريق"],
-    ["خطا طبي", "فحص او جراحة او تشخيص"],
     ["حادث مروري", "سيارة او دراجة او مشاة"],
   ],
 };
@@ -748,16 +694,6 @@ translations.ar.services = {
         "اصابات في الورش او المصانع",
         "حوادث في طريق المنزل والعمل",
         "امراض مهنية",
-      ],
-    },
-    {
-      tag: "اخطاء طبية",
-      title: "اخطاء طبية واهمال",
-      body: "نراجع المستندات ونتحقق من المسؤوليات.",
-      bullets: [
-        "عمليات جراحية فاشلة",
-        "تشخيص خاطئ او متاخر",
-        "مضاعفات بعد الجراحة كان يمكن تفاديها",
       ],
     },
     {
@@ -831,7 +767,7 @@ translations.ar.contact.errors = {
 };
 translations.ar.contact.loading = "جار الارسال...";
 translations.ar.contact.languageOptions = ["الايطالية", "العربية", "الرومانية", "الالبانية", "الفرنسية", "الانجليزية", "اخرى"];
-translations.ar.contact.caseOptions = ["اصابة عمل", "مشكلة في المستشفى / خطا طبي", "حادث مروري"];
+translations.ar.contact.caseOptions = ["اصابة عمل", "حادث مروري"];
 translations.ar.footer = {
   tagline: "دعم قانوني للجميع. بدون دفعة مقدمة.",
   links: ["سياسة الخصوصية", "سياسة ملفات الارتباط", "الشروط والاحكام", "اتصل بنا"],
@@ -845,7 +781,7 @@ translations.ar.fab = { aria: "اذهب الى نموذج التواصل" };
 (translations.en.features as any).titleLine1 = "Tailored compensation";
 (translations.en.features as any).titleLine2 = "for your case.";
 (translations.en.services as any).eyebrow = "OUR SERVICES";
-(translations.en.services as any).titleLine1 = "Four legal areas,";
+(translations.en.services as any).titleLine1 = "Three legal areas,";
 (translations.en.services as any).titleLine2 = "one clear goal.";
 (translations.en.how as any).eyebrow = "HOW IT WORKS";
 (translations.en.how as any).titleLine1 = "Compensation claims in";
@@ -855,7 +791,7 @@ translations.fr.features.eyebrow = "POURQUOI NOUS CHOISIR";
 translations.fr.features.titleLine1 = "Indemnisation sur mesure";
 translations.fr.features.titleLine2 = "pour votre dossier.";
 translations.fr.services.eyebrow = "NOS SERVICES";
-translations.fr.services.titleLine1 = "Quatre domaines juridiques,";
+translations.fr.services.titleLine1 = "Trois domaines juridiques,";
 translations.fr.services.titleLine2 = "un seul objectif.";
 translations.fr.how.eyebrow = "COMMENT CA MARCHE";
 translations.fr.how.titleLine1 = "Indemnisation en";
@@ -865,7 +801,7 @@ translations.ro.features.eyebrow = "DE CE NOI";
 translations.ro.features.titleLine1 = "Despagubire personalizata";
 translations.ro.features.titleLine2 = "pentru cazul tau.";
 translations.ro.services.eyebrow = "SERVICIILE NOASTRE";
-translations.ro.services.titleLine1 = "Patru domenii legale,";
+translations.ro.services.titleLine1 = "Trei domenii legale,";
 translations.ro.services.titleLine2 = "un singur obiectiv.";
 translations.ro.how.eyebrow = "CUM FUNCTIONEAZA";
 translations.ro.how.titleLine1 = "Despagubire in";
@@ -875,7 +811,7 @@ translations.sq.features.eyebrow = "PSE TE NA ZGJIDHNI";
 translations.sq.features.titleLine1 = "Demshperblim i personalizuar";
 translations.sq.features.titleLine2 = "per rastin tend.";
 translations.sq.services.eyebrow = "SHERBIMET TONA";
-translations.sq.services.titleLine1 = "Kater fusha ligjore,";
+translations.sq.services.titleLine1 = "Tre fusha ligjore,";
 translations.sq.services.titleLine2 = "nje objektiv i vetem.";
 translations.sq.how.eyebrow = "SI FUNKSIONON";
 translations.sq.how.titleLine1 = "Demshperblim ne";
@@ -885,7 +821,7 @@ translations.ar.features.eyebrow = "لماذا تختارنا";
 translations.ar.features.titleLine1 = "تعويض مخصص";
 translations.ar.features.titleLine2 = "لحالتك.";
 translations.ar.services.eyebrow = "خدماتنا";
-translations.ar.services.titleLine1 = "اربعة مجالات قانونية،";
+translations.ar.services.titleLine1 = "ثلاثة مجالات قانونية،";
 translations.ar.services.titleLine2 = "هدف واحد.";
 translations.ar.how.eyebrow = "كيف يعمل";
 translations.ar.how.titleLine1 = "التعويض خلال";
@@ -899,40 +835,36 @@ translations.ar.hero.categories.push(["حادث مميت", "تعويض للعا�
 translations.fr.services.cards.push({
   tag: "Sinistres Mortels",
   title: "Perte d un Proche: l Indemnisation pour les Familles",
-  body: "Lorsqu un accident ou une negligence medicale provoque le deces d un proche, la famille a droit a une indemnisation. Nous gerons tout le dossier avec discretion et respect, sans aucun acompte.",
+  body: "Lorsqu un accident provoque le deces d un proche, la famille a droit a une indemnisation. Nous gerons tout le dossier avec discretion et respect, sans aucun acompte.",
   bullets: [
     "Deces suite a un accident de la route ou du travail",
-    "Deces pour erreur medicale ou negligence sanitaire",
     "Prejudice de perte du lien familial (conjoint, enfants, parents)",
   ],
 });
 translations.ro.services.cards.push({
   tag: "Accidente Mortale",
   title: "Pierderea unui Membru al Familiei: Despagubirea pentru Familii",
-  body: "Cand un accident sau o eroare medicala a provocat decesul unei persoane dragi, familia are dreptul la despagubire. Gestionam intreaga procedura cu discretie si respect, fara avans.",
+  body: "Cand un accident a provocat decesul unei persoane dragi, familia are dreptul la despagubire. Gestionam intreaga procedura cu discretie si respect, fara avans.",
   bullets: [
     "Deces din accident rutier sau de munca",
-    "Deces din eroare medicala sau neglijenta sanitara",
     "Daune pentru pierderea relatiei familiale (sot/sotie, copii, parinti)",
   ],
 });
 translations.sq.services.cards.push({
   tag: "Aksidente Mortale",
   title: "Humbja e nje Familjari: Demshperblim per Familjet",
-  body: "Kur nje aksident ose neglizhence mjekesore shkakton vdekjen e nje personi te dashur, familja ka te drejte per demshperblim. Ne menaxhojme te gjithe praktiken me diskrecion dhe respekt, pa parapagese.",
+  body: "Kur nje aksident shkakton vdekjen e nje personi te dashur, familja ka te drejte per demshperblim. Ne menaxhojme te gjithe praktiken me diskrecion dhe respekt, pa parapagese.",
   bullets: [
     "Vdekje nga aksident rrugor ose ne pune",
-    "Vdekje nga gabim mjekesor ose neglizhence shendetesore",
     "Dem per humbjen e marredhenies familjare (bashkeshort, femije, prinder)",
   ],
 });
 translations.ar.services.cards.push({
   tag: "حوادث مميتة",
   title: "فقدان فرد من العائلة: التعويض للعائلات",
-  body: "عندما يتسبب حادث او خطا طبي في وفاة شخص عزيز، يحق للعائلة الحصول على تعويض. ندير الملف بالكامل بسرية واحترام وبدون اي دفعة مقدمة.",
+  body: "عندما يتسبب حادث في وفاة شخص عزيز، يحق للعائلة الحصول على تعويض. ندير الملف بالكامل بسرية واحترام وبدون اي دفعة مقدمة.",
   bullets: [
     "وفاة بسبب حادث مروري او حادث عمل",
-    "وفاة بسبب خطا طبي او اهمال صحي",
     "تعويض عن فقدان العلاقة العائلية (زوج/زوجة، ابناء، والدان)",
   ],
 });

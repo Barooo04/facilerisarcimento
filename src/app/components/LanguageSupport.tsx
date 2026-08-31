@@ -54,17 +54,17 @@ export default function LanguageSupport() {
     it: {
       title: "Marco Bianchi",
       role: "Responsabile pratiche risarcitorie",
-      body: "Da piu di 15 anni segue casi di infortunio sul lavoro, errori medici e incidenti stradali. E il referente che controlla la pratica dall'apertura fino alla chiusura.",
+      body: "Da piu di 15 anni segue casi di infortunio sul lavoro e incidenti stradali. E il referente che controlla la pratica dall'apertura fino alla chiusura.",
     },
     en: {
       title: "Case Manager",
       role: "Senior Compensation Consultant",
-      body: "Over 15 years of experience handling injury, medical negligence, and road accident claims. Every case is personally supervised from start to finish.",
+      body: "Over 15 years of experience handling work injury and road accident claims. Every case is personally supervised from start to finish.",
     },
     fr: {
       title: "Responsable des Dossiers",
       role: "Consultant Senior en Indemnisation",
-      body: "Plus de 15 ans d experience dans la gestion des dossiers d accident, d erreur medicale et d accidents routiers. Chaque dossier est suivi personnellement.",
+      body: "Plus de 15 ans d experience dans la gestion des dossiers d accident du travail et d accidents routiers. Chaque dossier est suivi personnellement.",
     },
     ro: {
       title: "Responsabil Dosare",

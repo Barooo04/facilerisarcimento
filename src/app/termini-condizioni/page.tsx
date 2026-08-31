@@ -19,7 +19,7 @@ export default function TermsPage() {
               <h2 className="font-bold text-[#1A365D] mb-2">1. Oggetto del servizio</h2>
               <p>
                 Il sito RisarcimentoSemplice fornisce informazioni e un canale di contatto per richiedere una
-                pre-valutazione su pratiche di risarcimento danni (infortuni sul lavoro, errori medici, incidenti
+                pre-valutazione su pratiche di risarcimento danni (infortuni sul lavoro, incidenti
                 stradali e sinistri mortali).
               </p>
             </section>

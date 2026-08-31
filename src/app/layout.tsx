@@ -13,9 +13,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "RisarcimentoSemplice – Ottieni il risarcimento che ti spetta",
   description:
-    "Assistenza legale per infortuni sul lavoro, malasanità e incidenti stradali. Zero anticipi, paghi solo se vinci. Traduttori gratuiti nella tua lingua.",
+    "Assistenza legale per infortuni sul lavoro e incidenti stradali. Zero anticipi, paghi solo se vinci. Traduttori gratuiti nella tua lingua.",
   keywords:
-    "risarcimento, infortunio sul lavoro, malasanità, incidente stradale, assistenza legale gratuita",
+    "risarcimento, infortunio sul lavoro, incidente stradale, assistenza legale gratuita",
   icons: {
     icon: "/icona.svg",
     shortcut: "/icona.svg",

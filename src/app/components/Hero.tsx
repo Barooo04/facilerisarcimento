@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { HardHat, Stethoscope, Car, HeartCrack, ChevronRight, CircleCheck, Phone } from "lucide-react";
+import { HardHat, Car, HeartCrack, ChevronRight, CircleCheck, Phone } from "lucide-react";
 import { useLocale } from "../i18n/LocaleContext";
 import { translations } from "../i18n/translations";
 
@@ -13,14 +13,6 @@ const categories = [
     bg: "bg-orange-50 hover:bg-orange-100",
     border: "border-orange-200",
     iconColor: "text-[#FF6B00]",
-  },
-  {
-    icon: Stethoscope,
-    label: "Errore medico",
-    desc: "Visita, intervento o diagnosi",
-    bg: "bg-blue-50 hover:bg-blue-100",
-    border: "border-blue-200",
-    iconColor: "text-[#1A365D]",
   },
   {
     icon: Car,
@@ -51,42 +43,36 @@ export default function Hero() {
       { value: 200, suffix: "+", label: "Pratiche gestite con successo" },
       { value: 80, suffix: "", label: "Infortuni sul lavoro" },
       { value: 70, suffix: "", label: "Incidenti stradali" },
-      { value: 50, suffix: "", label: "Errori medici" },
       { value: 24, suffix: "h", label: "Risposta garantita" },
     ],
     en: [
       { value: 200, suffix: "+", label: "Cases successfully handled" },
       { value: 80, suffix: "", label: "Work injury claims" },
       { value: 70, suffix: "", label: "Road accident claims" },
-      { value: 50, suffix: "", label: "Medical error claims" },
       { value: 24, suffix: "h", label: "Response guaranteed" },
     ],
     fr: [
       { value: 200, suffix: "+", label: "Dossiers traites avec succes" },
       { value: 80, suffix: "", label: "Accidents du travail" },
       { value: 70, suffix: "", label: "Accidents de la route" },
-      { value: 50, suffix: "", label: "Erreurs medicales" },
       { value: 24, suffix: "h", label: "Reponse garantie" },
     ],
     ro: [
       { value: 200, suffix: "+", label: "Dosare gestionate cu succes" },
       { value: 80, suffix: "", label: "Accidente de munca" },
       { value: 70, suffix: "", label: "Accidente rutiere" },
-      { value: 50, suffix: "", label: "Erori medicale" },
       { value: 24, suffix: "h", label: "Raspuns garantat" },
     ],
     sq: [
       { value: 200, suffix: "+", label: "Ceshtje te menaxhuara me sukses" },
       { value: 80, suffix: "", label: "Aksidente ne pune" },
       { value: 70, suffix: "", label: "Aksidente rrugore" },
-      { value: 50, suffix: "", label: "Gabime mjekesore" },
       { value: 24, suffix: "h", label: "Pergjigje e garantuar" },
     ],
     ar: [
       { value: 200, suffix: "+", label: "ملفات اديرت بنجاح" },
       { value: 80, suffix: "", label: "اصابات عمل" },
       { value: 70, suffix: "", label: "حوادث سير" },
-      { value: 50, suffix: "", label: "اخطاء طبية" },
       { value: 24, suffix: "h", label: "رد مضمون" },
     ],
   } as const;
@@ -220,7 +206,7 @@ export default function Hero() {
         <p className="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">
           {t.hero.catTitle}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {categories.map(({ icon: Icon, bg, border, iconColor }, i) => (
             <a
               key={categoriesI18n[i][0]}
@@ -241,7 +227,7 @@ export default function Hero() {
       </div>
 
       <div ref={statsRef} className="bg-[#1A365D] py-5 sm:py-7 px-3 sm:px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-5 gap-1.5 sm:gap-4 md:gap-6 text-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-4 gap-1.5 sm:gap-4 md:gap-6 text-center">
           {stats.map((item: { value: number; suffix?: string; label: string }, index: number) => (
             <div key={item.label}>
               <p className="text-white font-black text-[1.6rem] sm:text-4xl leading-none">

@@ -34,15 +34,6 @@ const reviewsByLocale: Record<Locale, Review[]> = {
       avatar: "/profiles/p1.jpg",
     },
     {
-      stars: "★★★★★",
-      quote:
-        "Per una complicanza post-operatoria ci hanno spiegato subito cosa fare e hanno coordinato tutta la parte medico-legale.",
-      name: "Lucia R.",
-      meta: "Errore medico · Parma",
-      result: "Risarcimento ottenuto: € 79.500",
-      avatar: "/profiles/p4.jpg",
-    },
-    {
       stars: "★★★★☆",
       quote:
         "Avevo bisogno di assistenza in francese per la pratica della mia famiglia. Tutto chiaro, risposte rapide e risultato concreto.",
@@ -79,14 +70,6 @@ const reviewsByLocale: Record<Locale, Review[]> = {
       avatar: "/profiles/p1.jpg",
     },
     {
-      stars: "★★★★★",
-      quote: "For a post-surgery complication, they coordinated the legal and medical side very effectively.",
-      name: "Lucia R.",
-      meta: "Medical error · Parma",
-      result: "Compensation obtained: € 79,500",
-      avatar: "/profiles/p4.jpg",
-    },
-    {
       stars: "★★★★☆",
       quote: "My family needed support in French and they kept the process simple and transparent.",
       name: "Nassim B.",
@@ -106,28 +89,24 @@ const reviewsByLocale: Record<Locale, Review[]> = {
   fr: [
     { stars: "★★★★★", quote: "Apres un accident de voiture, ils ont gere le dossier du debut a la fin avec des explications tres claires.", name: "Arianna M.", meta: "Accident de la route · Milan", result: "Indemnisation obtenue: € 18.400", avatar: "/profiles/p2.jpg" },
     { stars: "★★★★☆", quote: "Pour mon accident du travail, j'ai eu un suivi serieux et une communication simple.", name: "Samir K.", meta: "Accident du travail · Brescia", result: "Indemnisation obtenue: € 42.000", avatar: "/profiles/p1.jpg" },
-    { stars: "★★★★★", quote: "Ils ont coordonne la partie medico-legale avec precision pour notre dossier.", name: "Lucia R.", meta: "Erreur medicale · Parme", result: "Indemnisation obtenue: € 79.500", avatar: "/profiles/p4.jpg" },
     { stars: "★★★★☆", quote: "Notre famille a ete accompagnee en francais avec beaucoup de clarte.", name: "Nassim B.", meta: "Sinistre mortel · Verone", result: "Indemnisation obtenue: € 126.000", avatar: "/profiles/p3.jpg" },
     { stars: "★★★★★", quote: "Dossier clos avec un montant coherent et un accompagnement constant.", name: "Elena C.", meta: "Accident de la route · Turin", result: "Indemnisation obtenue: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
   ro: [
     { stars: "★★★★★", quote: "Dupa accidentul auto, au gestionat tot dosarul clar si rapid.", name: "Arianna M.", meta: "Accident rutier · Milano", result: "Despagubire obtinuta: € 18.400", avatar: "/profiles/p2.jpg" },
     { stars: "★★★★☆", quote: "Pentru accidentul de munca am primit asistenta constanta si explicatii simple.", name: "Samir K.", meta: "Accident de munca · Brescia", result: "Despagubire obtinuta: € 42.000", avatar: "/profiles/p1.jpg" },
-    { stars: "★★★★★", quote: "Au coordonat foarte bine partea medicala si juridica a cazului.", name: "Lucia R.", meta: "Eroare medicala · Parma", result: "Despagubire obtinuta: € 79.500", avatar: "/profiles/p4.jpg" },
     { stars: "★★★★☆", quote: "Familia noastra a fost sprijinita in franceza, cu pasi clari si bine organizati.", name: "Nassim B.", meta: "Sinistru mortal · Verona", result: "Despagubire obtinuta: € 126.000", avatar: "/profiles/p3.jpg" },
     { stars: "★★★★★", quote: "Cazul cu asigurarea s-a inchis bine, cu un rezultat concret.", name: "Elena C.", meta: "Accident rutier · Torino", result: "Despagubire obtinuta: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
   sq: [
     { stars: "★★★★★", quote: "Pas aksidentit rrugor, menaxhuan ceshtjen time me qartesi nga fillimi deri ne fund.", name: "Arianna M.", meta: "Aksident rrugor · Milano", result: "Demshperblim i marre: € 18.400", avatar: "/profiles/p2.jpg" },
     { stars: "★★★★☆", quote: "Per aksidentin ne pune mora ndihme te rregullt dhe komunikim te thjeshte.", name: "Samir K.", meta: "Aksident ne pune · Brescia", result: "Demshperblim i marre: € 42.000", avatar: "/profiles/p1.jpg" },
-    { stars: "★★★★★", quote: "Koordinuan pjesen mjekesore dhe ligjore me shume kujdes.", name: "Lucia R.", meta: "Gabim mjekesor · Parma", result: "Demshperblim i marre: € 79.500", avatar: "/profiles/p4.jpg" },
     { stars: "★★★★☆", quote: "Familja ime mori mbeshtetje ne frengjisht me hapa te qarte.", name: "Nassim B.", meta: "Aksident vdekjeprures · Verona", result: "Demshperblim i marre: € 126.000", avatar: "/profiles/p3.jpg" },
     { stars: "★★★★★", quote: "Ceshtja me sigurimin u mbyll me rezultat te mire dhe pa konfuzion.", name: "Elena C.", meta: "Aksident rrugor · Torino", result: "Demshperblim i marre: € 24.700", avatar: "/profiles/p5.jpg" },
   ],
   ar: [
     { stars: "★★★★★", quote: "بعد حادث السيارة، تولوا الملف بالكامل مع شرح واضح في كل مرحلة.", name: "Arianna M.", meta: "حادث مروري · ميلانو", result: "التعويض المحصل: € 18.400", avatar: "/profiles/p2.jpg" },
     { stars: "★★★★☆", quote: "في اصابة العمل حصلت على متابعة منتظمة وخطوات واضحة.", name: "Samir K.", meta: "اصابة عمل · بريشيا", result: "التعويض المحصل: € 42.000", avatar: "/profiles/p1.jpg" },
-    { stars: "★★★★★", quote: "نسقوا بين الجوانب الطبية والقانونية باحترافية عالية.", name: "Lucia R.", meta: "خطا طبي · بارما", result: "التعويض المحصل: € 79.500", avatar: "/profiles/p4.jpg" },
     { stars: "★★★★☆", quote: "تلقت عائلتي دعما واضحا باللغة الفرنسية طوال الاجراءات.", name: "Nassim B.", meta: "حادث مميت · فيرونا", result: "التعويض المحصل: € 126.000", avatar: "/profiles/p3.jpg" },
     { stars: "★★★★★", quote: "تم اغلاق ملف التأمين بنتيجة ممتازة ومتابعة دقيقة.", name: "Elena C.", meta: "حادث مروري · تورينو", result: "التعويض المحصل: € 24.700", avatar: "/profiles/p5.jpg" },
   ],

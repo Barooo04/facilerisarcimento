@@ -32,7 +32,7 @@ export default function AboutUsSection() {
                 <p className="font-black text-xl text-[#1A365D] leading-tight">Responsabile Pratiche</p>
                 <p className="font-bold text-[#FF6B00] mt-1 text-sm">Consulente Senior in Risarcimento Danni</p>
                 <p className="text-gray-600 leading-relaxed mt-3 text-sm">
-                  Oltre 15 anni di esperienza nella gestione di pratiche di infortunio, malasanità e sinistri
+                  Oltre 15 anni di esperienza nella gestione di pratiche di infortunio e sinistri
                   stradali. Supervisiona personalmente ogni pratica aperta.
                 </p>
               </div>

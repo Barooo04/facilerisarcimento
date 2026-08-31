@@ -105,39 +105,6 @@ const guidesByLocale: Record<Locale, Guide[]> = {
     ],
   },
   {
-    category: "Malasanità",
-    title: "Colpa medica: come si dimostra e cosa puoi risarcire secondo la Legge Gelli-Bianco",
-    cta: "Richiedi valutazione gratuita →",
-    sections: [
-      {
-        text: "La responsabilità medica è uno degli ambiti più complessi del diritto civile italiano, ma anche uno dei più significativi in termini di risarcimento. La Legge 24/2017 (cosiddetta Legge Gelli-Bianco) ha ridisegnato l'intero sistema, integrando la responsabilità della struttura sanitaria da quella del singolo medico, e introducendo il meccanismo delle linee guida accreditate come parametro di valutazione della colpa.",
-      },
-      {
-        heading: "Struttura vs. medico: due responsabilità distinte",
-        text: "Dopo la Gelli-Bianco, la struttura sanitaria (ospedale, clinica, RSA) risponde per responsabilità contrattuale ai sensi dell'art. 1218 c.c. — il termine di prescrizione è di 10 anni. Il singolo medico, invece, risponde per responsabilità extracontrattuale ai sensi dell'art. 2043 c.c. — il termine di prescrizione è di 5 anni. Questo significa che puoi agire contro la struttura anche quando l'azione contro il medico è già prescritta.",
-      },
-      {
-        heading: "Cosa si deve dimostrare",
-        text: "La prova della responsabilità medica richiede tre elementi: la condotta colposa del sanitario (scostamento dalle linee guida o dalle buone pratiche cliniche); il danno subito (fisico, psicologico, patrimoniale); il nesso causale tra la condotta e il danno. La Cassazione a Sezioni Unite (n. 577/2008) ha stabilito che l'onere probatorio è distribuito: il paziente deve provare il contratto con la struttura, il danno e il nesso causale; la struttura deve dimostrare di aver eseguito correttamente la prestazione o che il danno era imprevedibile.",
-      },
-      {
-        heading: "Le linee guida come parametro",
-        text: "La Gelli-Bianco ha introdotto il Sistema Nazionale Linee Guida (SNLG), che raccoglie le raccomandazioni cliniche accreditate per ogni disciplina. Lo scostamento ingiustificato da queste linee guida è la principale prova di colpa medica. Non è necessario che il medico abbia sbagliato in senso assoluto: è sufficiente dimostrare che, nel caso specifico, non ha seguito le indicazioni cliniche consolidate senza una ragione clinica documentata.",
-      },
-      {
-        heading: "I danni risarcibili",
-        text: "In una pratica di responsabilità medica si possono risarcire: il danno biologico (permanente e temporaneo); il danno morale da sofferenza soggettiva; il danno da perdita del rapporto parentale per i familiari in caso di decesso; il danno patrimoniale per spese mediche aggiuntive, cure riabilitative, assistenza; il danno da perdita di chance terapeutica (quando l'errore ha ridotto le possibilità di guarigione anche senza causare direttamente il decesso). Quest'ultima voce è particolarmente rilevante nei casi di diagnosi tardiva di tumori o patologie tempo-dipendenti.",
-      },
-      {
-        heading: "Il procedimento obbligatorio di consulenza tecnica preventiva",
-        text: "Prima di procedere in giudizio, la Gelli-Bianco impone un tentativo obbligatorio di conciliazione attraverso una Consulenza Tecnica Preventiva (CTP) ai sensi dell'art. 696-bis c.p.c., oppure una mediazione. Questo passaggio non è un ostacolo — spesso è il momento in cui la struttura, di fronte a una perizia tecnica solida, preferisce transigere senza arrivare in aula.",
-      },
-      {
-        text: "Hai subito o sospetti di aver subito un errore medico? Valutiamo gratuitamente la documentazione clinica e ti diciamo se ci sono le basi per procedere.",
-      },
-    ],
-  },
-  {
     category: "Tabelle & Calcoli",
     title: "Tabelle danno biologico 2025: come si calcola il risarcimento per invalidità permanente",
     cta: "Richiedi stima gratuita →",
@@ -199,16 +166,6 @@ const guidesByLocale: Record<Locale, Guide[]> = {
       ],
     },
     {
-      category: "Medical Malpractice",
-      title: "Medical fault: proof and compensation under Italian law",
-      cta: "Request free evaluation →",
-      sections: [
-        { text: "Medical liability cases require proving fault, damage and causal link, often through specialist medico-legal evidence." },
-        { heading: "Structure vs doctor", text: "Healthcare structure and physician can have different liability regimes and different limitation periods." },
-        { heading: "Compensable damages", text: "Biological, moral, patrimonial damages and, in specific cases, loss of therapeutic chance may be claimed." },
-      ],
-    },
-    {
       category: "Tables & Calculations",
       title: "Biological damage tables 2025: how compensation is estimated",
       cta: "Request free estimate →",
@@ -248,16 +205,6 @@ const guidesByLocale: Record<Locale, Guide[]> = {
         { text: "Un accident pendant le trajet domicile-travail peut être reconnu comme accident in itinere." },
         { heading: "S'il y a un tiers responsable", text: "Vous pouvez cumuler la protection INAIL et une action civile contre l'assureur du responsable." },
         { heading: "Actions immédiates", text: "Certificat médical, déclaration à l'employeur, constat/rapport, conservation des dépenses et prudence avant toute signature." },
-      ],
-    },
-    {
-      category: "Erreur médicale",
-      title: "Faute médicale: preuve et indemnisation",
-      cta: "Demandez une évaluation gratuite →",
-      sections: [
-        { text: "La responsabilité médicale exige de prouver faute, dommage et lien causal, avec support technique spécialisé." },
-        { heading: "Établissement et médecin", text: "Les régimes de responsabilité et les délais peuvent être différents selon la partie visée." },
-        { heading: "Préjudices réparables", text: "Préjudice biologique, moral, patrimonial et, selon les cas, perte de chance thérapeutique." },
       ],
     },
     {
@@ -303,16 +250,6 @@ const guidesByLocale: Record<Locale, Guide[]> = {
       ],
     },
     {
-      category: "Malpraxis medical",
-      title: "Culpa medicala: dovada si despagubiri",
-      cta: "Solicita evaluare gratuita →",
-      sections: [
-        { text: "Cazurile de malpraxis necesita proba culpei, a prejudiciului si a legaturii cauzale." },
-        { heading: "Structura vs medic", text: "Regimul de raspundere si termenele de prescriptie pot fi diferite pentru unitate si medic." },
-        { heading: "Daune reparabile", text: "Daune biologice, morale, patrimoniale si, in anumite cazuri, pierderea unei sanse terapeutice." },
-      ],
-    },
-    {
       category: "Tabele si calcule",
       title: "Tabele daun biologic 2025: cum estimezi despagubirea",
       cta: "Solicita estimare gratuita →",
@@ -352,16 +289,6 @@ const guidesByLocale: Record<Locale, Guide[]> = {
         { text: "Aksidenti ne rrugen shtepi-pune mund te njihet si in itinere." },
         { heading: "Kur ka pale te trete pergjegjese", text: "Mund te ushtrohen dy rruge: mbrojtja INAIL dhe kerkim i demshperblimit civil ndaj sigurimit te pales pergjegjese." },
         { heading: "Hapat e menjehershem", text: "Raport mjekesor, njoftim punedhenesi, procesverbal policie, ruajtje fature dhe kujdes para cdo nenshkrimi." },
-      ],
-    },
-    {
-      category: "Gabim mjekesor",
-      title: "Pergjegjesi mjekesore: si provohet dhe cfare demi kompensohet",
-      cta: "Kerko vleresim falas →",
-      sections: [
-        { text: "Pergjegjesia mjekesore kerkon prove te fajit, demit dhe lidhjes shkak-pasoje." },
-        { heading: "Struktura dhe mjeku", text: "Rregjimet e pergjegjesise dhe afatet mund te jene te ndryshme." },
-        { heading: "Deme te demshperblueshme", text: "Dem biologjik, moral, pasuror dhe ne raste te caktuara humbje e mundesise terapeutike." },
       ],
     },
     {
@@ -407,16 +334,6 @@ const guidesByLocale: Record<Locale, Guide[]> = {
       ],
     },
     {
-      category: "الخطأ الطبي",
-      title: "المسؤولية الطبية: كيف تثبت وما الذي يمكن تعويضه",
-      cta: "اطلب تقييما مجانيا →",
-      sections: [
-        { text: "قضايا الخطأ الطبي تتطلب اثبات الخطأ والضرر والعلاقة السببية بينهما." },
-        { heading: "المنشأة والطبيب", text: "قد تختلف مسؤولية المنشأة الصحية عن مسؤولية الطبيب في النظام القانوني ومدد التقادم." },
-        { heading: "الاضرار القابلة للتعويض", text: "الضرر البيولوجي والمعنوي والمالي، وفي بعض الحالات فقدان فرصة علاجية." },
-      ],
-    },
-    {
       category: "الجداول والحسابات",
       title: "جداول الضرر البيولوجي 2025: كيف يتم تقدير التعويض",
       cta: "اطلب تقديرا مجانيا →",
@@ -434,7 +351,7 @@ const sectionHeaderByLocale: Record<Locale, { eyebrow: string; title1: string; t
     eyebrow: "Guide gratuite",
     title1: "Conosci i tuoi diritti",
     title2: "prima di firmare.",
-    desc: "Guide legali gratuite su infortuni, malasanità, incidenti stradali e calcolo risarcimento danni con esempi pratici.",
+    desc: "Guide legali gratuite su infortuni, incidenti stradali e calcolo risarcimento danni con esempi pratici.",
   },
   en: {
     eyebrow: "Free guides",
@@ -471,7 +388,6 @@ const sectionHeaderByLocale: Record<Locale, { eyebrow: string; title1: string; t
 const categoryStyles: Record<string, string> = {
   "Infortuni sul Lavoro": "text-[#C86A1A] bg-orange-50",
   "Incidenti Stradali": "text-[#265EA8] bg-blue-50",
-  "Malasanità": "text-[#9C4B56] bg-rose-50",
   "Tabelle & Calcoli": "text-emerald-700 bg-emerald-50",
   "Tables & Calculations": "text-emerald-700 bg-emerald-50",
   "Barèmes & Calculs": "text-emerald-700 bg-emerald-50",
